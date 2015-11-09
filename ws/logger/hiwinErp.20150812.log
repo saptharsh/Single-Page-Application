@@ -1,0 +1,39 @@
+
+[96m********************************************************************************[0m[37m
+GetFoodItems.php: 2015-08-12 03:21:18 - 2015-08-12 08:51:18[0m
+[94m
+[4mPOST Req Data[24m:
+   page_start: 0
+   chef_id: 2
+[0m
+[39mQuery: SELECT food_item.item_id,
+                        food_item.`name` AS food_name,
+                        food_item.description,
+                        food_item.ingredients,
+                        food_item.preparation_method,
+                        food_item.rating AS food_rating,
+                        category.category_id,
+                        category.category_name,
+                        food_item.price,
+                        currency.currency_id,
+                        currency.currency_name,
+                        currency.currency_symbol,
+                        chef.chef_id,
+                        CONCAT(chef.f_name, ' ', chef.l_name) AS chef_name,
+                        CONCAT(chef.country_code, chef.phone_number) AS chef_phone_number,
+                        chef.image_url AS chef_image,
+                        chef.rating AS chef_rating,
+                        food_item.nutrition,
+                        COALESCE(food_item.food_image_1, '') AS food_image_1,
+                        COALESCE(food_item.food_image_2, '') AS food_image_2,
+                        COALESCE(food_item.food_image_3, '') AS food_image_3,
+                        COALESCE(food_item.food_image_4, '') AS food_image_4,
+                        food_item.log_datetime
+                FROM food_item INNER JOIN category ON food_item.category_id = category.category_id
+                         INNER JOIN currency ON food_item.currency_id = currency.currency_id
+                         INNER JOIN chef ON food_item.chef_id = chef.chef_id  WHERE food_item.chef_id = 2  ORDER BY food_name ASC
+                LIMIT 0, 25;[0m
+[94m
+[4mResult for food items[24m:
+[0m
+[37mEnd at ([0m[34m0.001[0m[37m): 2015-08-12 03:21:18 - 2015-08-12 08:51:18

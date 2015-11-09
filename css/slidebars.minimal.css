@@ -1,0 +1,23 @@
+html, body {
+    /* Set box model to prevent any user added margins or paddings from altering the widths or heights. */
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    overflow-x: hidden; /* Stops horizontal scrolling. */
+}
+
+html {
+    height: 100%; /* Site is as tall as device. */
+}
+
+body {
+    min-height: 100%;
+    height: auto;
+    position: relative; /* Required for static Slidebars to function properly. */
+}

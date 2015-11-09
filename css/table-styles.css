@@ -1,0 +1,205 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,300,700);
+
+* {
+    box-sizing         : border-box;
+    -moz-box-sizing    : border-box;
+    -webkit-box-sizing : border-box;
+    font-family        : Roboto, Arial, Helvetica, Sans-serif;
+}
+
+h1 {
+    font-size: 18px;
+}
+
+p {
+    margin-top    : 0;
+    margin-bottom : 6px;
+    font-size     : 13px;
+    font-weight   : 300;
+    color         : #595959;
+}
+
+a {
+    text-decoration    : none;
+    color              : rgb(0,155,194);
+    -webkit-transition : color 0.2s;
+    -moz-transition    : color 0.2s;
+    -ms-transition     : color 0.2s;
+    -o-transition      : color 0.2s;
+    transition         : color 0.2s;
+}
+
+a:hover {
+    color: rgb(83, 192, 235);
+}
+
+code, code * {
+    font-size   : 13px;
+    font-family : monospace;
+}
+
+code {
+    display       : block;
+    margin-bottom : 10px;
+    padding       : 10px;
+    color         : rgb(172,172,172);
+    background    : rgb(46,46,46);
+}
+
+/* Keyword */
+code .value,
+code .keyword {
+    color: #f30084;
+}
+
+code .tag,
+code .string {
+    color: #8BC9D5;
+}
+
+code .attribute,
+code .params {
+    color: #fff;
+}
+
+/*
+    Table CSS..
+*/
+
+table.table-sort{
+    width           : 100%;
+    margin-bottom   : 10px;
+    border-collapse : collapse;
+    background      : #fff;
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+}
+
+th {
+    font-weight        : 400;
+    color              : #f18100;
+    -webkit-transition : all 0.3s;
+    -moz-transition    : all 0.3s;
+    -ms-transition     : all 0.3s;
+    -o-transition      : all 0.3s;
+    transition         : all 0.3s;
+    /*border-bottom      : .12em solid rgb(240, 240, 240);*/
+}
+
+td {
+    font-weight: 300;
+}
+
+td, th {
+    padding     : 0 10px;
+    font-size   : 13px;
+    line-height : 32px;
+    border-bottom      : .12em solid rgb(240, 240, 240);
+}
+
+/*tbody tr:nth-child(even) {background: rgb(240, 240, 240);}*/
+
+/* Table Sorting */
+th.table-sort {
+    padding-right : 36px;
+    text-align    : left;
+    cursor        : pointer;
+    background: #e1e1e1;
+}
+
+th.table-sort:hover {
+    background-color   : #726e69;
+    color: #fff;
+}
+
+.table-sort-field {
+    position: relative;
+}
+
+.table-sort-control {
+    /*background-image: -webkit-linear-gradient(bottom,rgba(0,0,0,0.1),rgba(0,0,0,0.0));*/
+    height    : 32px;
+    width     : 16px;
+    position  : absolute;
+    top       : 0;
+    right     : -36px;
+}
+
+.table-sort-up,
+.table-sort-down {
+    border  : 3px solid transparent;
+    position: absolute;
+    right   : 6px;
+}
+
+.table-sort-up {
+    /*border-bottom-color: rgba(255,255,255,0.3);*/
+    border-bottom-color: #e1e1e1;
+    top                : 8px;
+}
+
+.table-sort-down {
+    /*border-top-color: rgba(255,255,255,0.3);*/
+    border-top-color: #e1e1e1;
+    top             : 19px;
+}
+
+.table-sort-order-asc .table-sort-up {
+    /*border-bottom-color: rgba(255,255,255,1);*/
+    border-bottom-color: #f18100;
+}
+
+.table-sort-order-des .table-sort-down {
+    /*border-top-color: rgba(255,255,255,1);*/
+    border-top-color: #f18100;
+}
+
+/* Table Sort Search */
+.table-sort-search-container {
+    background-image : -webkit-linear-gradient(bottom,rgb(63, 63, 63),rgb(73, 73, 73));
+    background-image : -ms-linear-gradient(bottom,rgb(63, 63, 63),rgb(73, 73, 73));
+    background-image : -o-linear-gradient(bottom,rgb(63, 63, 63),rgb(73, 73, 73));
+    background-image : -moz-linear-gradient(bottom,rgb(63, 63, 63),rgb(73, 73, 73));
+    background-image : linear-gradient(bottom,rgb(63, 63, 63),rgb(73, 73, 73));
+    padding          : 3px 8px;
+    position         : relative;
+}
+
+.table-sort-search-input {
+    -webkit-appearance : none;
+    width              : 100%;
+    height             : 25px;
+    padding            : 0 10px;
+    border             : 1px solid rgb(50,50,50);
+    border-radius      : 6px;
+    font-size          : 13px;
+    line-height        : 25px;
+    background         : rgb(238,238,238);
+    -webkit-transition : all 0.2s;
+    -moz-transition    : all 0.2s;
+    -ms-transition     : all 0.2s;
+    transition         : all 0.2s;
+}
+
+.table-sort-search-input:focus,.table-sort-search-input:hover {
+    outline    : none;
+    background : #fff;
+}
+
+.table-sort-highlight {
+    color      : #fff;
+    background : rgb(255,86,174);
+}
+
+.table-sort-search-count {
+    position         : absolute;
+    top              : 10px;
+    right            : 11px;
+    padding          : 0 7px;
+    border-radius    : 3px;
+    line-height      : 19px;
+    color            : #fff;
+    background-image : -webkit-linear-gradient(bottom,rgb(94,108,117), rgb(145,162,177) );
+    background-image : -moz-linear-gradient(bottom,rgb(94,108,117), rgb(145,162,177) );
+    background-image : -ms-linear-gradient(bottom,rgb(94,108,117), rgb(145,162,177) );
+    background-image : linear-gradient(bottom,rgb(94,108,117), rgb(145,162,177) );
+}
