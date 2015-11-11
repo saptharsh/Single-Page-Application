@@ -330,7 +330,8 @@
                 var status = jsonResp.status;
                 var data = jsonResp.data;
                 var desc = jsonResp.desc;
-
+                
+                console.log(data);
                 if (status === 0) {
                     if (data.length > 0) {
                         $.each(data, function (idx, obj) {
