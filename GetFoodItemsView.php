@@ -35,6 +35,117 @@
 </div>
 <button id="add-food" title="Add food item" class="fab">+</button>
 
+
+<?php
+$item_per_page = 5;
+$page_number = 1;
+$get_total_rows[0] = 16;
+$total_pages = 4;
+
+echo '<div align="center">';
+// To generate links, we call the pagination function here. 
+echo paginate_function($item_per_page, $page_number, $get_total_rows[0], $total_pages);
+echo '</div>';
+
+
+function paginate_function($item_per_page, $current_page, $total_records, $total_pages)
+{
+    $pagination = '';
+    if($total_pages > 0 && $total_pages != 1 && $current_page <= $total_pages){ //verify total pages and current page number
+        $pagination .= '<ul class="pagination">';
+        
+        $right_links    = $current_page + 3; 
+        $previous       = $current_page - 3; //previous link 
+        $next           = $current_page + 1; //next link
+        $first_link     = true; //boolean var to decide our first link
+    
+        echo 'current_page = 1: '.'previous link(current_page - 3): '.$previous.' next link(current_page + 1): '.$next.' right links(current_page + 3): '.$right_links.'<br/>';
+        
+        if($current_page > 1){
+            $previous_link = ($previous==0)?1:$previous;
+        
+            echo 'For creating < and <<<br/>';
+            echo 'current_page > 1: '.'previous link(current_page - 3): '.$previous_link.' next link(current_page + 1): '.$next.' right links(current_page + 3): '.$right_links.'<br/>';
+            
+            $pagination .= '<li class="first"><a href="#" data-page="1" title="First">&laquo;</a></li>'; //first link
+            $pagination .= '<li><a href="#" data-page="'.$previous_link.'" title="Previous">&lt;</a></li>'; //previous link
+            
+            echo 'LEFT LINKS CREATION<br/>';
+            echo 'current_page before For loop: '.$current_page.'<br/>';
+                for($i = ($current_page-2); $i < $current_page; $i++){ //Create left-hand side links
+                    
+                    echo 'Outside If loop: '.$i.'<br/>';
+                    if($i > 0){
+                        echo 'In If loop: '.$i.'<br/>';
+                        $pagination .= '<li><a href="#" data-page="'.$i.'" title="Page'.$i.'">'.$i.'</a></li>';
+                        echo ' '.'data-page = '.$i.'<br/>';
+                    }
+                }   
+            $first_link = false; //set first link to false
+        }
+        
+        // Only works for the first page
+        if($first_link){ //if current active page is first link
+            echo 'current page(first): '.$current_page.'<br/>';
+            $pagination .= '<li class="first active">'.$current_page.'</li>';
+        }elseif($current_page == $total_pages){ //if it's the last active link
+            echo 'current page(last): '.$current_page;
+            $pagination .= '<li class="last active">'.$current_page.'</li>';
+        }else{ //regular current link
+            echo 'current page(can\'t be first/last): '.$current_page;
+            $pagination .= '<li class="active">'.$current_page.'</li>';
+        }
+        
+        echo 'RIGHT LINKS CREATION<br/>';
+        echo 'Before for loop(# of right links): '.$right_links.'<br/>';
+        for($i = $current_page+1; $i < $right_links ; $i++){ //create right-hand side links
+            
+            echo 'Before If loop: '.$i.'<br/>';
+            if($i<=$total_pages){
+                echo 'In If loop: '.$i.'<br/>';
+                $pagination .= '<li><a href="#" data-page="'.$i.'" title="Page '.$i.'">'.$i.'</a></li>';
+            }
+        }
+        if($current_page < $total_pages){ 
+                echo 'Form where is this $i coming? '.$i.' I guess after index goes out of bound from for loop<br/>';
+                $next_link = ($i > $total_pages)? $total_pages : $i;
+                echo 'For creating > and >><br/>';
+                $pagination .= '<li><a href="#" data-page="'.$next_link.'" title="Next">&gt;</a></li>'; //next link
+                $pagination .= '<li class="last"><a href="#" data-page="'.$total_pages.'" title="Last">&raquo;</a></li>'; //last link
+        }
+        
+        $pagination .= '</ul>'; 
+    }
+    return $pagination; //return pagination links
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+?>
+
+
+
+
+
+
+
+
+
+
+
+
+
 <div id="compose-form" class="compose-form-view" style="display: none;  overflow-y: auto; width: 480px; height: 480px; background: #fff; z-index: 99;box-shadow: 0 0 5px rgba(0,0,0,0.2); position: fixed; bottom: 0; right: 15px;">
     <!--Header-->
     <div class="compose-form-header" style="width: 100%; background: #555; color: #fff; height: 40px; padding: 6px;">
@@ -198,7 +309,7 @@
 
 
 <script type="text/javascript">
-
+var records = 0;
     $(function () {
         /* $('table.table-sort').tablesort(); */
         $('#compose-form').hide();
@@ -305,6 +416,7 @@
 
     }
 
+    
     function loadFoodItems(startIdx) {
 
         var footerId = $('#loading-food-items');
@@ -330,6 +442,9 @@
                 var status = jsonResp.status;
                 var data = jsonResp.data;
                 var desc = jsonResp.desc;
+                
+                records = data.length;
+                
                 
                 console.log(data);
                 if (status === 0) {
@@ -357,6 +472,8 @@
                         }
                         */
                        footerId.html('');
+                       
+                       value(records);
                     }
                     else {
                         tableEle.append("<tr>" + "<td align='center' colspan='9'> No Data to display </td>" + "</tr>");
@@ -369,6 +486,21 @@
                 }
             }
         });
+        
+        
     }
+    
+    function value(test) {
+    
+        console.log('the value '+ test);
+    }
+    
 
 </script>
+
+
+
+
+
+
+

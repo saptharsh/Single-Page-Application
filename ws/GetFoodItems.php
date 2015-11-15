@@ -16,6 +16,7 @@
 
     $page_start = $utilities->replaceZero($_POST['page_start']);
     $chef_id = $utilities->replaceDefault($_POST['chef_id']);
+    $item_per_page      = 5; //item to display per page
 
     $dateTime = $utilities->replaceNow();
 
@@ -50,7 +51,7 @@
                          INNER JOIN chef ON food_item.chef_id = chef.chef_id ";
         $query .= ($chef_id > 0) ? " WHERE food_item.chef_id = $chef_id " : " ";
         $query .= " ORDER BY food_name ASC
-                LIMIT $page_start, 25;";
+                LIMIT $page_start, $item_per_page;";
         //echo $query;
         $log->info("Query:" . $query);
         $statement = $dbConnection->prepare($query);
