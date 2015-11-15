@@ -13,10 +13,17 @@
     $response = array();
 
     $log->arrayLogger($_POST, "POST Req Data");
-
-    $page_start = $utilities->replaceZero($_POST['page_start']);
-    $chef_id = $utilities->replaceDefault($_POST['chef_id']);
     $item_per_page      = 5; //item to display per page
+    //$page_start = $utilities->replaceZero($_POST['page_start']);
+    if(isset($_POST['page_index'])){
+        $page_start = $_POST['page_index'];
+        
+        $page_position = (($page_start-1) * $item_per_page);
+    } else {
+        $page_position = $utilities->replaceZero($_POST['page_start']);
+    }
+    $chef_id = $utilities->replaceDefault($_POST['chef_id']);
+    
 
     $dateTime = $utilities->replaceNow();
 
@@ -51,7 +58,7 @@
                          INNER JOIN chef ON food_item.chef_id = chef.chef_id ";
         $query .= ($chef_id > 0) ? " WHERE food_item.chef_id = $chef_id " : " ";
         $query .= " ORDER BY food_name ASC
-                LIMIT $page_start, $item_per_page;";
+                LIMIT $page_position, $item_per_page;";
         //echo $query;
         $log->info("Query:" . $query);
         $statement = $dbConnection->prepare($query);
