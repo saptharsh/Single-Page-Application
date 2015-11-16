@@ -2,6 +2,7 @@
 include_once './classes/PDOExt.php';
 $dbConnection = new PDOExt();
 ?>
+
 <style>
     #loading-food-items{color: #ff8900; }
 </style>
@@ -36,14 +37,21 @@ $dbConnection = new PDOExt();
 <button id="add-food" title="Add food item" class="fab">+</button>
 
 <div id="results">
+
     <?php
+    
+    if (isset($_GET['page_num'])){
+        $page_number = $_GET['page_num'];
+    }
+    
     $item_per_page = 5;
     $page_number = 1;
+    echo $page_number;
     $get_total_rows[0] = 16;
     $total_pages = 4;
 
     echo '<div align="center">';
-// To generate links, we call the pagination function here. 
+    // To generate links, we call the pagination function here. 
     echo paginate_function($item_per_page, $page_number, $get_total_rows[0], $total_pages);
     echo '</div>';
 
@@ -57,12 +65,8 @@ $dbConnection = new PDOExt();
             $next = $current_page + 1; //next link
             $first_link = true; //boolean var to decide our first link
 
-
-
             if ($current_page > 1) {
                 $previous_link = ($previous == 0) ? 1 : $previous;
-
-
                 $pagination .= '<li class="first"><a href="#" data-page="1" title="First">&laquo;</a></li>'; //first link
                 $pagination .= '<li><a href="#" data-page="' . $previous_link . '" title="Previous">&lt;</a></li>'; //previous link
 
@@ -105,16 +109,6 @@ $dbConnection = new PDOExt();
     ?>
 
 </div>
-
-
-
-
-
-
-
-
-
-
 
 <div id="compose-form" class="compose-form-view" style="display: none;  overflow-y: auto; width: 480px; height: 480px; background: #fff; z-index: 99;box-shadow: 0 0 5px rgba(0,0,0,0.2); position: fixed; bottom: 0; right: 15px;">
     <!--Header-->
@@ -259,7 +253,6 @@ $dbConnection = new PDOExt();
 
 
 <script type="text/javascript">
-    var records = 0;
     $(function () {
         /* $('table.table-sort').tablesort(); */
         $('#compose-form').hide();
@@ -279,7 +272,6 @@ $dbConnection = new PDOExt();
         });
     });
     function submitfood() {
-
 
         var name = $('#name').val();
         var description = $('#description').val();
@@ -384,7 +376,7 @@ $dbConnection = new PDOExt();
                 var status = jsonResp.status;
                 var data = jsonResp.data;
                 var desc = jsonResp.desc;
-                records = data.length;
+               
                 console.log(data);
                 if (status === 0) {
                     if (data.length > 0) {
@@ -410,7 +402,6 @@ $dbConnection = new PDOExt();
                          }
                          */
                         footerId.html('');
-                        value(records);
                     }
                     else {
                         tableEle.append("<tr>" + "<td align='center' colspan='9'> No Data to display </td>" + "</tr>");
@@ -425,25 +416,19 @@ $dbConnection = new PDOExt();
         });
     }
 
+
     $("#results").on("click", ".pagination a", function (e) {
         e.preventDefault();
         var page = $(this).attr("data-page"); //get page number from link
 
         console.log('page value ' + page);
-        //$("#results").load("fetch_pages.php", {"page": page}, function () { //get content from PHP page
-
-        /*
-         * Have a Ajax req here
-         */
-
-        //loadFoodItems(0);
+        
         var footerId = $('#loading-food-items');
         var tableEle = $("#foodItemsDataTable > tbody");
         var rowCount = $("#foodItemsDataTable > tbody > tr").length + 1;
-        
-        
-            footerId.data('page-start', 0);
-        
+
+
+        footerId.data('page-start', 0);
 
         $.ajax({
             type: "POST",
@@ -454,9 +439,7 @@ $dbConnection = new PDOExt();
                 page_index: page
             },
             beforeSend: function () {
-                
-                
-                
+
                 footerId.html('&nbsp;<i class="fa fa-spinner fa-pulse"></i>&nbsp; Loading...');
             },
             success: function (jsonResp)
@@ -464,17 +447,17 @@ $dbConnection = new PDOExt();
                 var status = jsonResp.status;
                 var data = jsonResp.data;
                 var desc = jsonResp.desc;
-                records = data.length;
+ 
                 console.log(data);
                 if (status === 0) {
                     if (data.length > 0) {
-                        
+
                         // Important
                         tableEle.empty();
-                        
+
                         $.each(data, function (idx, obj) {
                             tableEle.append("<tr>" +
-                                    "<td> " + ((((page-1) * 5)+idx)+1) + " </td>" +
+                                    "<td> " + ((((page - 1) * 5) + idx) + 1) + " </td>" +
                                     "<td> " + obj.food_name + " </td>" +
                                     "<td> " + obj.category_name + " </td>" +
                                     "<td> " + obj.nutrition + " </td>" +
@@ -493,10 +476,9 @@ $dbConnection = new PDOExt();
                          footerId.html('');
                          }
                          */
-                        
-                        
+
+
                         footerId.html('');
-                        value(records);
                     }
                     else {
                         tableEle.append("<tr>" + "<td align='center' colspan='9'> No Data to display </td>" + "</tr>");
@@ -511,16 +493,27 @@ $dbConnection = new PDOExt();
         });
 
 
+    });
+    
+    
+    $("#results").on("click", ".pagination a", function (e) {
+        e.preventDefault();
+        var page = $(this).attr("data-page"); //get page number from link
 
-
+        console.log('page value on posting to same page ' + page);
+     
+        $.ajax({
+            type: "GET",
+            cache: false,
+            url: "GetFoodItemsView.php?page_num"+page,
+            data: {page_num: page},
+            success: function (){
+                alert('success');
+            }
+        });
 
     });
 
-
-    function value(test) {
-
-        console.log('the value data.length ' + test);
-    }
 
 
 </script>

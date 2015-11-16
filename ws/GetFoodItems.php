@@ -72,7 +72,7 @@
 
                 $log->arrayMultiLogger($data, 'Result for food items');
 
-                $response = array('status' => 0, 'data' => $data, 'desc' => 'success');
+                $response = array('status' => 0, 'data' => $data, 'desc' => 'success','index' => $page_start);
             }
             else
             {
