@@ -1,10 +1,13 @@
 <?php
 include_once './classes/PDOExt.php';
 $dbConnection = new PDOExt();
+session_start();
 ?>
 
 <style>
-    #loading-food-items{color: #ff8900; }
+    #loading-food-items{
+        color: #ff8900; 
+    }
 </style>
 <br/>
 <div style="margin: 0 auto; width: 95%;">
@@ -38,75 +41,9 @@ $dbConnection = new PDOExt();
 
 <div id="results">
 
-    <?php
-    
-    if (isset($_GET['page_num'])){
-        $page_number = $_GET['page_num'];
-    }
-    
-    $item_per_page = 5;
-    $page_number = 1;
-    echo $page_number;
-    $get_total_rows[0] = 16;
-    $total_pages = 4;
+</div>
 
-    echo '<div align="center">';
-    // To generate links, we call the pagination function here. 
-    echo paginate_function($item_per_page, $page_number, $get_total_rows[0], $total_pages);
-    echo '</div>';
-
-    function paginate_function($item_per_page, $current_page, $total_records, $total_pages) {
-        $pagination = '';
-        if ($total_pages > 0 && $total_pages != 1 && $current_page <= $total_pages) { //verify total pages and current page number
-            $pagination .= '<ul class="pagination">';
-
-            $right_links = $current_page + 3;
-            $previous = $current_page - 3; //previous link 
-            $next = $current_page + 1; //next link
-            $first_link = true; //boolean var to decide our first link
-
-            if ($current_page > 1) {
-                $previous_link = ($previous == 0) ? 1 : $previous;
-                $pagination .= '<li class="first"><a href="#" data-page="1" title="First">&laquo;</a></li>'; //first link
-                $pagination .= '<li><a href="#" data-page="' . $previous_link . '" title="Previous">&lt;</a></li>'; //previous link
-
-                for ($i = ($current_page - 2); $i < $current_page; $i++) { //Create left-hand side links
-                    echo 'Outside If loop: ' . $i . '<br/>';
-                    if ($i > 0) {
-                        $pagination .= '<li><a href="#" data-page="' . $i . '" title="Page' . $i . '">' . $i . '</a></li>';
-                    }
-                }
-                $first_link = false; //set first link to false
-            }
-
-            // Only works for the first page
-            if ($first_link) { //if current active page is first link
-                echo 'current page(first): ' . $current_page . '<br/>';
-                $pagination .= '<li class="first active">' . $current_page . '</li>';
-            } elseif ($current_page == $total_pages) { //if it's the last active link
-                echo 'current page(last): ' . $current_page;
-                $pagination .= '<li class="last active">' . $current_page . '</li>';
-            } else { //regular current link
-                echo 'current page(can\'t be first/last): ' . $current_page;
-                $pagination .= '<li class="active">' . $current_page . '</li>';
-            }
-
-            for ($i = $current_page + 1; $i < $right_links; $i++) { //create right-hand side links
-                if ($i <= $total_pages) {
-                    $pagination .= '<li><a href="#" data-page="' . $i . '" title="Page ' . $i . '">' . $i . '</a></li>';
-                }
-            }
-            if ($current_page < $total_pages) {
-                $next_link = ($i > $total_pages) ? $total_pages : $i;
-                $pagination .= '<li><a href="#" data-page="' . $next_link . '" title="Next">&gt;</a></li>'; //next link
-                $pagination .= '<li class="last"><a href="#" data-page="' . $total_pages . '" title="Last">&raquo;</a></li>'; //last link
-            }
-
-            $pagination .= '</ul>';
-        }
-        return $pagination; //return pagination links
-    }
-    ?>
+<div id="test">
 
 </div>
 
@@ -271,6 +208,7 @@ $dbConnection = new PDOExt();
             submitfood();
         });
     });
+
     function submitfood() {
 
         var name = $('#name').val();
@@ -356,18 +294,28 @@ $dbConnection = new PDOExt();
         var footerId = $('#loading-food-items');
         var tableEle = $("#foodItemsDataTable > tbody");
         var rowCount = $("#foodItemsDataTable > tbody > tr").length + 1;
+        var paginate = $("#results");
+        var test = $("#test");
+
         if (startIdx === 0) {
-            footerId.data('page-start', 0);
+            var page = 1;
+        } else {
+            var page = startIdx;
         }
+
+        footerId.data('page-start', page);
+
 
         $.ajax({
             type: "POST",
             cache: false,
             url: "./ws/GetFoodItems.php",
             data: {
-                page_start: footerId.data('page-start')
+                page_start: footerId.data('page-start'),
+                page_index: footerId.data('page-start')
             },
             beforeSend: function () {
+                paginate.html('');
                 tableEle.html('');
                 footerId.html('&nbsp;<i class="fa fa-spinner fa-pulse"></i>&nbsp; Loading...');
             },
@@ -376,13 +324,18 @@ $dbConnection = new PDOExt();
                 var status = jsonResp.status;
                 var data = jsonResp.data;
                 var desc = jsonResp.desc;
-               
+                var pages = jsonResp.pages;
+
+                var totalPages = 5;
+                var numPage = pages / totalPages;
+                var numPages = Math.ceil(numPage);
+
                 console.log(data);
                 if (status === 0) {
                     if (data.length > 0) {
                         $.each(data, function (idx, obj) {
                             tableEle.append("<tr>" +
-                                    "<td> " + (rowCount + idx) + " </td>" +
+                                    "<td> " + ((((page - 1) * 5) + idx) + 1) + " </td>" +
                                     "<td> " + obj.food_name + " </td>" +
                                     "<td> " + obj.category_name + " </td>" +
                                     "<td> " + obj.nutrition + " </td>" +
@@ -393,15 +346,27 @@ $dbConnection = new PDOExt();
                                     "<td align='center'> <i class='fa fa-trash fa-2x'></i> </td>" +
                                     "</tr>");
                         });
-                        /*
-                         if (data.length === 25) {
-                         var pageStartUpdatedVal = footerId.data('page-start') + data.length;
-                         footerId.data('page-start', pageStartUpdatedVal).html('Load More');
-                         } else {
-                         footerId.html('');
-                         }
-                         */
+
                         footerId.html('');
+
+                        paginate.append("<ul class=\"pagination\">");
+                        
+                        
+                        for (i = 1; i <= numPages; i++) {
+                            
+                            if(i === 1){
+                                $(".pagination").append("<li style=\"float:left;\"><a>start</a></li>");
+                            }
+                            
+                            $(".pagination").append("<li style=\"float:left;\"><a href=\"#\" data-page=\"" + i + "\" title=\"Page" + i + "\">" + i + "</a></li>");
+                            
+                            if(i === numPages){
+                                $(".pagination").append("<li style=\"float:left;\"><a>end</a></li>");
+                            }
+                            
+                        }
+                        
+                        /*test.html("Value: "+pages);*/
                     }
                     else {
                         tableEle.append("<tr>" + "<td align='center' colspan='9'> No Data to display </td>" + "</tr>");
@@ -419,102 +384,14 @@ $dbConnection = new PDOExt();
 
     $("#results").on("click", ".pagination a", function (e) {
         e.preventDefault();
+
         var page = $(this).attr("data-page"); //get page number from link
 
         console.log('page value ' + page);
-        
-        var footerId = $('#loading-food-items');
-        var tableEle = $("#foodItemsDataTable > tbody");
-        var rowCount = $("#foodItemsDataTable > tbody > tr").length + 1;
 
-
-        footerId.data('page-start', 0);
-
-        $.ajax({
-            type: "POST",
-            cache: false,
-            url: "./ws/GetFoodItems.php",
-            data: {
-                page_start: footerId.data('page-start'),
-                page_index: page
-            },
-            beforeSend: function () {
-
-                footerId.html('&nbsp;<i class="fa fa-spinner fa-pulse"></i>&nbsp; Loading...');
-            },
-            success: function (jsonResp)
-            {
-                var status = jsonResp.status;
-                var data = jsonResp.data;
-                var desc = jsonResp.desc;
- 
-                console.log(data);
-                if (status === 0) {
-                    if (data.length > 0) {
-
-                        // Important
-                        tableEle.empty();
-
-                        $.each(data, function (idx, obj) {
-                            tableEle.append("<tr>" +
-                                    "<td> " + ((((page - 1) * 5) + idx) + 1) + " </td>" +
-                                    "<td> " + obj.food_name + " </td>" +
-                                    "<td> " + obj.category_name + " </td>" +
-                                    "<td> " + obj.nutrition + " </td>" +
-                                    "<td align='center'> " + obj.currency_symbol + " " + obj.price + " </td>" +
-                                    "<td align='center'> " + obj.food_rating + " </td>" +
-                                    "<td align='center'> " + obj.chef_name + " </td>" +
-                                    "<td align='center'> <i class='fa fa-pencil fa-2x'></i> </td>" +
-                                    "<td align='center'> <i class='fa fa-trash fa-2x'></i> </td>" +
-                                    "</tr>");
-                        });
-                        /*
-                         if (data.length === 25) {
-                         var pageStartUpdatedVal = footerId.data('page-start') + data.length;
-                         footerId.data('page-start', pageStartUpdatedVal).html('Load More');
-                         } else {
-                         footerId.html('');
-                         }
-                         */
-
-
-                        footerId.html('');
-                    }
-                    else {
-                        tableEle.append("<tr>" + "<td align='center' colspan='9'> No Data to display </td>" + "</tr>");
-                        footerId.html('');
-                    }
-                }
-                else {
-                    alertify.error(desc);
-                    footerId.html('');
-                }
-            }
-        });
-
+        loadFoodItems(page);
 
     });
-    
-    
-    $("#results").on("click", ".pagination a", function (e) {
-        e.preventDefault();
-        var page = $(this).attr("data-page"); //get page number from link
-
-        console.log('page value on posting to same page ' + page);
-     
-        $.ajax({
-            type: "GET",
-            cache: false,
-            url: "GetFoodItemsView.php?page_num"+page,
-            data: {page_num: page},
-            success: function (){
-                alert('success');
-            }
-        });
-
-    });
-
-
 
 </script>
 

@@ -4,7 +4,7 @@
     include_once '../classes/Utilities.php';
     //include_once '../classes/MongoLogger.php';
     include_once '../classes/Logger.php';
-
+    
     $dbConnection = new PDOExt();
     $utilities = new Utilities();
     //$log = new MongoLogger(basename($_SERVER['PHP_SELF']));
@@ -14,7 +14,7 @@
 
     $log->arrayLogger($_POST, "POST Req Data");
     $item_per_page      = 5; //item to display per page
-    //$page_start = $utilities->replaceZero($_POST['page_start']);
+    
     if(isset($_POST['page_index'])){
         $page_start = $_POST['page_index'];
         
@@ -63,6 +63,11 @@
         $log->info("Query:" . $query);
         $statement = $dbConnection->prepare($query);
 
+        $sql = "SELECT * FROM food_item";
+        $result = $dbConnection->query($sql);
+        
+        $row = $result->fetchAll();
+        $numOfRows= count($row);
         try
         {
             if ($statement->execute($bindParams))
@@ -71,8 +76,8 @@
                 $statement->closeCursor();
 
                 $log->arrayMultiLogger($data, 'Result for food items');
-
-                $response = array('status' => 0, 'data' => $data, 'desc' => 'success','index' => $page_start);
+                //$pagi = call_paginate();
+                $response = array('status' => 0, 'data' => $data, 'desc' => 'success','index' => $page_start, 'pages' => $numOfRows);
             }
             else
             {

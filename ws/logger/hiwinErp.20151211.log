@@ -1,0 +1,3045 @@
+
+[96m********************************************************************************[0m[37m
+GetFoodItems.php: 2015-12-11 00:01:40 - 2015-12-11 05:31:40[0m
+[94m
+[4mPOST Req Data[24m:
+   page_start: 1
+   page_index: 1
+[0m
+[39mQuery: SELECT food_item.item_id,
+                        food_item.`name` AS food_name,
+                        food_item.description,
+                        food_item.ingredients,
+                        food_item.preparation_method,
+                        food_item.rating AS food_rating,
+                        category.category_id,
+                        category.category_name,
+                        food_item.price,
+                        currency.currency_id,
+                        currency.currency_name,
+                        currency.currency_symbol,
+                        chef.chef_id,
+                        CONCAT(chef.f_name, ' ', chef.l_name) AS chef_name,
+                        CONCAT(chef.country_code, chef.phone_number) AS chef_phone_number,
+                        chef.image_url AS chef_image,
+                        chef.rating AS chef_rating,
+                        food_item.nutrition,
+                        COALESCE(food_item.food_image_1, '') AS food_image_1,
+                        COALESCE(food_item.food_image_2, '') AS food_image_2,
+                        COALESCE(food_item.food_image_3, '') AS food_image_3,
+                        COALESCE(food_item.food_image_4, '') AS food_image_4,
+                        food_item.log_datetime
+                FROM food_item INNER JOIN category ON food_item.category_id = category.category_id
+                         INNER JOIN currency ON food_item.currency_id = currency.currency_id
+                         INNER JOIN chef ON food_item.chef_id = chef.chef_id   ORDER BY food_name ASC
+                LIMIT 0, 5;[0m
+[94m
+[4mResult for food items[24m:
+   item_id: 9
+   food_name: Asian greens and shiitake mushrooms
+
+
+   description: Discover the taste of Asia with this authentic stir fry side dish starring fresh greens and shiitake mushrooms.
+
+   ingredients: 2 tablespoons peanut oil
+ 2 garlic cloves, crushed
+ 2 teaspoons finely grated fresh ginger
+ 100g fresh shiitake mushrooms, thinly sliced
+ 1 bunch baby pak choy, trimmed, leaves separated, stems cut from leaves
+ 1 bunch baby bok choy, trimmed
+ 1 x 425g can baby corn spears, drained
+ 2 tablespoons oyster sauce
+ 1 tablespoon soy sauce
+ 2 tablespoons water
+   preparation_method: Heat oil in a large frying pan or wok over medium-high heat. Add garlic and ginger. Stir-fry for 30 seconds or until aromatic.
+Add the mushroom and stir-fry for 2 minutes. Add the pak choy stems and stir-fry for 1 minute. Add the pak choy leaves, buk choy, corn, oyster sauce and soy sauce. Toss to combine.
+Add the water and reduce heat to low. Cover and cook for 2 minutes or until the vegetables are just tender. Serve.
+
+   food_rating: 2
+   category_id: 2
+   category_name: Non-Veg
+   price: 180
+   currency_id: 1
+   currency_name: Rupee
+   currency_symbol: ₹
+   chef_id: 1
+   chef_name: Admin Chef
+   chef_phone_number: +919703570333
+   chef_image: http://icons.iconarchive.com/icons/iconshock/cook/256/cheff-icon.png
+   chef_rating: 5
+   nutrition: 420kJ
+   food_image_1: http://www.taste.com.au/images/recipes/agt/2009/01/21475_l.jpg
+   food_image_2: 
+   food_image_3: 
+   food_image_4: 
+   log_datetime: 2015-07-09 15:08:57
+   item_id: 8
+   food_name: Asian soft noodle cabbage salad
+
+
+   description: Who doesn't love the classic noodle salad? Try our updated recipe that uses hokkien noodles for a twist of the unexpected.
+
+   ingredients: 1/2 x 440g packet thin hokkien noodles
+ 1/4 small (350g) red cabbage, thickly shredded
+ 1/2 cup bean sprouts, trimmed
+ 1 small red capsicum, thinly sliced
+ 50g snow peas, trimmed, thinly sliced
+ 1/2 cup fresh coriander leaves
+ 2 green onions, thinly sliced diagonally
+   preparation_method: Place noodles in a heatproof bowl. Cover with boiling water. Stand for 2 minutes. Separate noodles with a fork. Drain. Refresh under cold water. Drain well.
+Place cabbage, bean sprouts, capsicum, snow peas, coriander and green onion in a large bowl.
+Make Lime and soy dressing: Place lime juice, soy sauce, sesame oil, rice bran oil, caster sugar and garlic in a small bowl. Whisk until sugar has dissolved.
+Add noodles and dressing to cabbage mixture (see note). Season with pepper. Toss well to combine. Serve.
+
+   food_rating: 4
+   category_id: 1
+   category_name: Veg
+   price: 180
+   currency_id: 1
+   currency_name: Rupee
+   currency_symbol: ₹
+   chef_id: 1
+   chef_name: Admin Chef
+   chef_phone_number: +919703570333
+   chef_image: http://icons.iconarchive.com/icons/iconshock/cook/256/cheff-icon.png
+   chef_rating: 5
+   nutrition: 676kJ
+   food_image_1: http://www.taste.com.au/images/recipes/sfi/2014/10/39529_l.jpg
+   food_image_2: http://4.bp.blogspot.com/-LumLcUIX1Yk/Uq8COXOoqqI/AAAAAAAAOSc/ZwLyuGGjvo4/s1600/wet+noodles.jpg
+   food_image_3: http://site.cknoodle.com/Clients/cknoodle/dscf0116.jpg
+   food_image_4: http://site.cknoodle.com/Clients/cknoodle/dscf0061.jpg
+   log_datetime: 2015-07-09 15:07:49
+   item_id: 10
+   food_name: Banana coconut tapioca puddings (che chuoi)
+
+
+   description: Tropical banana, mango and pineapple are the star ingredients in this exotic Asian boba pudding.
+
+   ingredients: 1 cup (200g) tapioca pearls
+ 400g can coconut milk
+ 1 cup (250ml) water
+ 1/2 cup (80g) finely chopped palm sugar
+ 2 pandan leaves, tied into a knot
+ 3 just ripe bananas, peeled, thickly sliced
+ 2 tablespoons finely grated dark palm sugar (see note)
+ 1 tablespoon water, extra
+ 1 tablespoon sesame seeds
+ 1 mango, peeled, thinly sliced, to serve
+ 1/2 ripe pineapple, peeled, thinly sliced, to serve
+   preparation_method: Place the tapioca in a large bowl and cover with cold water. Set aside for 2 hours to soak. Strain through a fine sieve. Cook in a large saucepan of boiling water for 10 minutes or until opaque. Drain well.
+Meanwhile, combine the coconut milk, water, sugar and pandan leaves in a large saucepan over low heat. Cook, stirring, for 5 minutes or until sugar dissolves and mixture is heated through. Add the tapioca and gently stir to combine. Remove from heat and set aside to cool slightly. Add the banana and transfer to a bowl and cover with plastic wrap. Place in the fridge to chill.
+Combine the dark palm sugar and water in a small frying pan over high heat. Cook, stirring, for 2 minutes or until sugar dissolves. Add the sesame seeds and cook, stirring, for 2 minutes or until syrup thickens.
+Remove and discard the pandan leaves from tapioca. Spoon the tapioca among serving bowls. Serve topped with mango and pineapple slices and drizzle with sesame syrup.
+
+   food_rating: 3
+   category_id: 1
+   category_name: Veg
+   price: 120
+   currency_id: 1
+   currency_name: Rupee
+   currency_symbol: ₹
+   chef_id: 1
+   chef_name: Admin Chef
+   chef_phone_number: +919703570333
+   chef_image: http://icons.iconarchive.com/icons/iconshock/cook/256/cheff-icon.png
+   chef_rating: 5
+   nutrition: 1581kJ
+   food_image_1: http://www.taste.com.au/images/recipes/nb/2008/02/19022_l.jpg
+   food_image_2: 
+   food_image_3: 
+   food_image_4: 
+   log_datetime: 2015-07-09 15:10:47
+   item_id: 7
+   food_name: Banh xeo (crispy pancakes)
+
+
+   description: Take inspiration from Vietnamese cooking for this fresh and fragrant Asian pork pancake dish.
+
+   ingredients: 220g (1 1/4 cups) rice flour
+ 2 tablespoons cornflour
+ 1 x 400ml can coconut milk
+ 310ml (1 1/4 cups) iced water
+ 1 teaspoon ground turmeric
+ 1 teaspoon sugar
+ 1/2 teaspoon salt
+ Pinch of white pepper
+ 2 tablespoons peanut oil
+ 1 brown onion, halved, cut into thin wedges
+ 300g Pork porterhouse Steak, thinly sliced
+ 12 cooked prawns, peeled, coarsely chopped
+ 130g (2 cups) bean sprouts, trimmed
+ Butter lettuce leaves, to serve
+ Fresh mint leaves, to serve
+   preparation_method: To make the nuoc cham, combine fish sauce, lime juice, water, sugar, chilli and garlic in a small bowl. Stir until sugar dissolves.
+Stir the combined flour, coconut milk, water, turmeric, sugar and salt in a medium bowl. Season with white pepper. Cover and place in the fridge for 1 hour or overnight to rest.
+Heat a 20cm (base measurement) non-stick frying pan over high heat. Add 1 tablespoon of oil and heat until just smoking. Stir-fry the onion and pork for 5 minutes or until golden. Transfer to a plate. Wipe the pan clean.
+
+   food_rating: 3
+   category_id: 1
+   category_name: Veg
+   price: 225
+   currency_id: 1
+   currency_name: Rupee
+   currency_symbol: ₹
+   chef_id: 1
+   chef_name: Admin Chef
+   chef_phone_number: +919703570333
+   chef_image: http://icons.iconarchive.com/icons/iconshock/cook/256/cheff-icon.png
+   chef_rating: 5
+   nutrition: 1370kJ
+   food_image_1: http://www.taste.com.au/images/recipes/agt/2009/11/23670_l.jpg
+   food_image_2: 
+   food_image_3: 
+   food_image_4: 
+   log_datetime: 2015-07-09 15:04:57
+   item_id: 1
+   food_name: Chicken biriyani
+   description: Our Chicken biriyani recipe is a great simple meal for winter weeknights.
+
+   ingredients: 1 tablespoon vegetable oil
+ 500g chicken thigh fillets, trimmed, quartered
+ 1 medium brown onion, halved, thinly sliced
+ 1 garlic clove, crushed
+ 2cm piece ginger, peeled, finely grated
+ 1/3 cup balti curry paste
+ 1 1/2 cups SunRice Basmati Rice
+ 1 cinnamon stick
+ 2 cups Gravox Real chicken stock
+ 1 cup thick plain yoghurt
+ 1 Lebanese cucumber, deseeded, grated
+ 1/2 teaspoon ground cumin
+ Toasted flaked almonds and fresh coriander leaves, to serve
+   preparation_method: Heat oil in a heavy-based saucepan over medium-high heat. Cook chicken, turning, for 5 minutes or until browned. Transfer to a plate. Cook onion, garlic and ginger for 2 to 3 minutes or until onion has softened. Add curry paste. Cook for 1 minute or until fragrant. Add rice. Stir to coat.
+Add cinnamon, stock and 1 cup cold water. Bring to the boil. Return chicken to pan. Reduce heat to low. Cover. Cook for 20 minutes or until rice is tender and chicken cooked through. Remove cinnamon. Discard.
+Combine yoghurt, cucumber and cumin in a bowl. Sprinkle biriyani with almonds and coriander. Serve with yoghurt mixture.
+
+   food_rating: 255
+   category_id: 2
+   category_name: Non-Veg
+   price: 220
+   currency_id: 1
+   currency_name: Rupee
+   currency_symbol: ₹
+   chef_id: 1
+   chef_name: Admin Chef
+   chef_phone_number: +919703570333
+   chef_image: http://icons.iconarchive.com/icons/iconshock/cook/256/cheff-icon.png
+   chef_rating: 5
+   nutrition: 2768kJ
+   food_image_1: http://www.taste.com.au/images/recipes/sfi/2009/07/23417_l.jpg
+   food_image_2: 
+   food_image_3: 
+   food_image_4: 
+   log_datetime: 2015-07-09 12:00:25
+[0m
+[37mEnd at ([0m[34m0.008[0m[37m): 2015-12-11 00:01:40 - 2015-12-11 05:31:40
+
+[96m********************************************************************************[0m[37m
+GetFoodItems.php: 2015-12-11 00:02:05 - 2015-12-11 05:32:05[0m
+[94m
+[4mPOST Req Data[24m:
+   page_start: 1
+   page_index: 1
+[0m
+[39mQuery: SELECT food_item.item_id,
+                        food_item.`name` AS food_name,
+                        food_item.description,
+                        food_item.ingredients,
+                        food_item.preparation_method,
+                        food_item.rating AS food_rating,
+                        category.category_id,
+                        category.category_name,
+                        food_item.price,
+                        currency.currency_id,
+                        currency.currency_name,
+                        currency.currency_symbol,
+                        chef.chef_id,
+                        CONCAT(chef.f_name, ' ', chef.l_name) AS chef_name,
+                        CONCAT(chef.country_code, chef.phone_number) AS chef_phone_number,
+                        chef.image_url AS chef_image,
+                        chef.rating AS chef_rating,
+                        food_item.nutrition,
+                        COALESCE(food_item.food_image_1, '') AS food_image_1,
+                        COALESCE(food_item.food_image_2, '') AS food_image_2,
+                        COALESCE(food_item.food_image_3, '') AS food_image_3,
+                        COALESCE(food_item.food_image_4, '') AS food_image_4,
+                        food_item.log_datetime
+                FROM food_item INNER JOIN category ON food_item.category_id = category.category_id
+                         INNER JOIN currency ON food_item.currency_id = currency.currency_id
+                         INNER JOIN chef ON food_item.chef_id = chef.chef_id   ORDER BY food_name ASC
+                LIMIT 0, 5;[0m
+[94m
+[4mResult for food items[24m:
+   item_id: 9
+   food_name: Asian greens and shiitake mushrooms
+
+
+   description: Discover the taste of Asia with this authentic stir fry side dish starring fresh greens and shiitake mushrooms.
+
+   ingredients: 2 tablespoons peanut oil
+ 2 garlic cloves, crushed
+ 2 teaspoons finely grated fresh ginger
+ 100g fresh shiitake mushrooms, thinly sliced
+ 1 bunch baby pak choy, trimmed, leaves separated, stems cut from leaves
+ 1 bunch baby bok choy, trimmed
+ 1 x 425g can baby corn spears, drained
+ 2 tablespoons oyster sauce
+ 1 tablespoon soy sauce
+ 2 tablespoons water
+   preparation_method: Heat oil in a large frying pan or wok over medium-high heat. Add garlic and ginger. Stir-fry for 30 seconds or until aromatic.
+Add the mushroom and stir-fry for 2 minutes. Add the pak choy stems and stir-fry for 1 minute. Add the pak choy leaves, buk choy, corn, oyster sauce and soy sauce. Toss to combine.
+Add the water and reduce heat to low. Cover and cook for 2 minutes or until the vegetables are just tender. Serve.
+
+   food_rating: 2
+   category_id: 2
+   category_name: Non-Veg
+   price: 180
+   currency_id: 1
+   currency_name: Rupee
+   currency_symbol: ₹
+   chef_id: 1
+   chef_name: Admin Chef
+   chef_phone_number: +919703570333
+   chef_image: http://icons.iconarchive.com/icons/iconshock/cook/256/cheff-icon.png
+   chef_rating: 5
+   nutrition: 420kJ
+   food_image_1: http://www.taste.com.au/images/recipes/agt/2009/01/21475_l.jpg
+   food_image_2: 
+   food_image_3: 
+   food_image_4: 
+   log_datetime: 2015-07-09 15:08:57
+   item_id: 8
+   food_name: Asian soft noodle cabbage salad
+
+
+   description: Who doesn't love the classic noodle salad? Try our updated recipe that uses hokkien noodles for a twist of the unexpected.
+
+   ingredients: 1/2 x 440g packet thin hokkien noodles
+ 1/4 small (350g) red cabbage, thickly shredded
+ 1/2 cup bean sprouts, trimmed
+ 1 small red capsicum, thinly sliced
+ 50g snow peas, trimmed, thinly sliced
+ 1/2 cup fresh coriander leaves
+ 2 green onions, thinly sliced diagonally
+   preparation_method: Place noodles in a heatproof bowl. Cover with boiling water. Stand for 2 minutes. Separate noodles with a fork. Drain. Refresh under cold water. Drain well.
+Place cabbage, bean sprouts, capsicum, snow peas, coriander and green onion in a large bowl.
+Make Lime and soy dressing: Place lime juice, soy sauce, sesame oil, rice bran oil, caster sugar and garlic in a small bowl. Whisk until sugar has dissolved.
+Add noodles and dressing to cabbage mixture (see note). Season with pepper. Toss well to combine. Serve.
+
+   food_rating: 4
+   category_id: 1
+   category_name: Veg
+   price: 180
+   currency_id: 1
+   currency_name: Rupee
+   currency_symbol: ₹
+   chef_id: 1
+   chef_name: Admin Chef
+   chef_phone_number: +919703570333
+   chef_image: http://icons.iconarchive.com/icons/iconshock/cook/256/cheff-icon.png
+   chef_rating: 5
+   nutrition: 676kJ
+   food_image_1: http://www.taste.com.au/images/recipes/sfi/2014/10/39529_l.jpg
+   food_image_2: http://4.bp.blogspot.com/-LumLcUIX1Yk/Uq8COXOoqqI/AAAAAAAAOSc/ZwLyuGGjvo4/s1600/wet+noodles.jpg
+   food_image_3: http://site.cknoodle.com/Clients/cknoodle/dscf0116.jpg
+   food_image_4: http://site.cknoodle.com/Clients/cknoodle/dscf0061.jpg
+   log_datetime: 2015-07-09 15:07:49
+   item_id: 10
+   food_name: Banana coconut tapioca puddings (che chuoi)
+
+
+   description: Tropical banana, mango and pineapple are the star ingredients in this exotic Asian boba pudding.
+
+   ingredients: 1 cup (200g) tapioca pearls
+ 400g can coconut milk
+ 1 cup (250ml) water
+ 1/2 cup (80g) finely chopped palm sugar
+ 2 pandan leaves, tied into a knot
+ 3 just ripe bananas, peeled, thickly sliced
+ 2 tablespoons finely grated dark palm sugar (see note)
+ 1 tablespoon water, extra
+ 1 tablespoon sesame seeds
+ 1 mango, peeled, thinly sliced, to serve
+ 1/2 ripe pineapple, peeled, thinly sliced, to serve
+   preparation_method: Place the tapioca in a large bowl and cover with cold water. Set aside for 2 hours to soak. Strain through a fine sieve. Cook in a large saucepan of boiling water for 10 minutes or until opaque. Drain well.
+Meanwhile, combine the coconut milk, water, sugar and pandan leaves in a large saucepan over low heat. Cook, stirring, for 5 minutes or until sugar dissolves and mixture is heated through. Add the tapioca and gently stir to combine. Remove from heat and set aside to cool slightly. Add the banana and transfer to a bowl and cover with plastic wrap. Place in the fridge to chill.
+Combine the dark palm sugar and water in a small frying pan over high heat. Cook, stirring, for 2 minutes or until sugar dissolves. Add the sesame seeds and cook, stirring, for 2 minutes or until syrup thickens.
+Remove and discard the pandan leaves from tapioca. Spoon the tapioca among serving bowls. Serve topped with mango and pineapple slices and drizzle with sesame syrup.
+
+   food_rating: 3
+   category_id: 1
+   category_name: Veg
+   price: 120
+   currency_id: 1
+   currency_name: Rupee
+   currency_symbol: ₹
+   chef_id: 1
+   chef_name: Admin Chef
+   chef_phone_number: +919703570333
+   chef_image: http://icons.iconarchive.com/icons/iconshock/cook/256/cheff-icon.png
+   chef_rating: 5
+   nutrition: 1581kJ
+   food_image_1: http://www.taste.com.au/images/recipes/nb/2008/02/19022_l.jpg
+   food_image_2: 
+   food_image_3: 
+   food_image_4: 
+   log_datetime: 2015-07-09 15:10:47
+   item_id: 7
+   food_name: Banh xeo (crispy pancakes)
+
+
+   description: Take inspiration from Vietnamese cooking for this fresh and fragrant Asian pork pancake dish.
+
+   ingredients: 220g (1 1/4 cups) rice flour
+ 2 tablespoons cornflour
+ 1 x 400ml can coconut milk
+ 310ml (1 1/4 cups) iced water
+ 1 teaspoon ground turmeric
+ 1 teaspoon sugar
+ 1/2 teaspoon salt
+ Pinch of white pepper
+ 2 tablespoons peanut oil
+ 1 brown onion, halved, cut into thin wedges
+ 300g Pork porterhouse Steak, thinly sliced
+ 12 cooked prawns, peeled, coarsely chopped
+ 130g (2 cups) bean sprouts, trimmed
+ Butter lettuce leaves, to serve
+ Fresh mint leaves, to serve
+   preparation_method: To make the nuoc cham, combine fish sauce, lime juice, water, sugar, chilli and garlic in a small bowl. Stir until sugar dissolves.
+Stir the combined flour, coconut milk, water, turmeric, sugar and salt in a medium bowl. Season with white pepper. Cover and place in the fridge for 1 hour or overnight to rest.
+Heat a 20cm (base measurement) non-stick frying pan over high heat. Add 1 tablespoon of oil and heat until just smoking. Stir-fry the onion and pork for 5 minutes or until golden. Transfer to a plate. Wipe the pan clean.
+
+   food_rating: 3
+   category_id: 1
+   category_name: Veg
+   price: 225
+   currency_id: 1
+   currency_name: Rupee
+   currency_symbol: ₹
+   chef_id: 1
+   chef_name: Admin Chef
+   chef_phone_number: +919703570333
+   chef_image: http://icons.iconarchive.com/icons/iconshock/cook/256/cheff-icon.png
+   chef_rating: 5
+   nutrition: 1370kJ
+   food_image_1: http://www.taste.com.au/images/recipes/agt/2009/11/23670_l.jpg
+   food_image_2: 
+   food_image_3: 
+   food_image_4: 
+   log_datetime: 2015-07-09 15:04:57
+   item_id: 1
+   food_name: Chicken biriyani
+   description: Our Chicken biriyani recipe is a great simple meal for winter weeknights.
+
+   ingredients: 1 tablespoon vegetable oil
+ 500g chicken thigh fillets, trimmed, quartered
+ 1 medium brown onion, halved, thinly sliced
+ 1 garlic clove, crushed
+ 2cm piece ginger, peeled, finely grated
+ 1/3 cup balti curry paste
+ 1 1/2 cups SunRice Basmati Rice
+ 1 cinnamon stick
+ 2 cups Gravox Real chicken stock
+ 1 cup thick plain yoghurt
+ 1 Lebanese cucumber, deseeded, grated
+ 1/2 teaspoon ground cumin
+ Toasted flaked almonds and fresh coriander leaves, to serve
+   preparation_method: Heat oil in a heavy-based saucepan over medium-high heat. Cook chicken, turning, for 5 minutes or until browned. Transfer to a plate. Cook onion, garlic and ginger for 2 to 3 minutes or until onion has softened. Add curry paste. Cook for 1 minute or until fragrant. Add rice. Stir to coat.
+Add cinnamon, stock and 1 cup cold water. Bring to the boil. Return chicken to pan. Reduce heat to low. Cover. Cook for 20 minutes or until rice is tender and chicken cooked through. Remove cinnamon. Discard.
+Combine yoghurt, cucumber and cumin in a bowl. Sprinkle biriyani with almonds and coriander. Serve with yoghurt mixture.
+
+   food_rating: 255
+   category_id: 2
+   category_name: Non-Veg
+   price: 220
+   currency_id: 1
+   currency_name: Rupee
+   currency_symbol: ₹
+   chef_id: 1
+   chef_name: Admin Chef
+   chef_phone_number: +919703570333
+   chef_image: http://icons.iconarchive.com/icons/iconshock/cook/256/cheff-icon.png
+   chef_rating: 5
+   nutrition: 2768kJ
+   food_image_1: http://www.taste.com.au/images/recipes/sfi/2009/07/23417_l.jpg
+   food_image_2: 
+   food_image_3: 
+   food_image_4: 
+   log_datetime: 2015-07-09 12:00:25
+[0m
+[37mEnd at ([0m[34m0.012[0m[37m): 2015-12-11 00:02:05 - 2015-12-11 05:32:05
+
+[96m********************************************************************************[0m[37m
+GetFoodItems.php: 2015-12-11 00:02:18 - 2015-12-11 05:32:18[0m
+[94m
+[4mPOST Req Data[24m:
+   page_start: 1
+   page_index: 1
+[0m
+[39mQuery: SELECT food_item.item_id,
+                        food_item.`name` AS food_name,
+                        food_item.description,
+                        food_item.ingredients,
+                        food_item.preparation_method,
+                        food_item.rating AS food_rating,
+                        category.category_id,
+                        category.category_name,
+                        food_item.price,
+                        currency.currency_id,
+                        currency.currency_name,
+                        currency.currency_symbol,
+                        chef.chef_id,
+                        CONCAT(chef.f_name, ' ', chef.l_name) AS chef_name,
+                        CONCAT(chef.country_code, chef.phone_number) AS chef_phone_number,
+                        chef.image_url AS chef_image,
+                        chef.rating AS chef_rating,
+                        food_item.nutrition,
+                        COALESCE(food_item.food_image_1, '') AS food_image_1,
+                        COALESCE(food_item.food_image_2, '') AS food_image_2,
+                        COALESCE(food_item.food_image_3, '') AS food_image_3,
+                        COALESCE(food_item.food_image_4, '') AS food_image_4,
+                        food_item.log_datetime
+                FROM food_item INNER JOIN category ON food_item.category_id = category.category_id
+                         INNER JOIN currency ON food_item.currency_id = currency.currency_id
+                         INNER JOIN chef ON food_item.chef_id = chef.chef_id   ORDER BY food_name ASC
+                LIMIT 0, 5;[0m
+[94m
+[4mResult for food items[24m:
+   item_id: 9
+   food_name: Asian greens and shiitake mushrooms
+
+
+   description: Discover the taste of Asia with this authentic stir fry side dish starring fresh greens and shiitake mushrooms.
+
+   ingredients: 2 tablespoons peanut oil
+ 2 garlic cloves, crushed
+ 2 teaspoons finely grated fresh ginger
+ 100g fresh shiitake mushrooms, thinly sliced
+ 1 bunch baby pak choy, trimmed, leaves separated, stems cut from leaves
+ 1 bunch baby bok choy, trimmed
+ 1 x 425g can baby corn spears, drained
+ 2 tablespoons oyster sauce
+ 1 tablespoon soy sauce
+ 2 tablespoons water
+   preparation_method: Heat oil in a large frying pan or wok over medium-high heat. Add garlic and ginger. Stir-fry for 30 seconds or until aromatic.
+Add the mushroom and stir-fry for 2 minutes. Add the pak choy stems and stir-fry for 1 minute. Add the pak choy leaves, buk choy, corn, oyster sauce and soy sauce. Toss to combine.
+Add the water and reduce heat to low. Cover and cook for 2 minutes or until the vegetables are just tender. Serve.
+
+   food_rating: 2
+   category_id: 2
+   category_name: Non-Veg
+   price: 180
+   currency_id: 1
+   currency_name: Rupee
+   currency_symbol: ₹
+   chef_id: 1
+   chef_name: Admin Chef
+   chef_phone_number: +919703570333
+   chef_image: http://icons.iconarchive.com/icons/iconshock/cook/256/cheff-icon.png
+   chef_rating: 5
+   nutrition: 420kJ
+   food_image_1: http://www.taste.com.au/images/recipes/agt/2009/01/21475_l.jpg
+   food_image_2: 
+   food_image_3: 
+   food_image_4: 
+   log_datetime: 2015-07-09 15:08:57
+   item_id: 8
+   food_name: Asian soft noodle cabbage salad
+
+
+   description: Who doesn't love the classic noodle salad? Try our updated recipe that uses hokkien noodles for a twist of the unexpected.
+
+   ingredients: 1/2 x 440g packet thin hokkien noodles
+ 1/4 small (350g) red cabbage, thickly shredded
+ 1/2 cup bean sprouts, trimmed
+ 1 small red capsicum, thinly sliced
+ 50g snow peas, trimmed, thinly sliced
+ 1/2 cup fresh coriander leaves
+ 2 green onions, thinly sliced diagonally
+   preparation_method: Place noodles in a heatproof bowl. Cover with boiling water. Stand for 2 minutes. Separate noodles with a fork. Drain. Refresh under cold water. Drain well.
+Place cabbage, bean sprouts, capsicum, snow peas, coriander and green onion in a large bowl.
+Make Lime and soy dressing: Place lime juice, soy sauce, sesame oil, rice bran oil, caster sugar and garlic in a small bowl. Whisk until sugar has dissolved.
+Add noodles and dressing to cabbage mixture (see note). Season with pepper. Toss well to combine. Serve.
+
+   food_rating: 4
+   category_id: 1
+   category_name: Veg
+   price: 180
+   currency_id: 1
+   currency_name: Rupee
+   currency_symbol: ₹
+   chef_id: 1
+   chef_name: Admin Chef
+   chef_phone_number: +919703570333
+   chef_image: http://icons.iconarchive.com/icons/iconshock/cook/256/cheff-icon.png
+   chef_rating: 5
+   nutrition: 676kJ
+   food_image_1: http://www.taste.com.au/images/recipes/sfi/2014/10/39529_l.jpg
+   food_image_2: http://4.bp.blogspot.com/-LumLcUIX1Yk/Uq8COXOoqqI/AAAAAAAAOSc/ZwLyuGGjvo4/s1600/wet+noodles.jpg
+   food_image_3: http://site.cknoodle.com/Clients/cknoodle/dscf0116.jpg
+   food_image_4: http://site.cknoodle.com/Clients/cknoodle/dscf0061.jpg
+   log_datetime: 2015-07-09 15:07:49
+   item_id: 10
+   food_name: Banana coconut tapioca puddings (che chuoi)
+
+
+   description: Tropical banana, mango and pineapple are the star ingredients in this exotic Asian boba pudding.
+
+   ingredients: 1 cup (200g) tapioca pearls
+ 400g can coconut milk
+ 1 cup (250ml) water
+ 1/2 cup (80g) finely chopped palm sugar
+ 2 pandan leaves, tied into a knot
+ 3 just ripe bananas, peeled, thickly sliced
+ 2 tablespoons finely grated dark palm sugar (see note)
+ 1 tablespoon water, extra
+ 1 tablespoon sesame seeds
+ 1 mango, peeled, thinly sliced, to serve
+ 1/2 ripe pineapple, peeled, thinly sliced, to serve
+   preparation_method: Place the tapioca in a large bowl and cover with cold water. Set aside for 2 hours to soak. Strain through a fine sieve. Cook in a large saucepan of boiling water for 10 minutes or until opaque. Drain well.
+Meanwhile, combine the coconut milk, water, sugar and pandan leaves in a large saucepan over low heat. Cook, stirring, for 5 minutes or until sugar dissolves and mixture is heated through. Add the tapioca and gently stir to combine. Remove from heat and set aside to cool slightly. Add the banana and transfer to a bowl and cover with plastic wrap. Place in the fridge to chill.
+Combine the dark palm sugar and water in a small frying pan over high heat. Cook, stirring, for 2 minutes or until sugar dissolves. Add the sesame seeds and cook, stirring, for 2 minutes or until syrup thickens.
+Remove and discard the pandan leaves from tapioca. Spoon the tapioca among serving bowls. Serve topped with mango and pineapple slices and drizzle with sesame syrup.
+
+   food_rating: 3
+   category_id: 1
+   category_name: Veg
+   price: 120
+   currency_id: 1
+   currency_name: Rupee
+   currency_symbol: ₹
+   chef_id: 1
+   chef_name: Admin Chef
+   chef_phone_number: +919703570333
+   chef_image: http://icons.iconarchive.com/icons/iconshock/cook/256/cheff-icon.png
+   chef_rating: 5
+   nutrition: 1581kJ
+   food_image_1: http://www.taste.com.au/images/recipes/nb/2008/02/19022_l.jpg
+   food_image_2: 
+   food_image_3: 
+   food_image_4: 
+   log_datetime: 2015-07-09 15:10:47
+   item_id: 7
+   food_name: Banh xeo (crispy pancakes)
+
+
+   description: Take inspiration from Vietnamese cooking for this fresh and fragrant Asian pork pancake dish.
+
+   ingredients: 220g (1 1/4 cups) rice flour
+ 2 tablespoons cornflour
+ 1 x 400ml can coconut milk
+ 310ml (1 1/4 cups) iced water
+ 1 teaspoon ground turmeric
+ 1 teaspoon sugar
+ 1/2 teaspoon salt
+ Pinch of white pepper
+ 2 tablespoons peanut oil
+ 1 brown onion, halved, cut into thin wedges
+ 300g Pork porterhouse Steak, thinly sliced
+ 12 cooked prawns, peeled, coarsely chopped
+ 130g (2 cups) bean sprouts, trimmed
+ Butter lettuce leaves, to serve
+ Fresh mint leaves, to serve
+   preparation_method: To make the nuoc cham, combine fish sauce, lime juice, water, sugar, chilli and garlic in a small bowl. Stir until sugar dissolves.
+Stir the combined flour, coconut milk, water, turmeric, sugar and salt in a medium bowl. Season with white pepper. Cover and place in the fridge for 1 hour or overnight to rest.
+Heat a 20cm (base measurement) non-stick frying pan over high heat. Add 1 tablespoon of oil and heat until just smoking. Stir-fry the onion and pork for 5 minutes or until golden. Transfer to a plate. Wipe the pan clean.
+
+   food_rating: 3
+   category_id: 1
+   category_name: Veg
+   price: 225
+   currency_id: 1
+   currency_name: Rupee
+   currency_symbol: ₹
+   chef_id: 1
+   chef_name: Admin Chef
+   chef_phone_number: +919703570333
+   chef_image: http://icons.iconarchive.com/icons/iconshock/cook/256/cheff-icon.png
+   chef_rating: 5
+   nutrition: 1370kJ
+   food_image_1: http://www.taste.com.au/images/recipes/agt/2009/11/23670_l.jpg
+   food_image_2: 
+   food_image_3: 
+   food_image_4: 
+   log_datetime: 2015-07-09 15:04:57
+   item_id: 1
+   food_name: Chicken biriyani
+   description: Our Chicken biriyani recipe is a great simple meal for winter weeknights.
+
+   ingredients: 1 tablespoon vegetable oil
+ 500g chicken thigh fillets, trimmed, quartered
+ 1 medium brown onion, halved, thinly sliced
+ 1 garlic clove, crushed
+ 2cm piece ginger, peeled, finely grated
+ 1/3 cup balti curry paste
+ 1 1/2 cups SunRice Basmati Rice
+ 1 cinnamon stick
+ 2 cups Gravox Real chicken stock
+ 1 cup thick plain yoghurt
+ 1 Lebanese cucumber, deseeded, grated
+ 1/2 teaspoon ground cumin
+ Toasted flaked almonds and fresh coriander leaves, to serve
+   preparation_method: Heat oil in a heavy-based saucepan over medium-high heat. Cook chicken, turning, for 5 minutes or until browned. Transfer to a plate. Cook onion, garlic and ginger for 2 to 3 minutes or until onion has softened. Add curry paste. Cook for 1 minute or until fragrant. Add rice. Stir to coat.
+Add cinnamon, stock and 1 cup cold water. Bring to the boil. Return chicken to pan. Reduce heat to low. Cover. Cook for 20 minutes or until rice is tender and chicken cooked through. Remove cinnamon. Discard.
+Combine yoghurt, cucumber and cumin in a bowl. Sprinkle biriyani with almonds and coriander. Serve with yoghurt mixture.
+
+   food_rating: 255
+   category_id: 2
+   category_name: Non-Veg
+   price: 220
+   currency_id: 1
+   currency_name: Rupee
+   currency_symbol: ₹
+   chef_id: 1
+   chef_name: Admin Chef
+   chef_phone_number: +919703570333
+   chef_image: http://icons.iconarchive.com/icons/iconshock/cook/256/cheff-icon.png
+   chef_rating: 5
+   nutrition: 2768kJ
+   food_image_1: http://www.taste.com.au/images/recipes/sfi/2009/07/23417_l.jpg
+   food_image_2: 
+   food_image_3: 
+   food_image_4: 
+   log_datetime: 2015-07-09 12:00:25
+[0m
+[37mEnd at ([0m[34m0.02[0m[37m): 2015-12-11 00:02:18 - 2015-12-11 05:32:18
+
+[96m********************************************************************************[0m[37m
+GetFoodItems.php: 2015-12-11 00:02:53 - 2015-12-11 05:32:53[0m
+[94m
+[4mPOST Req Data[24m:
+   page_start: 1
+   page_index: 1
+[0m
+[39mQuery: SELECT food_item.item_id,
+                        food_item.`name` AS food_name,
+                        food_item.description,
+                        food_item.ingredients,
+                        food_item.preparation_method,
+                        food_item.rating AS food_rating,
+                        category.category_id,
+                        category.category_name,
+                        food_item.price,
+                        currency.currency_id,
+                        currency.currency_name,
+                        currency.currency_symbol,
+                        chef.chef_id,
+                        CONCAT(chef.f_name, ' ', chef.l_name) AS chef_name,
+                        CONCAT(chef.country_code, chef.phone_number) AS chef_phone_number,
+                        chef.image_url AS chef_image,
+                        chef.rating AS chef_rating,
+                        food_item.nutrition,
+                        COALESCE(food_item.food_image_1, '') AS food_image_1,
+                        COALESCE(food_item.food_image_2, '') AS food_image_2,
+                        COALESCE(food_item.food_image_3, '') AS food_image_3,
+                        COALESCE(food_item.food_image_4, '') AS food_image_4,
+                        food_item.log_datetime
+                FROM food_item INNER JOIN category ON food_item.category_id = category.category_id
+                         INNER JOIN currency ON food_item.currency_id = currency.currency_id
+                         INNER JOIN chef ON food_item.chef_id = chef.chef_id   ORDER BY food_name ASC
+                LIMIT 0, 5;[0m
+[94m
+[4mResult for food items[24m:
+   item_id: 9
+   food_name: Asian greens and shiitake mushrooms
+
+
+   description: Discover the taste of Asia with this authentic stir fry side dish starring fresh greens and shiitake mushrooms.
+
+   ingredients: 2 tablespoons peanut oil
+ 2 garlic cloves, crushed
+ 2 teaspoons finely grated fresh ginger
+ 100g fresh shiitake mushrooms, thinly sliced
+ 1 bunch baby pak choy, trimmed, leaves separated, stems cut from leaves
+ 1 bunch baby bok choy, trimmed
+ 1 x 425g can baby corn spears, drained
+ 2 tablespoons oyster sauce
+ 1 tablespoon soy sauce
+ 2 tablespoons water
+   preparation_method: Heat oil in a large frying pan or wok over medium-high heat. Add garlic and ginger. Stir-fry for 30 seconds or until aromatic.
+Add the mushroom and stir-fry for 2 minutes. Add the pak choy stems and stir-fry for 1 minute. Add the pak choy leaves, buk choy, corn, oyster sauce and soy sauce. Toss to combine.
+Add the water and reduce heat to low. Cover and cook for 2 minutes or until the vegetables are just tender. Serve.
+
+   food_rating: 2
+   category_id: 2
+   category_name: Non-Veg
+   price: 180
+   currency_id: 1
+   currency_name: Rupee
+   currency_symbol: ₹
+   chef_id: 1
+   chef_name: Admin Chef
+   chef_phone_number: +919703570333
+   chef_image: http://icons.iconarchive.com/icons/iconshock/cook/256/cheff-icon.png
+   chef_rating: 5
+   nutrition: 420kJ
+   food_image_1: http://www.taste.com.au/images/recipes/agt/2009/01/21475_l.jpg
+   food_image_2: 
+   food_image_3: 
+   food_image_4: 
+   log_datetime: 2015-07-09 15:08:57
+   item_id: 8
+   food_name: Asian soft noodle cabbage salad
+
+
+   description: Who doesn't love the classic noodle salad? Try our updated recipe that uses hokkien noodles for a twist of the unexpected.
+
+   ingredients: 1/2 x 440g packet thin hokkien noodles
+ 1/4 small (350g) red cabbage, thickly shredded
+ 1/2 cup bean sprouts, trimmed
+ 1 small red capsicum, thinly sliced
+ 50g snow peas, trimmed, thinly sliced
+ 1/2 cup fresh coriander leaves
+ 2 green onions, thinly sliced diagonally
+   preparation_method: Place noodles in a heatproof bowl. Cover with boiling water. Stand for 2 minutes. Separate noodles with a fork. Drain. Refresh under cold water. Drain well.
+Place cabbage, bean sprouts, capsicum, snow peas, coriander and green onion in a large bowl.
+Make Lime and soy dressing: Place lime juice, soy sauce, sesame oil, rice bran oil, caster sugar and garlic in a small bowl. Whisk until sugar has dissolved.
+Add noodles and dressing to cabbage mixture (see note). Season with pepper. Toss well to combine. Serve.
+
+   food_rating: 4
+   category_id: 1
+   category_name: Veg
+   price: 180
+   currency_id: 1
+   currency_name: Rupee
+   currency_symbol: ₹
+   chef_id: 1
+   chef_name: Admin Chef
+   chef_phone_number: +919703570333
+   chef_image: http://icons.iconarchive.com/icons/iconshock/cook/256/cheff-icon.png
+   chef_rating: 5
+   nutrition: 676kJ
+   food_image_1: http://www.taste.com.au/images/recipes/sfi/2014/10/39529_l.jpg
+   food_image_2: http://4.bp.blogspot.com/-LumLcUIX1Yk/Uq8COXOoqqI/AAAAAAAAOSc/ZwLyuGGjvo4/s1600/wet+noodles.jpg
+   food_image_3: http://site.cknoodle.com/Clients/cknoodle/dscf0116.jpg
+   food_image_4: http://site.cknoodle.com/Clients/cknoodle/dscf0061.jpg
+   log_datetime: 2015-07-09 15:07:49
+   item_id: 10
+   food_name: Banana coconut tapioca puddings (che chuoi)
+
+
+   description: Tropical banana, mango and pineapple are the star ingredients in this exotic Asian boba pudding.
+
+   ingredients: 1 cup (200g) tapioca pearls
+ 400g can coconut milk
+ 1 cup (250ml) water
+ 1/2 cup (80g) finely chopped palm sugar
+ 2 pandan leaves, tied into a knot
+ 3 just ripe bananas, peeled, thickly sliced
+ 2 tablespoons finely grated dark palm sugar (see note)
+ 1 tablespoon water, extra
+ 1 tablespoon sesame seeds
+ 1 mango, peeled, thinly sliced, to serve
+ 1/2 ripe pineapple, peeled, thinly sliced, to serve
+   preparation_method: Place the tapioca in a large bowl and cover with cold water. Set aside for 2 hours to soak. Strain through a fine sieve. Cook in a large saucepan of boiling water for 10 minutes or until opaque. Drain well.
+Meanwhile, combine the coconut milk, water, sugar and pandan leaves in a large saucepan over low heat. Cook, stirring, for 5 minutes or until sugar dissolves and mixture is heated through. Add the tapioca and gently stir to combine. Remove from heat and set aside to cool slightly. Add the banana and transfer to a bowl and cover with plastic wrap. Place in the fridge to chill.
+Combine the dark palm sugar and water in a small frying pan over high heat. Cook, stirring, for 2 minutes or until sugar dissolves. Add the sesame seeds and cook, stirring, for 2 minutes or until syrup thickens.
+Remove and discard the pandan leaves from tapioca. Spoon the tapioca among serving bowls. Serve topped with mango and pineapple slices and drizzle with sesame syrup.
+
+   food_rating: 3
+   category_id: 1
+   category_name: Veg
+   price: 120
+   currency_id: 1
+   currency_name: Rupee
+   currency_symbol: ₹
+   chef_id: 1
+   chef_name: Admin Chef
+   chef_phone_number: +919703570333
+   chef_image: http://icons.iconarchive.com/icons/iconshock/cook/256/cheff-icon.png
+   chef_rating: 5
+   nutrition: 1581kJ
+   food_image_1: http://www.taste.com.au/images/recipes/nb/2008/02/19022_l.jpg
+   food_image_2: 
+   food_image_3: 
+   food_image_4: 
+   log_datetime: 2015-07-09 15:10:47
+   item_id: 7
+   food_name: Banh xeo (crispy pancakes)
+
+
+   description: Take inspiration from Vietnamese cooking for this fresh and fragrant Asian pork pancake dish.
+
+   ingredients: 220g (1 1/4 cups) rice flour
+ 2 tablespoons cornflour
+ 1 x 400ml can coconut milk
+ 310ml (1 1/4 cups) iced water
+ 1 teaspoon ground turmeric
+ 1 teaspoon sugar
+ 1/2 teaspoon salt
+ Pinch of white pepper
+ 2 tablespoons peanut oil
+ 1 brown onion, halved, cut into thin wedges
+ 300g Pork porterhouse Steak, thinly sliced
+ 12 cooked prawns, peeled, coarsely chopped
+ 130g (2 cups) bean sprouts, trimmed
+ Butter lettuce leaves, to serve
+ Fresh mint leaves, to serve
+   preparation_method: To make the nuoc cham, combine fish sauce, lime juice, water, sugar, chilli and garlic in a small bowl. Stir until sugar dissolves.
+Stir the combined flour, coconut milk, water, turmeric, sugar and salt in a medium bowl. Season with white pepper. Cover and place in the fridge for 1 hour or overnight to rest.
+Heat a 20cm (base measurement) non-stick frying pan over high heat. Add 1 tablespoon of oil and heat until just smoking. Stir-fry the onion and pork for 5 minutes or until golden. Transfer to a plate. Wipe the pan clean.
+
+   food_rating: 3
+   category_id: 1
+   category_name: Veg
+   price: 225
+   currency_id: 1
+   currency_name: Rupee
+   currency_symbol: ₹
+   chef_id: 1
+   chef_name: Admin Chef
+   chef_phone_number: +919703570333
+   chef_image: http://icons.iconarchive.com/icons/iconshock/cook/256/cheff-icon.png
+   chef_rating: 5
+   nutrition: 1370kJ
+   food_image_1: http://www.taste.com.au/images/recipes/agt/2009/11/23670_l.jpg
+   food_image_2: 
+   food_image_3: 
+   food_image_4: 
+   log_datetime: 2015-07-09 15:04:57
+   item_id: 1
+   food_name: Chicken biriyani
+   description: Our Chicken biriyani recipe is a great simple meal for winter weeknights.
+
+   ingredients: 1 tablespoon vegetable oil
+ 500g chicken thigh fillets, trimmed, quartered
+ 1 medium brown onion, halved, thinly sliced
+ 1 garlic clove, crushed
+ 2cm piece ginger, peeled, finely grated
+ 1/3 cup balti curry paste
+ 1 1/2 cups SunRice Basmati Rice
+ 1 cinnamon stick
+ 2 cups Gravox Real chicken stock
+ 1 cup thick plain yoghurt
+ 1 Lebanese cucumber, deseeded, grated
+ 1/2 teaspoon ground cumin
+ Toasted flaked almonds and fresh coriander leaves, to serve
+   preparation_method: Heat oil in a heavy-based saucepan over medium-high heat. Cook chicken, turning, for 5 minutes or until browned. Transfer to a plate. Cook onion, garlic and ginger for 2 to 3 minutes or until onion has softened. Add curry paste. Cook for 1 minute or until fragrant. Add rice. Stir to coat.
+Add cinnamon, stock and 1 cup cold water. Bring to the boil. Return chicken to pan. Reduce heat to low. Cover. Cook for 20 minutes or until rice is tender and chicken cooked through. Remove cinnamon. Discard.
+Combine yoghurt, cucumber and cumin in a bowl. Sprinkle biriyani with almonds and coriander. Serve with yoghurt mixture.
+
+   food_rating: 255
+   category_id: 2
+   category_name: Non-Veg
+   price: 220
+   currency_id: 1
+   currency_name: Rupee
+   currency_symbol: ₹
+   chef_id: 1
+   chef_name: Admin Chef
+   chef_phone_number: +919703570333
+   chef_image: http://icons.iconarchive.com/icons/iconshock/cook/256/cheff-icon.png
+   chef_rating: 5
+   nutrition: 2768kJ
+   food_image_1: http://www.taste.com.au/images/recipes/sfi/2009/07/23417_l.jpg
+   food_image_2: 
+   food_image_3: 
+   food_image_4: 
+   log_datetime: 2015-07-09 12:00:25
+[0m
+[37mEnd at ([0m[34m0.015[0m[37m): 2015-12-11 00:02:53 - 2015-12-11 05:32:53
+
+[96m********************************************************************************[0m[37m
+GetFoodItems.php: 2015-12-11 00:14:05 - 2015-12-11 05:44:05[0m
+[94m
+[4mPOST Req Data[24m:
+   page_start: 1
+   page_index: 1
+[0m
+[39mQuery: SELECT food_item.item_id,
+                        food_item.`name` AS food_name,
+                        food_item.description,
+                        food_item.ingredients,
+                        food_item.preparation_method,
+                        food_item.rating AS food_rating,
+                        category.category_id,
+                        category.category_name,
+                        food_item.price,
+                        currency.currency_id,
+                        currency.currency_name,
+                        currency.currency_symbol,
+                        chef.chef_id,
+                        CONCAT(chef.f_name, ' ', chef.l_name) AS chef_name,
+                        CONCAT(chef.country_code, chef.phone_number) AS chef_phone_number,
+                        chef.image_url AS chef_image,
+                        chef.rating AS chef_rating,
+                        food_item.nutrition,
+                        COALESCE(food_item.food_image_1, '') AS food_image_1,
+                        COALESCE(food_item.food_image_2, '') AS food_image_2,
+                        COALESCE(food_item.food_image_3, '') AS food_image_3,
+                        COALESCE(food_item.food_image_4, '') AS food_image_4,
+                        food_item.log_datetime
+                FROM food_item INNER JOIN category ON food_item.category_id = category.category_id
+                         INNER JOIN currency ON food_item.currency_id = currency.currency_id
+                         INNER JOIN chef ON food_item.chef_id = chef.chef_id   ORDER BY food_name ASC
+                LIMIT 0, 5;[0m
+[94m
+[4mResult for food items[24m:
+   item_id: 9
+   food_name: Asian greens and shiitake mushrooms
+
+
+   description: Discover the taste of Asia with this authentic stir fry side dish starring fresh greens and shiitake mushrooms.
+
+   ingredients: 2 tablespoons peanut oil
+ 2 garlic cloves, crushed
+ 2 teaspoons finely grated fresh ginger
+ 100g fresh shiitake mushrooms, thinly sliced
+ 1 bunch baby pak choy, trimmed, leaves separated, stems cut from leaves
+ 1 bunch baby bok choy, trimmed
+ 1 x 425g can baby corn spears, drained
+ 2 tablespoons oyster sauce
+ 1 tablespoon soy sauce
+ 2 tablespoons water
+   preparation_method: Heat oil in a large frying pan or wok over medium-high heat. Add garlic and ginger. Stir-fry for 30 seconds or until aromatic.
+Add the mushroom and stir-fry for 2 minutes. Add the pak choy stems and stir-fry for 1 minute. Add the pak choy leaves, buk choy, corn, oyster sauce and soy sauce. Toss to combine.
+Add the water and reduce heat to low. Cover and cook for 2 minutes or until the vegetables are just tender. Serve.
+
+   food_rating: 2
+   category_id: 2
+   category_name: Non-Veg
+   price: 180
+   currency_id: 1
+   currency_name: Rupee
+   currency_symbol: ₹
+   chef_id: 1
+   chef_name: Admin Chef
+   chef_phone_number: +919703570333
+   chef_image: http://icons.iconarchive.com/icons/iconshock/cook/256/cheff-icon.png
+   chef_rating: 5
+   nutrition: 420kJ
+   food_image_1: http://www.taste.com.au/images/recipes/agt/2009/01/21475_l.jpg
+   food_image_2: 
+   food_image_3: 
+   food_image_4: 
+   log_datetime: 2015-07-09 15:08:57
+   item_id: 8
+   food_name: Asian soft noodle cabbage salad
+
+
+   description: Who doesn't love the classic noodle salad? Try our updated recipe that uses hokkien noodles for a twist of the unexpected.
+
+   ingredients: 1/2 x 440g packet thin hokkien noodles
+ 1/4 small (350g) red cabbage, thickly shredded
+ 1/2 cup bean sprouts, trimmed
+ 1 small red capsicum, thinly sliced
+ 50g snow peas, trimmed, thinly sliced
+ 1/2 cup fresh coriander leaves
+ 2 green onions, thinly sliced diagonally
+   preparation_method: Place noodles in a heatproof bowl. Cover with boiling water. Stand for 2 minutes. Separate noodles with a fork. Drain. Refresh under cold water. Drain well.
+Place cabbage, bean sprouts, capsicum, snow peas, coriander and green onion in a large bowl.
+Make Lime and soy dressing: Place lime juice, soy sauce, sesame oil, rice bran oil, caster sugar and garlic in a small bowl. Whisk until sugar has dissolved.
+Add noodles and dressing to cabbage mixture (see note). Season with pepper. Toss well to combine. Serve.
+
+   food_rating: 4
+   category_id: 1
+   category_name: Veg
+   price: 180
+   currency_id: 1
+   currency_name: Rupee
+   currency_symbol: ₹
+   chef_id: 1
+   chef_name: Admin Chef
+   chef_phone_number: +919703570333
+   chef_image: http://icons.iconarchive.com/icons/iconshock/cook/256/cheff-icon.png
+   chef_rating: 5
+   nutrition: 676kJ
+   food_image_1: http://www.taste.com.au/images/recipes/sfi/2014/10/39529_l.jpg
+   food_image_2: http://4.bp.blogspot.com/-LumLcUIX1Yk/Uq8COXOoqqI/AAAAAAAAOSc/ZwLyuGGjvo4/s1600/wet+noodles.jpg
+   food_image_3: http://site.cknoodle.com/Clients/cknoodle/dscf0116.jpg
+   food_image_4: http://site.cknoodle.com/Clients/cknoodle/dscf0061.jpg
+   log_datetime: 2015-07-09 15:07:49
+   item_id: 10
+   food_name: Banana coconut tapioca puddings (che chuoi)
+
+
+   description: Tropical banana, mango and pineapple are the star ingredients in this exotic Asian boba pudding.
+
+   ingredients: 1 cup (200g) tapioca pearls
+ 400g can coconut milk
+ 1 cup (250ml) water
+ 1/2 cup (80g) finely chopped palm sugar
+ 2 pandan leaves, tied into a knot
+ 3 just ripe bananas, peeled, thickly sliced
+ 2 tablespoons finely grated dark palm sugar (see note)
+ 1 tablespoon water, extra
+ 1 tablespoon sesame seeds
+ 1 mango, peeled, thinly sliced, to serve
+ 1/2 ripe pineapple, peeled, thinly sliced, to serve
+   preparation_method: Place the tapioca in a large bowl and cover with cold water. Set aside for 2 hours to soak. Strain through a fine sieve. Cook in a large saucepan of boiling water for 10 minutes or until opaque. Drain well.
+Meanwhile, combine the coconut milk, water, sugar and pandan leaves in a large saucepan over low heat. Cook, stirring, for 5 minutes or until sugar dissolves and mixture is heated through. Add the tapioca and gently stir to combine. Remove from heat and set aside to cool slightly. Add the banana and transfer to a bowl and cover with plastic wrap. Place in the fridge to chill.
+Combine the dark palm sugar and water in a small frying pan over high heat. Cook, stirring, for 2 minutes or until sugar dissolves. Add the sesame seeds and cook, stirring, for 2 minutes or until syrup thickens.
+Remove and discard the pandan leaves from tapioca. Spoon the tapioca among serving bowls. Serve topped with mango and pineapple slices and drizzle with sesame syrup.
+
+   food_rating: 3
+   category_id: 1
+   category_name: Veg
+   price: 120
+   currency_id: 1
+   currency_name: Rupee
+   currency_symbol: ₹
+   chef_id: 1
+   chef_name: Admin Chef
+   chef_phone_number: +919703570333
+   chef_image: http://icons.iconarchive.com/icons/iconshock/cook/256/cheff-icon.png
+   chef_rating: 5
+   nutrition: 1581kJ
+   food_image_1: http://www.taste.com.au/images/recipes/nb/2008/02/19022_l.jpg
+   food_image_2: 
+   food_image_3: 
+   food_image_4: 
+   log_datetime: 2015-07-09 15:10:47
+   item_id: 7
+   food_name: Banh xeo (crispy pancakes)
+
+
+   description: Take inspiration from Vietnamese cooking for this fresh and fragrant Asian pork pancake dish.
+
+   ingredients: 220g (1 1/4 cups) rice flour
+ 2 tablespoons cornflour
+ 1 x 400ml can coconut milk
+ 310ml (1 1/4 cups) iced water
+ 1 teaspoon ground turmeric
+ 1 teaspoon sugar
+ 1/2 teaspoon salt
+ Pinch of white pepper
+ 2 tablespoons peanut oil
+ 1 brown onion, halved, cut into thin wedges
+ 300g Pork porterhouse Steak, thinly sliced
+ 12 cooked prawns, peeled, coarsely chopped
+ 130g (2 cups) bean sprouts, trimmed
+ Butter lettuce leaves, to serve
+ Fresh mint leaves, to serve
+   preparation_method: To make the nuoc cham, combine fish sauce, lime juice, water, sugar, chilli and garlic in a small bowl. Stir until sugar dissolves.
+Stir the combined flour, coconut milk, water, turmeric, sugar and salt in a medium bowl. Season with white pepper. Cover and place in the fridge for 1 hour or overnight to rest.
+Heat a 20cm (base measurement) non-stick frying pan over high heat. Add 1 tablespoon of oil and heat until just smoking. Stir-fry the onion and pork for 5 minutes or until golden. Transfer to a plate. Wipe the pan clean.
+
+   food_rating: 3
+   category_id: 1
+   category_name: Veg
+   price: 225
+   currency_id: 1
+   currency_name: Rupee
+   currency_symbol: ₹
+   chef_id: 1
+   chef_name: Admin Chef
+   chef_phone_number: +919703570333
+   chef_image: http://icons.iconarchive.com/icons/iconshock/cook/256/cheff-icon.png
+   chef_rating: 5
+   nutrition: 1370kJ
+   food_image_1: http://www.taste.com.au/images/recipes/agt/2009/11/23670_l.jpg
+   food_image_2: 
+   food_image_3: 
+   food_image_4: 
+   log_datetime: 2015-07-09 15:04:57
+   item_id: 1
+   food_name: Chicken biriyani
+   description: Our Chicken biriyani recipe is a great simple meal for winter weeknights.
+
+   ingredients: 1 tablespoon vegetable oil
+ 500g chicken thigh fillets, trimmed, quartered
+ 1 medium brown onion, halved, thinly sliced
+ 1 garlic clove, crushed
+ 2cm piece ginger, peeled, finely grated
+ 1/3 cup balti curry paste
+ 1 1/2 cups SunRice Basmati Rice
+ 1 cinnamon stick
+ 2 cups Gravox Real chicken stock
+ 1 cup thick plain yoghurt
+ 1 Lebanese cucumber, deseeded, grated
+ 1/2 teaspoon ground cumin
+ Toasted flaked almonds and fresh coriander leaves, to serve
+   preparation_method: Heat oil in a heavy-based saucepan over medium-high heat. Cook chicken, turning, for 5 minutes or until browned. Transfer to a plate. Cook onion, garlic and ginger for 2 to 3 minutes or until onion has softened. Add curry paste. Cook for 1 minute or until fragrant. Add rice. Stir to coat.
+Add cinnamon, stock and 1 cup cold water. Bring to the boil. Return chicken to pan. Reduce heat to low. Cover. Cook for 20 minutes or until rice is tender and chicken cooked through. Remove cinnamon. Discard.
+Combine yoghurt, cucumber and cumin in a bowl. Sprinkle biriyani with almonds and coriander. Serve with yoghurt mixture.
+
+   food_rating: 255
+   category_id: 2
+   category_name: Non-Veg
+   price: 220
+   currency_id: 1
+   currency_name: Rupee
+   currency_symbol: ₹
+   chef_id: 1
+   chef_name: Admin Chef
+   chef_phone_number: +919703570333
+   chef_image: http://icons.iconarchive.com/icons/iconshock/cook/256/cheff-icon.png
+   chef_rating: 5
+   nutrition: 2768kJ
+   food_image_1: http://www.taste.com.au/images/recipes/sfi/2009/07/23417_l.jpg
+   food_image_2: 
+   food_image_3: 
+   food_image_4: 
+   log_datetime: 2015-07-09 12:00:25
+[0m
+[37mEnd at ([0m[34m0.011[0m[37m): 2015-12-11 00:14:05 - 2015-12-11 05:44:05
+
+[96m********************************************************************************[0m[37m
+GetFoodItems.php: 2015-12-11 00:15:26 - 2015-12-11 05:45:26[0m
+[94m
+[4mPOST Req Data[24m:
+   page_start: 1
+   page_index: 1
+[0m
+[39mQuery: SELECT food_item.item_id,
+                        food_item.`name` AS food_name,
+                        food_item.description,
+                        food_item.ingredients,
+                        food_item.preparation_method,
+                        food_item.rating AS food_rating,
+                        category.category_id,
+                        category.category_name,
+                        food_item.price,
+                        currency.currency_id,
+                        currency.currency_name,
+                        currency.currency_symbol,
+                        chef.chef_id,
+                        CONCAT(chef.f_name, ' ', chef.l_name) AS chef_name,
+                        CONCAT(chef.country_code, chef.phone_number) AS chef_phone_number,
+                        chef.image_url AS chef_image,
+                        chef.rating AS chef_rating,
+                        food_item.nutrition,
+                        COALESCE(food_item.food_image_1, '') AS food_image_1,
+                        COALESCE(food_item.food_image_2, '') AS food_image_2,
+                        COALESCE(food_item.food_image_3, '') AS food_image_3,
+                        COALESCE(food_item.food_image_4, '') AS food_image_4,
+                        food_item.log_datetime
+                FROM food_item INNER JOIN category ON food_item.category_id = category.category_id
+                         INNER JOIN currency ON food_item.currency_id = currency.currency_id
+                         INNER JOIN chef ON food_item.chef_id = chef.chef_id   ORDER BY food_name ASC
+                LIMIT 0, 5;[0m
+[94m
+[4mResult for food items[24m:
+   item_id: 9
+   food_name: Asian greens and shiitake mushrooms
+
+
+   description: Discover the taste of Asia with this authentic stir fry side dish starring fresh greens and shiitake mushrooms.
+
+   ingredients: 2 tablespoons peanut oil
+ 2 garlic cloves, crushed
+ 2 teaspoons finely grated fresh ginger
+ 100g fresh shiitake mushrooms, thinly sliced
+ 1 bunch baby pak choy, trimmed, leaves separated, stems cut from leaves
+ 1 bunch baby bok choy, trimmed
+ 1 x 425g can baby corn spears, drained
+ 2 tablespoons oyster sauce
+ 1 tablespoon soy sauce
+ 2 tablespoons water
+   preparation_method: Heat oil in a large frying pan or wok over medium-high heat. Add garlic and ginger. Stir-fry for 30 seconds or until aromatic.
+Add the mushroom and stir-fry for 2 minutes. Add the pak choy stems and stir-fry for 1 minute. Add the pak choy leaves, buk choy, corn, oyster sauce and soy sauce. Toss to combine.
+Add the water and reduce heat to low. Cover and cook for 2 minutes or until the vegetables are just tender. Serve.
+
+   food_rating: 2
+   category_id: 2
+   category_name: Non-Veg
+   price: 180
+   currency_id: 1
+   currency_name: Rupee
+   currency_symbol: ₹
+   chef_id: 1
+   chef_name: Admin Chef
+   chef_phone_number: +919703570333
+   chef_image: http://icons.iconarchive.com/icons/iconshock/cook/256/cheff-icon.png
+   chef_rating: 5
+   nutrition: 420kJ
+   food_image_1: http://www.taste.com.au/images/recipes/agt/2009/01/21475_l.jpg
+   food_image_2: 
+   food_image_3: 
+   food_image_4: 
+   log_datetime: 2015-07-09 15:08:57
+   item_id: 8
+   food_name: Asian soft noodle cabbage salad
+
+
+   description: Who doesn't love the classic noodle salad? Try our updated recipe that uses hokkien noodles for a twist of the unexpected.
+
+   ingredients: 1/2 x 440g packet thin hokkien noodles
+ 1/4 small (350g) red cabbage, thickly shredded
+ 1/2 cup bean sprouts, trimmed
+ 1 small red capsicum, thinly sliced
+ 50g snow peas, trimmed, thinly sliced
+ 1/2 cup fresh coriander leaves
+ 2 green onions, thinly sliced diagonally
+   preparation_method: Place noodles in a heatproof bowl. Cover with boiling water. Stand for 2 minutes. Separate noodles with a fork. Drain. Refresh under cold water. Drain well.
+Place cabbage, bean sprouts, capsicum, snow peas, coriander and green onion in a large bowl.
+Make Lime and soy dressing: Place lime juice, soy sauce, sesame oil, rice bran oil, caster sugar and garlic in a small bowl. Whisk until sugar has dissolved.
+Add noodles and dressing to cabbage mixture (see note). Season with pepper. Toss well to combine. Serve.
+
+   food_rating: 4
+   category_id: 1
+   category_name: Veg
+   price: 180
+   currency_id: 1
+   currency_name: Rupee
+   currency_symbol: ₹
+   chef_id: 1
+   chef_name: Admin Chef
+   chef_phone_number: +919703570333
+   chef_image: http://icons.iconarchive.com/icons/iconshock/cook/256/cheff-icon.png
+   chef_rating: 5
+   nutrition: 676kJ
+   food_image_1: http://www.taste.com.au/images/recipes/sfi/2014/10/39529_l.jpg
+   food_image_2: http://4.bp.blogspot.com/-LumLcUIX1Yk/Uq8COXOoqqI/AAAAAAAAOSc/ZwLyuGGjvo4/s1600/wet+noodles.jpg
+   food_image_3: http://site.cknoodle.com/Clients/cknoodle/dscf0116.jpg
+   food_image_4: http://site.cknoodle.com/Clients/cknoodle/dscf0061.jpg
+   log_datetime: 2015-07-09 15:07:49
+   item_id: 10
+   food_name: Banana coconut tapioca puddings (che chuoi)
+
+
+   description: Tropical banana, mango and pineapple are the star ingredients in this exotic Asian boba pudding.
+
+   ingredients: 1 cup (200g) tapioca pearls
+ 400g can coconut milk
+ 1 cup (250ml) water
+ 1/2 cup (80g) finely chopped palm sugar
+ 2 pandan leaves, tied into a knot
+ 3 just ripe bananas, peeled, thickly sliced
+ 2 tablespoons finely grated dark palm sugar (see note)
+ 1 tablespoon water, extra
+ 1 tablespoon sesame seeds
+ 1 mango, peeled, thinly sliced, to serve
+ 1/2 ripe pineapple, peeled, thinly sliced, to serve
+   preparation_method: Place the tapioca in a large bowl and cover with cold water. Set aside for 2 hours to soak. Strain through a fine sieve. Cook in a large saucepan of boiling water for 10 minutes or until opaque. Drain well.
+Meanwhile, combine the coconut milk, water, sugar and pandan leaves in a large saucepan over low heat. Cook, stirring, for 5 minutes or until sugar dissolves and mixture is heated through. Add the tapioca and gently stir to combine. Remove from heat and set aside to cool slightly. Add the banana and transfer to a bowl and cover with plastic wrap. Place in the fridge to chill.
+Combine the dark palm sugar and water in a small frying pan over high heat. Cook, stirring, for 2 minutes or until sugar dissolves. Add the sesame seeds and cook, stirring, for 2 minutes or until syrup thickens.
+Remove and discard the pandan leaves from tapioca. Spoon the tapioca among serving bowls. Serve topped with mango and pineapple slices and drizzle with sesame syrup.
+
+   food_rating: 3
+   category_id: 1
+   category_name: Veg
+   price: 120
+   currency_id: 1
+   currency_name: Rupee
+   currency_symbol: ₹
+   chef_id: 1
+   chef_name: Admin Chef
+   chef_phone_number: +919703570333
+   chef_image: http://icons.iconarchive.com/icons/iconshock/cook/256/cheff-icon.png
+   chef_rating: 5
+   nutrition: 1581kJ
+   food_image_1: http://www.taste.com.au/images/recipes/nb/2008/02/19022_l.jpg
+   food_image_2: 
+   food_image_3: 
+   food_image_4: 
+   log_datetime: 2015-07-09 15:10:47
+   item_id: 7
+   food_name: Banh xeo (crispy pancakes)
+
+
+   description: Take inspiration from Vietnamese cooking for this fresh and fragrant Asian pork pancake dish.
+
+   ingredients: 220g (1 1/4 cups) rice flour
+ 2 tablespoons cornflour
+ 1 x 400ml can coconut milk
+ 310ml (1 1/4 cups) iced water
+ 1 teaspoon ground turmeric
+ 1 teaspoon sugar
+ 1/2 teaspoon salt
+ Pinch of white pepper
+ 2 tablespoons peanut oil
+ 1 brown onion, halved, cut into thin wedges
+ 300g Pork porterhouse Steak, thinly sliced
+ 12 cooked prawns, peeled, coarsely chopped
+ 130g (2 cups) bean sprouts, trimmed
+ Butter lettuce leaves, to serve
+ Fresh mint leaves, to serve
+   preparation_method: To make the nuoc cham, combine fish sauce, lime juice, water, sugar, chilli and garlic in a small bowl. Stir until sugar dissolves.
+Stir the combined flour, coconut milk, water, turmeric, sugar and salt in a medium bowl. Season with white pepper. Cover and place in the fridge for 1 hour or overnight to rest.
+Heat a 20cm (base measurement) non-stick frying pan over high heat. Add 1 tablespoon of oil and heat until just smoking. Stir-fry the onion and pork for 5 minutes or until golden. Transfer to a plate. Wipe the pan clean.
+
+   food_rating: 3
+   category_id: 1
+   category_name: Veg
+   price: 225
+   currency_id: 1
+   currency_name: Rupee
+   currency_symbol: ₹
+   chef_id: 1
+   chef_name: Admin Chef
+   chef_phone_number: +919703570333
+   chef_image: http://icons.iconarchive.com/icons/iconshock/cook/256/cheff-icon.png
+   chef_rating: 5
+   nutrition: 1370kJ
+   food_image_1: http://www.taste.com.au/images/recipes/agt/2009/11/23670_l.jpg
+   food_image_2: 
+   food_image_3: 
+   food_image_4: 
+   log_datetime: 2015-07-09 15:04:57
+   item_id: 1
+   food_name: Chicken biriyani
+   description: Our Chicken biriyani recipe is a great simple meal for winter weeknights.
+
+   ingredients: 1 tablespoon vegetable oil
+ 500g chicken thigh fillets, trimmed, quartered
+ 1 medium brown onion, halved, thinly sliced
+ 1 garlic clove, crushed
+ 2cm piece ginger, peeled, finely grated
+ 1/3 cup balti curry paste
+ 1 1/2 cups SunRice Basmati Rice
+ 1 cinnamon stick
+ 2 cups Gravox Real chicken stock
+ 1 cup thick plain yoghurt
+ 1 Lebanese cucumber, deseeded, grated
+ 1/2 teaspoon ground cumin
+ Toasted flaked almonds and fresh coriander leaves, to serve
+   preparation_method: Heat oil in a heavy-based saucepan over medium-high heat. Cook chicken, turning, for 5 minutes or until browned. Transfer to a plate. Cook onion, garlic and ginger for 2 to 3 minutes or until onion has softened. Add curry paste. Cook for 1 minute or until fragrant. Add rice. Stir to coat.
+Add cinnamon, stock and 1 cup cold water. Bring to the boil. Return chicken to pan. Reduce heat to low. Cover. Cook for 20 minutes or until rice is tender and chicken cooked through. Remove cinnamon. Discard.
+Combine yoghurt, cucumber and cumin in a bowl. Sprinkle biriyani with almonds and coriander. Serve with yoghurt mixture.
+
+   food_rating: 255
+   category_id: 2
+   category_name: Non-Veg
+   price: 220
+   currency_id: 1
+   currency_name: Rupee
+   currency_symbol: ₹
+   chef_id: 1
+   chef_name: Admin Chef
+   chef_phone_number: +919703570333
+   chef_image: http://icons.iconarchive.com/icons/iconshock/cook/256/cheff-icon.png
+   chef_rating: 5
+   nutrition: 2768kJ
+   food_image_1: http://www.taste.com.au/images/recipes/sfi/2009/07/23417_l.jpg
+   food_image_2: 
+   food_image_3: 
+   food_image_4: 
+   log_datetime: 2015-07-09 12:00:25
+[0m
+[37mEnd at ([0m[34m0.006[0m[37m): 2015-12-11 00:15:26 - 2015-12-11 05:45:26
+
+[96m********************************************************************************[0m[37m
+GetFoodItems.php: 2015-12-11 00:16:19 - 2015-12-11 05:46:19[0m
+[94m
+[4mPOST Req Data[24m:
+   page_start: 1
+   page_index: 1
+[0m
+[39mQuery: SELECT food_item.item_id,
+                        food_item.`name` AS food_name,
+                        food_item.description,
+                        food_item.ingredients,
+                        food_item.preparation_method,
+                        food_item.rating AS food_rating,
+                        category.category_id,
+                        category.category_name,
+                        food_item.price,
+                        currency.currency_id,
+                        currency.currency_name,
+                        currency.currency_symbol,
+                        chef.chef_id,
+                        CONCAT(chef.f_name, ' ', chef.l_name) AS chef_name,
+                        CONCAT(chef.country_code, chef.phone_number) AS chef_phone_number,
+                        chef.image_url AS chef_image,
+                        chef.rating AS chef_rating,
+                        food_item.nutrition,
+                        COALESCE(food_item.food_image_1, '') AS food_image_1,
+                        COALESCE(food_item.food_image_2, '') AS food_image_2,
+                        COALESCE(food_item.food_image_3, '') AS food_image_3,
+                        COALESCE(food_item.food_image_4, '') AS food_image_4,
+                        food_item.log_datetime
+                FROM food_item INNER JOIN category ON food_item.category_id = category.category_id
+                         INNER JOIN currency ON food_item.currency_id = currency.currency_id
+                         INNER JOIN chef ON food_item.chef_id = chef.chef_id   ORDER BY food_name ASC
+                LIMIT 0, 5;[0m
+[94m
+[4mResult for food items[24m:
+   item_id: 9
+   food_name: Asian greens and shiitake mushrooms
+
+
+   description: Discover the taste of Asia with this authentic stir fry side dish starring fresh greens and shiitake mushrooms.
+
+   ingredients: 2 tablespoons peanut oil
+ 2 garlic cloves, crushed
+ 2 teaspoons finely grated fresh ginger
+ 100g fresh shiitake mushrooms, thinly sliced
+ 1 bunch baby pak choy, trimmed, leaves separated, stems cut from leaves
+ 1 bunch baby bok choy, trimmed
+ 1 x 425g can baby corn spears, drained
+ 2 tablespoons oyster sauce
+ 1 tablespoon soy sauce
+ 2 tablespoons water
+   preparation_method: Heat oil in a large frying pan or wok over medium-high heat. Add garlic and ginger. Stir-fry for 30 seconds or until aromatic.
+Add the mushroom and stir-fry for 2 minutes. Add the pak choy stems and stir-fry for 1 minute. Add the pak choy leaves, buk choy, corn, oyster sauce and soy sauce. Toss to combine.
+Add the water and reduce heat to low. Cover and cook for 2 minutes or until the vegetables are just tender. Serve.
+
+   food_rating: 2
+   category_id: 2
+   category_name: Non-Veg
+   price: 180
+   currency_id: 1
+   currency_name: Rupee
+   currency_symbol: ₹
+   chef_id: 1
+   chef_name: Admin Chef
+   chef_phone_number: +919703570333
+   chef_image: http://icons.iconarchive.com/icons/iconshock/cook/256/cheff-icon.png
+   chef_rating: 5
+   nutrition: 420kJ
+   food_image_1: http://www.taste.com.au/images/recipes/agt/2009/01/21475_l.jpg
+   food_image_2: 
+   food_image_3: 
+   food_image_4: 
+   log_datetime: 2015-07-09 15:08:57
+   item_id: 8
+   food_name: Asian soft noodle cabbage salad
+
+
+   description: Who doesn't love the classic noodle salad? Try our updated recipe that uses hokkien noodles for a twist of the unexpected.
+
+   ingredients: 1/2 x 440g packet thin hokkien noodles
+ 1/4 small (350g) red cabbage, thickly shredded
+ 1/2 cup bean sprouts, trimmed
+ 1 small red capsicum, thinly sliced
+ 50g snow peas, trimmed, thinly sliced
+ 1/2 cup fresh coriander leaves
+ 2 green onions, thinly sliced diagonally
+   preparation_method: Place noodles in a heatproof bowl. Cover with boiling water. Stand for 2 minutes. Separate noodles with a fork. Drain. Refresh under cold water. Drain well.
+Place cabbage, bean sprouts, capsicum, snow peas, coriander and green onion in a large bowl.
+Make Lime and soy dressing: Place lime juice, soy sauce, sesame oil, rice bran oil, caster sugar and garlic in a small bowl. Whisk until sugar has dissolved.
+Add noodles and dressing to cabbage mixture (see note). Season with pepper. Toss well to combine. Serve.
+
+   food_rating: 4
+   category_id: 1
+   category_name: Veg
+   price: 180
+   currency_id: 1
+   currency_name: Rupee
+   currency_symbol: ₹
+   chef_id: 1
+   chef_name: Admin Chef
+   chef_phone_number: +919703570333
+   chef_image: http://icons.iconarchive.com/icons/iconshock/cook/256/cheff-icon.png
+   chef_rating: 5
+   nutrition: 676kJ
+   food_image_1: http://www.taste.com.au/images/recipes/sfi/2014/10/39529_l.jpg
+   food_image_2: http://4.bp.blogspot.com/-LumLcUIX1Yk/Uq8COXOoqqI/AAAAAAAAOSc/ZwLyuGGjvo4/s1600/wet+noodles.jpg
+   food_image_3: http://site.cknoodle.com/Clients/cknoodle/dscf0116.jpg
+   food_image_4: http://site.cknoodle.com/Clients/cknoodle/dscf0061.jpg
+   log_datetime: 2015-07-09 15:07:49
+   item_id: 10
+   food_name: Banana coconut tapioca puddings (che chuoi)
+
+
+   description: Tropical banana, mango and pineapple are the star ingredients in this exotic Asian boba pudding.
+
+   ingredients: 1 cup (200g) tapioca pearls
+ 400g can coconut milk
+ 1 cup (250ml) water
+ 1/2 cup (80g) finely chopped palm sugar
+ 2 pandan leaves, tied into a knot
+ 3 just ripe bananas, peeled, thickly sliced
+ 2 tablespoons finely grated dark palm sugar (see note)
+ 1 tablespoon water, extra
+ 1 tablespoon sesame seeds
+ 1 mango, peeled, thinly sliced, to serve
+ 1/2 ripe pineapple, peeled, thinly sliced, to serve
+   preparation_method: Place the tapioca in a large bowl and cover with cold water. Set aside for 2 hours to soak. Strain through a fine sieve. Cook in a large saucepan of boiling water for 10 minutes or until opaque. Drain well.
+Meanwhile, combine the coconut milk, water, sugar and pandan leaves in a large saucepan over low heat. Cook, stirring, for 5 minutes or until sugar dissolves and mixture is heated through. Add the tapioca and gently stir to combine. Remove from heat and set aside to cool slightly. Add the banana and transfer to a bowl and cover with plastic wrap. Place in the fridge to chill.
+Combine the dark palm sugar and water in a small frying pan over high heat. Cook, stirring, for 2 minutes or until sugar dissolves. Add the sesame seeds and cook, stirring, for 2 minutes or until syrup thickens.
+Remove and discard the pandan leaves from tapioca. Spoon the tapioca among serving bowls. Serve topped with mango and pineapple slices and drizzle with sesame syrup.
+
+   food_rating: 3
+   category_id: 1
+   category_name: Veg
+   price: 120
+   currency_id: 1
+   currency_name: Rupee
+   currency_symbol: ₹
+   chef_id: 1
+   chef_name: Admin Chef
+   chef_phone_number: +919703570333
+   chef_image: http://icons.iconarchive.com/icons/iconshock/cook/256/cheff-icon.png
+   chef_rating: 5
+   nutrition: 1581kJ
+   food_image_1: http://www.taste.com.au/images/recipes/nb/2008/02/19022_l.jpg
+   food_image_2: 
+   food_image_3: 
+   food_image_4: 
+   log_datetime: 2015-07-09 15:10:47
+   item_id: 7
+   food_name: Banh xeo (crispy pancakes)
+
+
+   description: Take inspiration from Vietnamese cooking for this fresh and fragrant Asian pork pancake dish.
+
+   ingredients: 220g (1 1/4 cups) rice flour
+ 2 tablespoons cornflour
+ 1 x 400ml can coconut milk
+ 310ml (1 1/4 cups) iced water
+ 1 teaspoon ground turmeric
+ 1 teaspoon sugar
+ 1/2 teaspoon salt
+ Pinch of white pepper
+ 2 tablespoons peanut oil
+ 1 brown onion, halved, cut into thin wedges
+ 300g Pork porterhouse Steak, thinly sliced
+ 12 cooked prawns, peeled, coarsely chopped
+ 130g (2 cups) bean sprouts, trimmed
+ Butter lettuce leaves, to serve
+ Fresh mint leaves, to serve
+   preparation_method: To make the nuoc cham, combine fish sauce, lime juice, water, sugar, chilli and garlic in a small bowl. Stir until sugar dissolves.
+Stir the combined flour, coconut milk, water, turmeric, sugar and salt in a medium bowl. Season with white pepper. Cover and place in the fridge for 1 hour or overnight to rest.
+Heat a 20cm (base measurement) non-stick frying pan over high heat. Add 1 tablespoon of oil and heat until just smoking. Stir-fry the onion and pork for 5 minutes or until golden. Transfer to a plate. Wipe the pan clean.
+
+   food_rating: 3
+   category_id: 1
+   category_name: Veg
+   price: 225
+   currency_id: 1
+   currency_name: Rupee
+   currency_symbol: ₹
+   chef_id: 1
+   chef_name: Admin Chef
+   chef_phone_number: +919703570333
+   chef_image: http://icons.iconarchive.com/icons/iconshock/cook/256/cheff-icon.png
+   chef_rating: 5
+   nutrition: 1370kJ
+   food_image_1: http://www.taste.com.au/images/recipes/agt/2009/11/23670_l.jpg
+   food_image_2: 
+   food_image_3: 
+   food_image_4: 
+   log_datetime: 2015-07-09 15:04:57
+   item_id: 1
+   food_name: Chicken biriyani
+   description: Our Chicken biriyani recipe is a great simple meal for winter weeknights.
+
+   ingredients: 1 tablespoon vegetable oil
+ 500g chicken thigh fillets, trimmed, quartered
+ 1 medium brown onion, halved, thinly sliced
+ 1 garlic clove, crushed
+ 2cm piece ginger, peeled, finely grated
+ 1/3 cup balti curry paste
+ 1 1/2 cups SunRice Basmati Rice
+ 1 cinnamon stick
+ 2 cups Gravox Real chicken stock
+ 1 cup thick plain yoghurt
+ 1 Lebanese cucumber, deseeded, grated
+ 1/2 teaspoon ground cumin
+ Toasted flaked almonds and fresh coriander leaves, to serve
+   preparation_method: Heat oil in a heavy-based saucepan over medium-high heat. Cook chicken, turning, for 5 minutes or until browned. Transfer to a plate. Cook onion, garlic and ginger for 2 to 3 minutes or until onion has softened. Add curry paste. Cook for 1 minute or until fragrant. Add rice. Stir to coat.
+Add cinnamon, stock and 1 cup cold water. Bring to the boil. Return chicken to pan. Reduce heat to low. Cover. Cook for 20 minutes or until rice is tender and chicken cooked through. Remove cinnamon. Discard.
+Combine yoghurt, cucumber and cumin in a bowl. Sprinkle biriyani with almonds and coriander. Serve with yoghurt mixture.
+
+   food_rating: 255
+   category_id: 2
+   category_name: Non-Veg
+   price: 220
+   currency_id: 1
+   currency_name: Rupee
+   currency_symbol: ₹
+   chef_id: 1
+   chef_name: Admin Chef
+   chef_phone_number: +919703570333
+   chef_image: http://icons.iconarchive.com/icons/iconshock/cook/256/cheff-icon.png
+   chef_rating: 5
+   nutrition: 2768kJ
+   food_image_1: http://www.taste.com.au/images/recipes/sfi/2009/07/23417_l.jpg
+   food_image_2: 
+   food_image_3: 
+   food_image_4: 
+   log_datetime: 2015-07-09 12:00:25
+[0m
+[37mEnd at ([0m[34m0.009[0m[37m): 2015-12-11 00:16:19 - 2015-12-11 05:46:19
+
+[96m********************************************************************************[0m[37m
+GetFoodItems.php: 2015-12-11 00:18:23 - 2015-12-11 05:48:23[0m
+[94m
+[4mPOST Req Data[24m:
+   page_start: 1
+   page_index: 1
+[0m
+[39mQuery: SELECT food_item.item_id,
+                        food_item.`name` AS food_name,
+                        food_item.description,
+                        food_item.ingredients,
+                        food_item.preparation_method,
+                        food_item.rating AS food_rating,
+                        category.category_id,
+                        category.category_name,
+                        food_item.price,
+                        currency.currency_id,
+                        currency.currency_name,
+                        currency.currency_symbol,
+                        chef.chef_id,
+                        CONCAT(chef.f_name, ' ', chef.l_name) AS chef_name,
+                        CONCAT(chef.country_code, chef.phone_number) AS chef_phone_number,
+                        chef.image_url AS chef_image,
+                        chef.rating AS chef_rating,
+                        food_item.nutrition,
+                        COALESCE(food_item.food_image_1, '') AS food_image_1,
+                        COALESCE(food_item.food_image_2, '') AS food_image_2,
+                        COALESCE(food_item.food_image_3, '') AS food_image_3,
+                        COALESCE(food_item.food_image_4, '') AS food_image_4,
+                        food_item.log_datetime
+                FROM food_item INNER JOIN category ON food_item.category_id = category.category_id
+                         INNER JOIN currency ON food_item.currency_id = currency.currency_id
+                         INNER JOIN chef ON food_item.chef_id = chef.chef_id   ORDER BY food_name ASC
+                LIMIT 0, 5;[0m
+[94m
+[4mResult for food items[24m:
+   item_id: 9
+   food_name: Asian greens and shiitake mushrooms
+
+
+   description: Discover the taste of Asia with this authentic stir fry side dish starring fresh greens and shiitake mushrooms.
+
+   ingredients: 2 tablespoons peanut oil
+ 2 garlic cloves, crushed
+ 2 teaspoons finely grated fresh ginger
+ 100g fresh shiitake mushrooms, thinly sliced
+ 1 bunch baby pak choy, trimmed, leaves separated, stems cut from leaves
+ 1 bunch baby bok choy, trimmed
+ 1 x 425g can baby corn spears, drained
+ 2 tablespoons oyster sauce
+ 1 tablespoon soy sauce
+ 2 tablespoons water
+   preparation_method: Heat oil in a large frying pan or wok over medium-high heat. Add garlic and ginger. Stir-fry for 30 seconds or until aromatic.
+Add the mushroom and stir-fry for 2 minutes. Add the pak choy stems and stir-fry for 1 minute. Add the pak choy leaves, buk choy, corn, oyster sauce and soy sauce. Toss to combine.
+Add the water and reduce heat to low. Cover and cook for 2 minutes or until the vegetables are just tender. Serve.
+
+   food_rating: 2
+   category_id: 2
+   category_name: Non-Veg
+   price: 180
+   currency_id: 1
+   currency_name: Rupee
+   currency_symbol: ₹
+   chef_id: 1
+   chef_name: Admin Chef
+   chef_phone_number: +919703570333
+   chef_image: http://icons.iconarchive.com/icons/iconshock/cook/256/cheff-icon.png
+   chef_rating: 5
+   nutrition: 420kJ
+   food_image_1: http://www.taste.com.au/images/recipes/agt/2009/01/21475_l.jpg
+   food_image_2: 
+   food_image_3: 
+   food_image_4: 
+   log_datetime: 2015-07-09 15:08:57
+   item_id: 8
+   food_name: Asian soft noodle cabbage salad
+
+
+   description: Who doesn't love the classic noodle salad? Try our updated recipe that uses hokkien noodles for a twist of the unexpected.
+
+   ingredients: 1/2 x 440g packet thin hokkien noodles
+ 1/4 small (350g) red cabbage, thickly shredded
+ 1/2 cup bean sprouts, trimmed
+ 1 small red capsicum, thinly sliced
+ 50g snow peas, trimmed, thinly sliced
+ 1/2 cup fresh coriander leaves
+ 2 green onions, thinly sliced diagonally
+   preparation_method: Place noodles in a heatproof bowl. Cover with boiling water. Stand for 2 minutes. Separate noodles with a fork. Drain. Refresh under cold water. Drain well.
+Place cabbage, bean sprouts, capsicum, snow peas, coriander and green onion in a large bowl.
+Make Lime and soy dressing: Place lime juice, soy sauce, sesame oil, rice bran oil, caster sugar and garlic in a small bowl. Whisk until sugar has dissolved.
+Add noodles and dressing to cabbage mixture (see note). Season with pepper. Toss well to combine. Serve.
+
+   food_rating: 4
+   category_id: 1
+   category_name: Veg
+   price: 180
+   currency_id: 1
+   currency_name: Rupee
+   currency_symbol: ₹
+   chef_id: 1
+   chef_name: Admin Chef
+   chef_phone_number: +919703570333
+   chef_image: http://icons.iconarchive.com/icons/iconshock/cook/256/cheff-icon.png
+   chef_rating: 5
+   nutrition: 676kJ
+   food_image_1: http://www.taste.com.au/images/recipes/sfi/2014/10/39529_l.jpg
+   food_image_2: http://4.bp.blogspot.com/-LumLcUIX1Yk/Uq8COXOoqqI/AAAAAAAAOSc/ZwLyuGGjvo4/s1600/wet+noodles.jpg
+   food_image_3: http://site.cknoodle.com/Clients/cknoodle/dscf0116.jpg
+   food_image_4: http://site.cknoodle.com/Clients/cknoodle/dscf0061.jpg
+   log_datetime: 2015-07-09 15:07:49
+   item_id: 10
+   food_name: Banana coconut tapioca puddings (che chuoi)
+
+
+   description: Tropical banana, mango and pineapple are the star ingredients in this exotic Asian boba pudding.
+
+   ingredients: 1 cup (200g) tapioca pearls
+ 400g can coconut milk
+ 1 cup (250ml) water
+ 1/2 cup (80g) finely chopped palm sugar
+ 2 pandan leaves, tied into a knot
+ 3 just ripe bananas, peeled, thickly sliced
+ 2 tablespoons finely grated dark palm sugar (see note)
+ 1 tablespoon water, extra
+ 1 tablespoon sesame seeds
+ 1 mango, peeled, thinly sliced, to serve
+ 1/2 ripe pineapple, peeled, thinly sliced, to serve
+   preparation_method: Place the tapioca in a large bowl and cover with cold water. Set aside for 2 hours to soak. Strain through a fine sieve. Cook in a large saucepan of boiling water for 10 minutes or until opaque. Drain well.
+Meanwhile, combine the coconut milk, water, sugar and pandan leaves in a large saucepan over low heat. Cook, stirring, for 5 minutes or until sugar dissolves and mixture is heated through. Add the tapioca and gently stir to combine. Remove from heat and set aside to cool slightly. Add the banana and transfer to a bowl and cover with plastic wrap. Place in the fridge to chill.
+Combine the dark palm sugar and water in a small frying pan over high heat. Cook, stirring, for 2 minutes or until sugar dissolves. Add the sesame seeds and cook, stirring, for 2 minutes or until syrup thickens.
+Remove and discard the pandan leaves from tapioca. Spoon the tapioca among serving bowls. Serve topped with mango and pineapple slices and drizzle with sesame syrup.
+
+   food_rating: 3
+   category_id: 1
+   category_name: Veg
+   price: 120
+   currency_id: 1
+   currency_name: Rupee
+   currency_symbol: ₹
+   chef_id: 1
+   chef_name: Admin Chef
+   chef_phone_number: +919703570333
+   chef_image: http://icons.iconarchive.com/icons/iconshock/cook/256/cheff-icon.png
+   chef_rating: 5
+   nutrition: 1581kJ
+   food_image_1: http://www.taste.com.au/images/recipes/nb/2008/02/19022_l.jpg
+   food_image_2: 
+   food_image_3: 
+   food_image_4: 
+   log_datetime: 2015-07-09 15:10:47
+   item_id: 7
+   food_name: Banh xeo (crispy pancakes)
+
+
+   description: Take inspiration from Vietnamese cooking for this fresh and fragrant Asian pork pancake dish.
+
+   ingredients: 220g (1 1/4 cups) rice flour
+ 2 tablespoons cornflour
+ 1 x 400ml can coconut milk
+ 310ml (1 1/4 cups) iced water
+ 1 teaspoon ground turmeric
+ 1 teaspoon sugar
+ 1/2 teaspoon salt
+ Pinch of white pepper
+ 2 tablespoons peanut oil
+ 1 brown onion, halved, cut into thin wedges
+ 300g Pork porterhouse Steak, thinly sliced
+ 12 cooked prawns, peeled, coarsely chopped
+ 130g (2 cups) bean sprouts, trimmed
+ Butter lettuce leaves, to serve
+ Fresh mint leaves, to serve
+   preparation_method: To make the nuoc cham, combine fish sauce, lime juice, water, sugar, chilli and garlic in a small bowl. Stir until sugar dissolves.
+Stir the combined flour, coconut milk, water, turmeric, sugar and salt in a medium bowl. Season with white pepper. Cover and place in the fridge for 1 hour or overnight to rest.
+Heat a 20cm (base measurement) non-stick frying pan over high heat. Add 1 tablespoon of oil and heat until just smoking. Stir-fry the onion and pork for 5 minutes or until golden. Transfer to a plate. Wipe the pan clean.
+
+   food_rating: 3
+   category_id: 1
+   category_name: Veg
+   price: 225
+   currency_id: 1
+   currency_name: Rupee
+   currency_symbol: ₹
+   chef_id: 1
+   chef_name: Admin Chef
+   chef_phone_number: +919703570333
+   chef_image: http://icons.iconarchive.com/icons/iconshock/cook/256/cheff-icon.png
+   chef_rating: 5
+   nutrition: 1370kJ
+   food_image_1: http://www.taste.com.au/images/recipes/agt/2009/11/23670_l.jpg
+   food_image_2: 
+   food_image_3: 
+   food_image_4: 
+   log_datetime: 2015-07-09 15:04:57
+   item_id: 1
+   food_name: Chicken biriyani
+   description: Our Chicken biriyani recipe is a great simple meal for winter weeknights.
+
+   ingredients: 1 tablespoon vegetable oil
+ 500g chicken thigh fillets, trimmed, quartered
+ 1 medium brown onion, halved, thinly sliced
+ 1 garlic clove, crushed
+ 2cm piece ginger, peeled, finely grated
+ 1/3 cup balti curry paste
+ 1 1/2 cups SunRice Basmati Rice
+ 1 cinnamon stick
+ 2 cups Gravox Real chicken stock
+ 1 cup thick plain yoghurt
+ 1 Lebanese cucumber, deseeded, grated
+ 1/2 teaspoon ground cumin
+ Toasted flaked almonds and fresh coriander leaves, to serve
+   preparation_method: Heat oil in a heavy-based saucepan over medium-high heat. Cook chicken, turning, for 5 minutes or until browned. Transfer to a plate. Cook onion, garlic and ginger for 2 to 3 minutes or until onion has softened. Add curry paste. Cook for 1 minute or until fragrant. Add rice. Stir to coat.
+Add cinnamon, stock and 1 cup cold water. Bring to the boil. Return chicken to pan. Reduce heat to low. Cover. Cook for 20 minutes or until rice is tender and chicken cooked through. Remove cinnamon. Discard.
+Combine yoghurt, cucumber and cumin in a bowl. Sprinkle biriyani with almonds and coriander. Serve with yoghurt mixture.
+
+   food_rating: 255
+   category_id: 2
+   category_name: Non-Veg
+   price: 220
+   currency_id: 1
+   currency_name: Rupee
+   currency_symbol: ₹
+   chef_id: 1
+   chef_name: Admin Chef
+   chef_phone_number: +919703570333
+   chef_image: http://icons.iconarchive.com/icons/iconshock/cook/256/cheff-icon.png
+   chef_rating: 5
+   nutrition: 2768kJ
+   food_image_1: http://www.taste.com.au/images/recipes/sfi/2009/07/23417_l.jpg
+   food_image_2: 
+   food_image_3: 
+   food_image_4: 
+   log_datetime: 2015-07-09 12:00:25
+[0m
+[37mEnd at ([0m[34m0.008[0m[37m): 2015-12-11 00:18:24 - 2015-12-11 05:48:24
+
+[96m********************************************************************************[0m[37m
+GetFoodItems.php: 2015-12-11 00:19:18 - 2015-12-11 05:49:18[0m
+[94m
+[4mPOST Req Data[24m:
+   page_start: 1
+   page_index: 1
+[0m
+[39mQuery: SELECT food_item.item_id,
+                        food_item.`name` AS food_name,
+                        food_item.description,
+                        food_item.ingredients,
+                        food_item.preparation_method,
+                        food_item.rating AS food_rating,
+                        category.category_id,
+                        category.category_name,
+                        food_item.price,
+                        currency.currency_id,
+                        currency.currency_name,
+                        currency.currency_symbol,
+                        chef.chef_id,
+                        CONCAT(chef.f_name, ' ', chef.l_name) AS chef_name,
+                        CONCAT(chef.country_code, chef.phone_number) AS chef_phone_number,
+                        chef.image_url AS chef_image,
+                        chef.rating AS chef_rating,
+                        food_item.nutrition,
+                        COALESCE(food_item.food_image_1, '') AS food_image_1,
+                        COALESCE(food_item.food_image_2, '') AS food_image_2,
+                        COALESCE(food_item.food_image_3, '') AS food_image_3,
+                        COALESCE(food_item.food_image_4, '') AS food_image_4,
+                        food_item.log_datetime
+                FROM food_item INNER JOIN category ON food_item.category_id = category.category_id
+                         INNER JOIN currency ON food_item.currency_id = currency.currency_id
+                         INNER JOIN chef ON food_item.chef_id = chef.chef_id   ORDER BY food_name ASC
+                LIMIT 0, 5;[0m
+[94m
+[4mResult for food items[24m:
+   item_id: 9
+   food_name: Asian greens and shiitake mushrooms
+
+
+   description: Discover the taste of Asia with this authentic stir fry side dish starring fresh greens and shiitake mushrooms.
+
+   ingredients: 2 tablespoons peanut oil
+ 2 garlic cloves, crushed
+ 2 teaspoons finely grated fresh ginger
+ 100g fresh shiitake mushrooms, thinly sliced
+ 1 bunch baby pak choy, trimmed, leaves separated, stems cut from leaves
+ 1 bunch baby bok choy, trimmed
+ 1 x 425g can baby corn spears, drained
+ 2 tablespoons oyster sauce
+ 1 tablespoon soy sauce
+ 2 tablespoons water
+   preparation_method: Heat oil in a large frying pan or wok over medium-high heat. Add garlic and ginger. Stir-fry for 30 seconds or until aromatic.
+Add the mushroom and stir-fry for 2 minutes. Add the pak choy stems and stir-fry for 1 minute. Add the pak choy leaves, buk choy, corn, oyster sauce and soy sauce. Toss to combine.
+Add the water and reduce heat to low. Cover and cook for 2 minutes or until the vegetables are just tender. Serve.
+
+   food_rating: 2
+   category_id: 2
+   category_name: Non-Veg
+   price: 180
+   currency_id: 1
+   currency_name: Rupee
+   currency_symbol: ₹
+   chef_id: 1
+   chef_name: Admin Chef
+   chef_phone_number: +919703570333
+   chef_image: http://icons.iconarchive.com/icons/iconshock/cook/256/cheff-icon.png
+   chef_rating: 5
+   nutrition: 420kJ
+   food_image_1: http://www.taste.com.au/images/recipes/agt/2009/01/21475_l.jpg
+   food_image_2: 
+   food_image_3: 
+   food_image_4: 
+   log_datetime: 2015-07-09 15:08:57
+   item_id: 8
+   food_name: Asian soft noodle cabbage salad
+
+
+   description: Who doesn't love the classic noodle salad? Try our updated recipe that uses hokkien noodles for a twist of the unexpected.
+
+   ingredients: 1/2 x 440g packet thin hokkien noodles
+ 1/4 small (350g) red cabbage, thickly shredded
+ 1/2 cup bean sprouts, trimmed
+ 1 small red capsicum, thinly sliced
+ 50g snow peas, trimmed, thinly sliced
+ 1/2 cup fresh coriander leaves
+ 2 green onions, thinly sliced diagonally
+   preparation_method: Place noodles in a heatproof bowl. Cover with boiling water. Stand for 2 minutes. Separate noodles with a fork. Drain. Refresh under cold water. Drain well.
+Place cabbage, bean sprouts, capsicum, snow peas, coriander and green onion in a large bowl.
+Make Lime and soy dressing: Place lime juice, soy sauce, sesame oil, rice bran oil, caster sugar and garlic in a small bowl. Whisk until sugar has dissolved.
+Add noodles and dressing to cabbage mixture (see note). Season with pepper. Toss well to combine. Serve.
+
+   food_rating: 4
+   category_id: 1
+   category_name: Veg
+   price: 180
+   currency_id: 1
+   currency_name: Rupee
+   currency_symbol: ₹
+   chef_id: 1
+   chef_name: Admin Chef
+   chef_phone_number: +919703570333
+   chef_image: http://icons.iconarchive.com/icons/iconshock/cook/256/cheff-icon.png
+   chef_rating: 5
+   nutrition: 676kJ
+   food_image_1: http://www.taste.com.au/images/recipes/sfi/2014/10/39529_l.jpg
+   food_image_2: http://4.bp.blogspot.com/-LumLcUIX1Yk/Uq8COXOoqqI/AAAAAAAAOSc/ZwLyuGGjvo4/s1600/wet+noodles.jpg
+   food_image_3: http://site.cknoodle.com/Clients/cknoodle/dscf0116.jpg
+   food_image_4: http://site.cknoodle.com/Clients/cknoodle/dscf0061.jpg
+   log_datetime: 2015-07-09 15:07:49
+   item_id: 10
+   food_name: Banana coconut tapioca puddings (che chuoi)
+
+
+   description: Tropical banana, mango and pineapple are the star ingredients in this exotic Asian boba pudding.
+
+   ingredients: 1 cup (200g) tapioca pearls
+ 400g can coconut milk
+ 1 cup (250ml) water
+ 1/2 cup (80g) finely chopped palm sugar
+ 2 pandan leaves, tied into a knot
+ 3 just ripe bananas, peeled, thickly sliced
+ 2 tablespoons finely grated dark palm sugar (see note)
+ 1 tablespoon water, extra
+ 1 tablespoon sesame seeds
+ 1 mango, peeled, thinly sliced, to serve
+ 1/2 ripe pineapple, peeled, thinly sliced, to serve
+   preparation_method: Place the tapioca in a large bowl and cover with cold water. Set aside for 2 hours to soak. Strain through a fine sieve. Cook in a large saucepan of boiling water for 10 minutes or until opaque. Drain well.
+Meanwhile, combine the coconut milk, water, sugar and pandan leaves in a large saucepan over low heat. Cook, stirring, for 5 minutes or until sugar dissolves and mixture is heated through. Add the tapioca and gently stir to combine. Remove from heat and set aside to cool slightly. Add the banana and transfer to a bowl and cover with plastic wrap. Place in the fridge to chill.
+Combine the dark palm sugar and water in a small frying pan over high heat. Cook, stirring, for 2 minutes or until sugar dissolves. Add the sesame seeds and cook, stirring, for 2 minutes or until syrup thickens.
+Remove and discard the pandan leaves from tapioca. Spoon the tapioca among serving bowls. Serve topped with mango and pineapple slices and drizzle with sesame syrup.
+
+   food_rating: 3
+   category_id: 1
+   category_name: Veg
+   price: 120
+   currency_id: 1
+   currency_name: Rupee
+   currency_symbol: ₹
+   chef_id: 1
+   chef_name: Admin Chef
+   chef_phone_number: +919703570333
+   chef_image: http://icons.iconarchive.com/icons/iconshock/cook/256/cheff-icon.png
+   chef_rating: 5
+   nutrition: 1581kJ
+   food_image_1: http://www.taste.com.au/images/recipes/nb/2008/02/19022_l.jpg
+   food_image_2: 
+   food_image_3: 
+   food_image_4: 
+   log_datetime: 2015-07-09 15:10:47
+   item_id: 7
+   food_name: Banh xeo (crispy pancakes)
+
+
+   description: Take inspiration from Vietnamese cooking for this fresh and fragrant Asian pork pancake dish.
+
+   ingredients: 220g (1 1/4 cups) rice flour
+ 2 tablespoons cornflour
+ 1 x 400ml can coconut milk
+ 310ml (1 1/4 cups) iced water
+ 1 teaspoon ground turmeric
+ 1 teaspoon sugar
+ 1/2 teaspoon salt
+ Pinch of white pepper
+ 2 tablespoons peanut oil
+ 1 brown onion, halved, cut into thin wedges
+ 300g Pork porterhouse Steak, thinly sliced
+ 12 cooked prawns, peeled, coarsely chopped
+ 130g (2 cups) bean sprouts, trimmed
+ Butter lettuce leaves, to serve
+ Fresh mint leaves, to serve
+   preparation_method: To make the nuoc cham, combine fish sauce, lime juice, water, sugar, chilli and garlic in a small bowl. Stir until sugar dissolves.
+Stir the combined flour, coconut milk, water, turmeric, sugar and salt in a medium bowl. Season with white pepper. Cover and place in the fridge for 1 hour or overnight to rest.
+Heat a 20cm (base measurement) non-stick frying pan over high heat. Add 1 tablespoon of oil and heat until just smoking. Stir-fry the onion and pork for 5 minutes or until golden. Transfer to a plate. Wipe the pan clean.
+
+   food_rating: 3
+   category_id: 1
+   category_name: Veg
+   price: 225
+   currency_id: 1
+   currency_name: Rupee
+   currency_symbol: ₹
+   chef_id: 1
+   chef_name: Admin Chef
+   chef_phone_number: +919703570333
+   chef_image: http://icons.iconarchive.com/icons/iconshock/cook/256/cheff-icon.png
+   chef_rating: 5
+   nutrition: 1370kJ
+   food_image_1: http://www.taste.com.au/images/recipes/agt/2009/11/23670_l.jpg
+   food_image_2: 
+   food_image_3: 
+   food_image_4: 
+   log_datetime: 2015-07-09 15:04:57
+   item_id: 1
+   food_name: Chicken biriyani
+   description: Our Chicken biriyani recipe is a great simple meal for winter weeknights.
+
+   ingredients: 1 tablespoon vegetable oil
+ 500g chicken thigh fillets, trimmed, quartered
+ 1 medium brown onion, halved, thinly sliced
+ 1 garlic clove, crushed
+ 2cm piece ginger, peeled, finely grated
+ 1/3 cup balti curry paste
+ 1 1/2 cups SunRice Basmati Rice
+ 1 cinnamon stick
+ 2 cups Gravox Real chicken stock
+ 1 cup thick plain yoghurt
+ 1 Lebanese cucumber, deseeded, grated
+ 1/2 teaspoon ground cumin
+ Toasted flaked almonds and fresh coriander leaves, to serve
+   preparation_method: Heat oil in a heavy-based saucepan over medium-high heat. Cook chicken, turning, for 5 minutes or until browned. Transfer to a plate. Cook onion, garlic and ginger for 2 to 3 minutes or until onion has softened. Add curry paste. Cook for 1 minute or until fragrant. Add rice. Stir to coat.
+Add cinnamon, stock and 1 cup cold water. Bring to the boil. Return chicken to pan. Reduce heat to low. Cover. Cook for 20 minutes or until rice is tender and chicken cooked through. Remove cinnamon. Discard.
+Combine yoghurt, cucumber and cumin in a bowl. Sprinkle biriyani with almonds and coriander. Serve with yoghurt mixture.
+
+   food_rating: 255
+   category_id: 2
+   category_name: Non-Veg
+   price: 220
+   currency_id: 1
+   currency_name: Rupee
+   currency_symbol: ₹
+   chef_id: 1
+   chef_name: Admin Chef
+   chef_phone_number: +919703570333
+   chef_image: http://icons.iconarchive.com/icons/iconshock/cook/256/cheff-icon.png
+   chef_rating: 5
+   nutrition: 2768kJ
+   food_image_1: http://www.taste.com.au/images/recipes/sfi/2009/07/23417_l.jpg
+   food_image_2: 
+   food_image_3: 
+   food_image_4: 
+   log_datetime: 2015-07-09 12:00:25
+[0m
+[37mEnd at ([0m[34m0.007[0m[37m): 2015-12-11 00:19:18 - 2015-12-11 05:49:18
+
+[96m********************************************************************************[0m[37m
+GetFoodItems.php: 2015-12-11 00:19:24 - 2015-12-11 05:49:24[0m
+[94m
+[4mPOST Req Data[24m:
+   page_start: 2
+   page_index: 2
+[0m
+[39mQuery: SELECT food_item.item_id,
+                        food_item.`name` AS food_name,
+                        food_item.description,
+                        food_item.ingredients,
+                        food_item.preparation_method,
+                        food_item.rating AS food_rating,
+                        category.category_id,
+                        category.category_name,
+                        food_item.price,
+                        currency.currency_id,
+                        currency.currency_name,
+                        currency.currency_symbol,
+                        chef.chef_id,
+                        CONCAT(chef.f_name, ' ', chef.l_name) AS chef_name,
+                        CONCAT(chef.country_code, chef.phone_number) AS chef_phone_number,
+                        chef.image_url AS chef_image,
+                        chef.rating AS chef_rating,
+                        food_item.nutrition,
+                        COALESCE(food_item.food_image_1, '') AS food_image_1,
+                        COALESCE(food_item.food_image_2, '') AS food_image_2,
+                        COALESCE(food_item.food_image_3, '') AS food_image_3,
+                        COALESCE(food_item.food_image_4, '') AS food_image_4,
+                        food_item.log_datetime
+                FROM food_item INNER JOIN category ON food_item.category_id = category.category_id
+                         INNER JOIN currency ON food_item.currency_id = currency.currency_id
+                         INNER JOIN chef ON food_item.chef_id = chef.chef_id   ORDER BY food_name ASC
+                LIMIT 5, 5;[0m
+[94m
+[4mResult for food items[24m:
+   item_id: 3
+   food_name: Chicken confit with sauce vierge
+
+
+   description: In this classic confit, the chicken is salted and seasoned with herbs, then slowly cooked in olive oil to make it rich and tender.
+
+   ingredients: 10 thyme sprigs, leaves picked
+ 12 whole black peppercorns
+ 6 dried juniper berries (see notes), lightly crushed
+ 2 bay leaves, crushed
+ 5 garlic cloves, finely chopped
+ 4 chicken marylands
+ 1L (4 cups) olive oil
+ Steamed green beans and pommes puree (see related recipe), to serve
+   preparation_method: Using a mortar and pestle, crush 2 tsp sea salt with the thyme, peppercorns and juniper berries. Press bay leaves and garlic into the fleshy side of the chicken and rub the skin with thyme salt. Cover and chill overnight to infuse.
+The next day, preheat oven to 140C.
+Rinse chicken under cold water and pat dry with paper towel. Place in a small roasting pan and cover with oil. Place pan over low heat until small bubbles appear on the surface (don’t let it boil), then transfer to the oven. Roast for 2 hours or until chicken is cooked through and is no longer pink. Set aside to cool. (The chicken will keep in the fridge for 1 week.)
+When ready to serve, preheat oven to 200C. Remove chicken from oil and place in a roasting pan. Bake for 15-20 minutes until the chicken is crisp and golden.
+
+   food_rating: 4
+   category_id: 2
+   category_name: Non-Veg
+   price: 320
+   currency_id: 1
+   currency_name: Rupee
+   currency_symbol: ₹
+   chef_id: 1
+   chef_name: Admin Chef
+   chef_phone_number: +919703570333
+   chef_image: http://icons.iconarchive.com/icons/iconshock/cook/256/cheff-icon.png
+   chef_rating: 5
+   nutrition: 450kj
+   food_image_1: http://www.taste.com.au/images/recipes/del/2014/03/36390_l.jpg
+   food_image_2: 
+   food_image_3: 
+   food_image_4: 
+   log_datetime: 2015-07-09 12:05:48
+   item_id: 14
+   food_name: Chicken nuggets
+
+
+   description: Why not let the kids create their own healthy version of chicken nuggets.
+
+   ingredients: 1 egg, lightly whisked
+ 1/2 cup (45g) cornflake crumbs
+ 1 (about 200g) chicken breast fillet, cut into 3cm pieces
+ 1 small (about 290g) orange sweet potato (kumara), peeled, cut into 1cm-thick slices
+ Olive oil spray
+ Sweet chilli sauce, to serve
+ Mixed salad leaves, to serve
+   preparation_method: Preheat oven to 200C. Line 2 oven trays with baking paper.
+Place the egg and cornflake crumbs in separate bowls. Dip a piece of chicken into the egg then in the cornflake crumbs, tossing to coat. Place on 1 prepared tray.
+Use a 4cm-diameter star pastry cutter to cut stars from the sweet potato slices. Place on the remaining tray.
+Lightly spray the chicken and sweet potato with olive oil spray. Bake the sweet potato for 10 minutes. Add the chicken and bake for a further 10-15 minutes or until the nuggets are cooked through and the sweet potato is tender. Serve with sweet chilli sauce and salad leaves.
+
+   food_rating: 3
+   category_id: 2
+   category_name: Non-Veg
+   price: 195
+   currency_id: 1
+   currency_name: Rupee
+   currency_symbol: ₹
+   chef_id: 1
+   chef_name: Admin Chef
+   chef_phone_number: +919703570333
+   chef_image: http://icons.iconarchive.com/icons/iconshock/cook/256/cheff-icon.png
+   chef_rating: 5
+   nutrition: 1370kJ
+   food_image_1: http://www.taste.com.au/images/recipes/tas/2012/01/27997_l.jpg
+   food_image_2: 
+   food_image_3: 
+   food_image_4: 
+   log_datetime: 2015-07-09 15:19:42
+   item_id: 11
+   food_name: Chilli jam scallops with asian greens
+
+
+   description: Beautiful Asian greens taste fantastic with these fabulous spicy scallops.
+
+   ingredients: 2 bunches Chinese broccoli (gai lan), trimmed, cut into 6cm lengths
+ 20 scallops without roe
+ 1 1/2 tablespoons chilli jam*
+ 2 teaspoons olive oil
+ 1 small onion, thinly sliced
+ 2 teaspoons light soy sauce
+   preparation_method: Steam the Chinese broccoli, covered, over a large saucepan of boiling water for 2-3 minutes until just tender. Drain and set aside.
+Meanwhile, toss the scallops with 1 tablespoon of the chilli jam. Heat a frypan over medium-high heat and add 1 teaspoon of the olive oil. When hot, add the scallops and pan-fry for 1 minute on each side until just cooked. Remove from the frypan and cover to keep warm.
+Add remaining teaspoon of oil to pan and reduce heat to medium. Add onion and cook for 3-4 minutes until softened. Add remaining 1/2 tablespoon chilli jam and broccoli, tossing to coat. Remove from heat and stir in soy.
+Serve vegetables in bowls with scallops.
+
+   food_rating: 2
+   category_id: 1
+   category_name: Veg
+   price: 150
+   currency_id: 1
+   currency_name: Rupee
+   currency_symbol: ₹
+   chef_id: 1
+   chef_name: Admin Chef
+   chef_phone_number: +919703570333
+   chef_image: http://icons.iconarchive.com/icons/iconshock/cook/256/cheff-icon.png
+   chef_rating: 5
+   nutrition: 598kJ	
+   food_image_1: http://www.taste.com.au/images/recipes/del/2005/09/4251_l.jpg
+   food_image_2: 
+   food_image_3: 
+   food_image_4: 
+   log_datetime: 2015-07-09 15:12:29
+   item_id: 12
+   food_name: Chinese fried rice
+
+
+   description: This fragrant fried rice incorporates lup chong for authentic Chinese flavour.
+
+   ingredients: 1 1/2 cups SunRice White Long Grain Rice
+ 3 eggs
+ 2 teaspoons sesame oil
+ 3 teaspoons peanut oil
+ 5 (30g each) dried Chinese pork sausages, thinly sliced (see note)
+ 3 green onions, thinly sliced
+ 2 garlic cloves, crushed
+ 1 long red chilli, finely chopped
+ 2 tablespoons salt-reduced soy sauce
+ 1 tablespoon oyster sauce
+ 1/2 cup frozen peas, thawed
+ 1 long red chilli, deseeded, thinly sliced lengthways, to serve
+   preparation_method: Cook rice following absorption method on packet until tender. Line a baking tray with baking paper. Spread rice over prepared tray. Cool to room temperature. Cover and refrigerate for 3 hours.
+Combine eggs and half the sesame oil in a jug. Heat a wok over high heat. Add 1 teaspoon peanut oil. Swirl to coat. Add one-third of the egg mixture. Swirl to coat. Cook for 1 minute or until just set. Remove to a board. Roll up. Thinly slice. Repeat twice with remaining peanut oil and egg mixture.
+Add sausage and onion to wok. Stir-fry for 2 to 3 minutes or until sausage has browned. Add garlic and chilli. Stir-fry for 1 minute or until fragrant. Add rice, soy sauce, oyster sauce, peas and remaining sesame oil. Stir-fry for 2 minutes or until heated through. Top with chilli. Serve.
+
+   food_rating: 3
+   category_id: 1
+   category_name: Veg
+   price: 180
+   currency_id: 1
+   currency_name: Rupee
+   currency_symbol: ₹
+   chef_id: 1
+   chef_name: Admin Chef
+   chef_phone_number: +919703570333
+   chef_image: http://icons.iconarchive.com/icons/iconshock/cook/256/cheff-icon.png
+   chef_rating: 5
+   nutrition: 2147kJ
+   food_image_1: http://www.taste.com.au/images/recipes/sfi/2008/10/20745_l.jpg
+   food_image_2: 
+   food_image_3: 
+   food_image_4: 
+   log_datetime: 2015-07-09 15:14:18
+   item_id: 13
+   food_name: Coconut, lime and chilli barbecued prawns
+
+
+   description: Shell out less at the prawn broker for this handy, versatile meal solution.
+
+   ingredients: 1 lime
+ 1/3 cup coconut milk
+ 1/3 cup finely chopped fresh coriander stems
+ 3 garlic cloves, crushed
+ 1 long red chilli, finely chopped
+ 1 tablespoon Ayam fish sauce
+ 1 tablespoon soy sauce
+ 750g green king prawns, peeled, tails intact, deveined
+ 1 tablespoon lime juice
+ Lime wedges, fresh coriander leaves and steamed SunRice White Long Grain Rice, to serve
+   preparation_method: Using a vegetable peeler, cut long strips of rind from lime. Combine coconut milk, coriander, garlic, chilli, fish sauce, soy sauce and lime rind in a shallow dish. Reserve 2 tablespoons mixture. Add prawns to remaining mixture. Toss to coat. Cover with plastic wrap. Refrigerate for 3 to 4 hours, if time permits.
+Preheat a barbecue plate or chargrill on medium-high heat. Add lime juice to prawn mixture. Toss to coat. Remove and discard lime rind from prawn mixture and reserved coconut milk mixture. Thread prawns onto skewers. Cook, brushing with reserved coconut milk mixture, for 2 to 3 minutes each side or until pink and lightly charred.
+Serve skewers with lime wedges, coriander and rice.
+
+   food_rating: 3
+   category_id: 2
+   category_name: Non-Veg
+   price: 250
+   currency_id: 1
+   currency_name: Rupee
+   currency_symbol: ₹
+   chef_id: 1
+   chef_name: Admin Chef
+   chef_phone_number: +919703570333
+   chef_image: http://icons.iconarchive.com/icons/iconshock/cook/256/cheff-icon.png
+   chef_rating: 5
+   nutrition: 1663kJ
+   food_image_1: http://www.taste.com.au/images/recipes/sfi/2010/12/26091_l.jpg
+   food_image_2: 
+   food_image_3: 
+   food_image_4: 
+   log_datetime: 2015-07-09 15:17:22
+[0m
+[37mEnd at ([0m[34m0.007[0m[37m): 2015-12-11 00:19:24 - 2015-12-11 05:49:24
+
+[96m********************************************************************************[0m[37m
+GetFoodItems.php: 2015-12-11 00:19:33 - 2015-12-11 05:49:33[0m
+[94m
+[4mPOST Req Data[24m:
+   page_start: 1
+   page_index: 1
+[0m
+[39mQuery: SELECT food_item.item_id,
+                        food_item.`name` AS food_name,
+                        food_item.description,
+                        food_item.ingredients,
+                        food_item.preparation_method,
+                        food_item.rating AS food_rating,
+                        category.category_id,
+                        category.category_name,
+                        food_item.price,
+                        currency.currency_id,
+                        currency.currency_name,
+                        currency.currency_symbol,
+                        chef.chef_id,
+                        CONCAT(chef.f_name, ' ', chef.l_name) AS chef_name,
+                        CONCAT(chef.country_code, chef.phone_number) AS chef_phone_number,
+                        chef.image_url AS chef_image,
+                        chef.rating AS chef_rating,
+                        food_item.nutrition,
+                        COALESCE(food_item.food_image_1, '') AS food_image_1,
+                        COALESCE(food_item.food_image_2, '') AS food_image_2,
+                        COALESCE(food_item.food_image_3, '') AS food_image_3,
+                        COALESCE(food_item.food_image_4, '') AS food_image_4,
+                        food_item.log_datetime
+                FROM food_item INNER JOIN category ON food_item.category_id = category.category_id
+                         INNER JOIN currency ON food_item.currency_id = currency.currency_id
+                         INNER JOIN chef ON food_item.chef_id = chef.chef_id   ORDER BY food_name ASC
+                LIMIT 0, 5;[0m
+[94m
+[4mResult for food items[24m:
+   item_id: 9
+   food_name: Asian greens and shiitake mushrooms
+
+
+   description: Discover the taste of Asia with this authentic stir fry side dish starring fresh greens and shiitake mushrooms.
+
+   ingredients: 2 tablespoons peanut oil
+ 2 garlic cloves, crushed
+ 2 teaspoons finely grated fresh ginger
+ 100g fresh shiitake mushrooms, thinly sliced
+ 1 bunch baby pak choy, trimmed, leaves separated, stems cut from leaves
+ 1 bunch baby bok choy, trimmed
+ 1 x 425g can baby corn spears, drained
+ 2 tablespoons oyster sauce
+ 1 tablespoon soy sauce
+ 2 tablespoons water
+   preparation_method: Heat oil in a large frying pan or wok over medium-high heat. Add garlic and ginger. Stir-fry for 30 seconds or until aromatic.
+Add the mushroom and stir-fry for 2 minutes. Add the pak choy stems and stir-fry for 1 minute. Add the pak choy leaves, buk choy, corn, oyster sauce and soy sauce. Toss to combine.
+Add the water and reduce heat to low. Cover and cook for 2 minutes or until the vegetables are just tender. Serve.
+
+   food_rating: 2
+   category_id: 2
+   category_name: Non-Veg
+   price: 180
+   currency_id: 1
+   currency_name: Rupee
+   currency_symbol: ₹
+   chef_id: 1
+   chef_name: Admin Chef
+   chef_phone_number: +919703570333
+   chef_image: http://icons.iconarchive.com/icons/iconshock/cook/256/cheff-icon.png
+   chef_rating: 5
+   nutrition: 420kJ
+   food_image_1: http://www.taste.com.au/images/recipes/agt/2009/01/21475_l.jpg
+   food_image_2: 
+   food_image_3: 
+   food_image_4: 
+   log_datetime: 2015-07-09 15:08:57
+   item_id: 8
+   food_name: Asian soft noodle cabbage salad
+
+
+   description: Who doesn't love the classic noodle salad? Try our updated recipe that uses hokkien noodles for a twist of the unexpected.
+
+   ingredients: 1/2 x 440g packet thin hokkien noodles
+ 1/4 small (350g) red cabbage, thickly shredded
+ 1/2 cup bean sprouts, trimmed
+ 1 small red capsicum, thinly sliced
+ 50g snow peas, trimmed, thinly sliced
+ 1/2 cup fresh coriander leaves
+ 2 green onions, thinly sliced diagonally
+   preparation_method: Place noodles in a heatproof bowl. Cover with boiling water. Stand for 2 minutes. Separate noodles with a fork. Drain. Refresh under cold water. Drain well.
+Place cabbage, bean sprouts, capsicum, snow peas, coriander and green onion in a large bowl.
+Make Lime and soy dressing: Place lime juice, soy sauce, sesame oil, rice bran oil, caster sugar and garlic in a small bowl. Whisk until sugar has dissolved.
+Add noodles and dressing to cabbage mixture (see note). Season with pepper. Toss well to combine. Serve.
+
+   food_rating: 4
+   category_id: 1
+   category_name: Veg
+   price: 180
+   currency_id: 1
+   currency_name: Rupee
+   currency_symbol: ₹
+   chef_id: 1
+   chef_name: Admin Chef
+   chef_phone_number: +919703570333
+   chef_image: http://icons.iconarchive.com/icons/iconshock/cook/256/cheff-icon.png
+   chef_rating: 5
+   nutrition: 676kJ
+   food_image_1: http://www.taste.com.au/images/recipes/sfi/2014/10/39529_l.jpg
+   food_image_2: http://4.bp.blogspot.com/-LumLcUIX1Yk/Uq8COXOoqqI/AAAAAAAAOSc/ZwLyuGGjvo4/s1600/wet+noodles.jpg
+   food_image_3: http://site.cknoodle.com/Clients/cknoodle/dscf0116.jpg
+   food_image_4: http://site.cknoodle.com/Clients/cknoodle/dscf0061.jpg
+   log_datetime: 2015-07-09 15:07:49
+   item_id: 10
+   food_name: Banana coconut tapioca puddings (che chuoi)
+
+
+   description: Tropical banana, mango and pineapple are the star ingredients in this exotic Asian boba pudding.
+
+   ingredients: 1 cup (200g) tapioca pearls
+ 400g can coconut milk
+ 1 cup (250ml) water
+ 1/2 cup (80g) finely chopped palm sugar
+ 2 pandan leaves, tied into a knot
+ 3 just ripe bananas, peeled, thickly sliced
+ 2 tablespoons finely grated dark palm sugar (see note)
+ 1 tablespoon water, extra
+ 1 tablespoon sesame seeds
+ 1 mango, peeled, thinly sliced, to serve
+ 1/2 ripe pineapple, peeled, thinly sliced, to serve
+   preparation_method: Place the tapioca in a large bowl and cover with cold water. Set aside for 2 hours to soak. Strain through a fine sieve. Cook in a large saucepan of boiling water for 10 minutes or until opaque. Drain well.
+Meanwhile, combine the coconut milk, water, sugar and pandan leaves in a large saucepan over low heat. Cook, stirring, for 5 minutes or until sugar dissolves and mixture is heated through. Add the tapioca and gently stir to combine. Remove from heat and set aside to cool slightly. Add the banana and transfer to a bowl and cover with plastic wrap. Place in the fridge to chill.
+Combine the dark palm sugar and water in a small frying pan over high heat. Cook, stirring, for 2 minutes or until sugar dissolves. Add the sesame seeds and cook, stirring, for 2 minutes or until syrup thickens.
+Remove and discard the pandan leaves from tapioca. Spoon the tapioca among serving bowls. Serve topped with mango and pineapple slices and drizzle with sesame syrup.
+
+   food_rating: 3
+   category_id: 1
+   category_name: Veg
+   price: 120
+   currency_id: 1
+   currency_name: Rupee
+   currency_symbol: ₹
+   chef_id: 1
+   chef_name: Admin Chef
+   chef_phone_number: +919703570333
+   chef_image: http://icons.iconarchive.com/icons/iconshock/cook/256/cheff-icon.png
+   chef_rating: 5
+   nutrition: 1581kJ
+   food_image_1: http://www.taste.com.au/images/recipes/nb/2008/02/19022_l.jpg
+   food_image_2: 
+   food_image_3: 
+   food_image_4: 
+   log_datetime: 2015-07-09 15:10:47
+   item_id: 7
+   food_name: Banh xeo (crispy pancakes)
+
+
+   description: Take inspiration from Vietnamese cooking for this fresh and fragrant Asian pork pancake dish.
+
+   ingredients: 220g (1 1/4 cups) rice flour
+ 2 tablespoons cornflour
+ 1 x 400ml can coconut milk
+ 310ml (1 1/4 cups) iced water
+ 1 teaspoon ground turmeric
+ 1 teaspoon sugar
+ 1/2 teaspoon salt
+ Pinch of white pepper
+ 2 tablespoons peanut oil
+ 1 brown onion, halved, cut into thin wedges
+ 300g Pork porterhouse Steak, thinly sliced
+ 12 cooked prawns, peeled, coarsely chopped
+ 130g (2 cups) bean sprouts, trimmed
+ Butter lettuce leaves, to serve
+ Fresh mint leaves, to serve
+   preparation_method: To make the nuoc cham, combine fish sauce, lime juice, water, sugar, chilli and garlic in a small bowl. Stir until sugar dissolves.
+Stir the combined flour, coconut milk, water, turmeric, sugar and salt in a medium bowl. Season with white pepper. Cover and place in the fridge for 1 hour or overnight to rest.
+Heat a 20cm (base measurement) non-stick frying pan over high heat. Add 1 tablespoon of oil and heat until just smoking. Stir-fry the onion and pork for 5 minutes or until golden. Transfer to a plate. Wipe the pan clean.
+
+   food_rating: 3
+   category_id: 1
+   category_name: Veg
+   price: 225
+   currency_id: 1
+   currency_name: Rupee
+   currency_symbol: ₹
+   chef_id: 1
+   chef_name: Admin Chef
+   chef_phone_number: +919703570333
+   chef_image: http://icons.iconarchive.com/icons/iconshock/cook/256/cheff-icon.png
+   chef_rating: 5
+   nutrition: 1370kJ
+   food_image_1: http://www.taste.com.au/images/recipes/agt/2009/11/23670_l.jpg
+   food_image_2: 
+   food_image_3: 
+   food_image_4: 
+   log_datetime: 2015-07-09 15:04:57
+   item_id: 1
+   food_name: Chicken biriyani
+   description: Our Chicken biriyani recipe is a great simple meal for winter weeknights.
+
+   ingredients: 1 tablespoon vegetable oil
+ 500g chicken thigh fillets, trimmed, quartered
+ 1 medium brown onion, halved, thinly sliced
+ 1 garlic clove, crushed
+ 2cm piece ginger, peeled, finely grated
+ 1/3 cup balti curry paste
+ 1 1/2 cups SunRice Basmati Rice
+ 1 cinnamon stick
+ 2 cups Gravox Real chicken stock
+ 1 cup thick plain yoghurt
+ 1 Lebanese cucumber, deseeded, grated
+ 1/2 teaspoon ground cumin
+ Toasted flaked almonds and fresh coriander leaves, to serve
+   preparation_method: Heat oil in a heavy-based saucepan over medium-high heat. Cook chicken, turning, for 5 minutes or until browned. Transfer to a plate. Cook onion, garlic and ginger for 2 to 3 minutes or until onion has softened. Add curry paste. Cook for 1 minute or until fragrant. Add rice. Stir to coat.
+Add cinnamon, stock and 1 cup cold water. Bring to the boil. Return chicken to pan. Reduce heat to low. Cover. Cook for 20 minutes or until rice is tender and chicken cooked through. Remove cinnamon. Discard.
+Combine yoghurt, cucumber and cumin in a bowl. Sprinkle biriyani with almonds and coriander. Serve with yoghurt mixture.
+
+   food_rating: 255
+   category_id: 2
+   category_name: Non-Veg
+   price: 220
+   currency_id: 1
+   currency_name: Rupee
+   currency_symbol: ₹
+   chef_id: 1
+   chef_name: Admin Chef
+   chef_phone_number: +919703570333
+   chef_image: http://icons.iconarchive.com/icons/iconshock/cook/256/cheff-icon.png
+   chef_rating: 5
+   nutrition: 2768kJ
+   food_image_1: http://www.taste.com.au/images/recipes/sfi/2009/07/23417_l.jpg
+   food_image_2: 
+   food_image_3: 
+   food_image_4: 
+   log_datetime: 2015-07-09 12:00:25
+[0m
+[37mEnd at ([0m[34m0.008[0m[37m): 2015-12-11 00:19:33 - 2015-12-11 05:49:33
+
+[96m********************************************************************************[0m[37m
+GetFoodItems.php: 2015-12-11 00:19:49 - 2015-12-11 05:49:49[0m
+[94m
+[4mPOST Req Data[24m:
+   page_start: 1
+   page_index: 1
+[0m
+[39mQuery: SELECT food_item.item_id,
+                        food_item.`name` AS food_name,
+                        food_item.description,
+                        food_item.ingredients,
+                        food_item.preparation_method,
+                        food_item.rating AS food_rating,
+                        category.category_id,
+                        category.category_name,
+                        food_item.price,
+                        currency.currency_id,
+                        currency.currency_name,
+                        currency.currency_symbol,
+                        chef.chef_id,
+                        CONCAT(chef.f_name, ' ', chef.l_name) AS chef_name,
+                        CONCAT(chef.country_code, chef.phone_number) AS chef_phone_number,
+                        chef.image_url AS chef_image,
+                        chef.rating AS chef_rating,
+                        food_item.nutrition,
+                        COALESCE(food_item.food_image_1, '') AS food_image_1,
+                        COALESCE(food_item.food_image_2, '') AS food_image_2,
+                        COALESCE(food_item.food_image_3, '') AS food_image_3,
+                        COALESCE(food_item.food_image_4, '') AS food_image_4,
+                        food_item.log_datetime
+                FROM food_item INNER JOIN category ON food_item.category_id = category.category_id
+                         INNER JOIN currency ON food_item.currency_id = currency.currency_id
+                         INNER JOIN chef ON food_item.chef_id = chef.chef_id   ORDER BY food_name ASC
+                LIMIT 0, 5;[0m
+[94m
+[4mResult for food items[24m:
+   item_id: 9
+   food_name: Asian greens and shiitake mushrooms
+
+
+   description: Discover the taste of Asia with this authentic stir fry side dish starring fresh greens and shiitake mushrooms.
+
+   ingredients: 2 tablespoons peanut oil
+ 2 garlic cloves, crushed
+ 2 teaspoons finely grated fresh ginger
+ 100g fresh shiitake mushrooms, thinly sliced
+ 1 bunch baby pak choy, trimmed, leaves separated, stems cut from leaves
+ 1 bunch baby bok choy, trimmed
+ 1 x 425g can baby corn spears, drained
+ 2 tablespoons oyster sauce
+ 1 tablespoon soy sauce
+ 2 tablespoons water
+   preparation_method: Heat oil in a large frying pan or wok over medium-high heat. Add garlic and ginger. Stir-fry for 30 seconds or until aromatic.
+Add the mushroom and stir-fry for 2 minutes. Add the pak choy stems and stir-fry for 1 minute. Add the pak choy leaves, buk choy, corn, oyster sauce and soy sauce. Toss to combine.
+Add the water and reduce heat to low. Cover and cook for 2 minutes or until the vegetables are just tender. Serve.
+
+   food_rating: 2
+   category_id: 2
+   category_name: Non-Veg
+   price: 180
+   currency_id: 1
+   currency_name: Rupee
+   currency_symbol: ₹
+   chef_id: 1
+   chef_name: Admin Chef
+   chef_phone_number: +919703570333
+   chef_image: http://icons.iconarchive.com/icons/iconshock/cook/256/cheff-icon.png
+   chef_rating: 5
+   nutrition: 420kJ
+   food_image_1: http://www.taste.com.au/images/recipes/agt/2009/01/21475_l.jpg
+   food_image_2: 
+   food_image_3: 
+   food_image_4: 
+   log_datetime: 2015-07-09 15:08:57
+   item_id: 8
+   food_name: Asian soft noodle cabbage salad
+
+
+   description: Who doesn't love the classic noodle salad? Try our updated recipe that uses hokkien noodles for a twist of the unexpected.
+
+   ingredients: 1/2 x 440g packet thin hokkien noodles
+ 1/4 small (350g) red cabbage, thickly shredded
+ 1/2 cup bean sprouts, trimmed
+ 1 small red capsicum, thinly sliced
+ 50g snow peas, trimmed, thinly sliced
+ 1/2 cup fresh coriander leaves
+ 2 green onions, thinly sliced diagonally
+   preparation_method: Place noodles in a heatproof bowl. Cover with boiling water. Stand for 2 minutes. Separate noodles with a fork. Drain. Refresh under cold water. Drain well.
+Place cabbage, bean sprouts, capsicum, snow peas, coriander and green onion in a large bowl.
+Make Lime and soy dressing: Place lime juice, soy sauce, sesame oil, rice bran oil, caster sugar and garlic in a small bowl. Whisk until sugar has dissolved.
+Add noodles and dressing to cabbage mixture (see note). Season with pepper. Toss well to combine. Serve.
+
+   food_rating: 4
+   category_id: 1
+   category_name: Veg
+   price: 180
+   currency_id: 1
+   currency_name: Rupee
+   currency_symbol: ₹
+   chef_id: 1
+   chef_name: Admin Chef
+   chef_phone_number: +919703570333
+   chef_image: http://icons.iconarchive.com/icons/iconshock/cook/256/cheff-icon.png
+   chef_rating: 5
+   nutrition: 676kJ
+   food_image_1: http://www.taste.com.au/images/recipes/sfi/2014/10/39529_l.jpg
+   food_image_2: http://4.bp.blogspot.com/-LumLcUIX1Yk/Uq8COXOoqqI/AAAAAAAAOSc/ZwLyuGGjvo4/s1600/wet+noodles.jpg
+   food_image_3: http://site.cknoodle.com/Clients/cknoodle/dscf0116.jpg
+   food_image_4: http://site.cknoodle.com/Clients/cknoodle/dscf0061.jpg
+   log_datetime: 2015-07-09 15:07:49
+   item_id: 10
+   food_name: Banana coconut tapioca puddings (che chuoi)
+
+
+   description: Tropical banana, mango and pineapple are the star ingredients in this exotic Asian boba pudding.
+
+   ingredients: 1 cup (200g) tapioca pearls
+ 400g can coconut milk
+ 1 cup (250ml) water
+ 1/2 cup (80g) finely chopped palm sugar
+ 2 pandan leaves, tied into a knot
+ 3 just ripe bananas, peeled, thickly sliced
+ 2 tablespoons finely grated dark palm sugar (see note)
+ 1 tablespoon water, extra
+ 1 tablespoon sesame seeds
+ 1 mango, peeled, thinly sliced, to serve
+ 1/2 ripe pineapple, peeled, thinly sliced, to serve
+   preparation_method: Place the tapioca in a large bowl and cover with cold water. Set aside for 2 hours to soak. Strain through a fine sieve. Cook in a large saucepan of boiling water for 10 minutes or until opaque. Drain well.
+Meanwhile, combine the coconut milk, water, sugar and pandan leaves in a large saucepan over low heat. Cook, stirring, for 5 minutes or until sugar dissolves and mixture is heated through. Add the tapioca and gently stir to combine. Remove from heat and set aside to cool slightly. Add the banana and transfer to a bowl and cover with plastic wrap. Place in the fridge to chill.
+Combine the dark palm sugar and water in a small frying pan over high heat. Cook, stirring, for 2 minutes or until sugar dissolves. Add the sesame seeds and cook, stirring, for 2 minutes or until syrup thickens.
+Remove and discard the pandan leaves from tapioca. Spoon the tapioca among serving bowls. Serve topped with mango and pineapple slices and drizzle with sesame syrup.
+
+   food_rating: 3
+   category_id: 1
+   category_name: Veg
+   price: 120
+   currency_id: 1
+   currency_name: Rupee
+   currency_symbol: ₹
+   chef_id: 1
+   chef_name: Admin Chef
+   chef_phone_number: +919703570333
+   chef_image: http://icons.iconarchive.com/icons/iconshock/cook/256/cheff-icon.png
+   chef_rating: 5
+   nutrition: 1581kJ
+   food_image_1: http://www.taste.com.au/images/recipes/nb/2008/02/19022_l.jpg
+   food_image_2: 
+   food_image_3: 
+   food_image_4: 
+   log_datetime: 2015-07-09 15:10:47
+   item_id: 7
+   food_name: Banh xeo (crispy pancakes)
+
+
+   description: Take inspiration from Vietnamese cooking for this fresh and fragrant Asian pork pancake dish.
+
+   ingredients: 220g (1 1/4 cups) rice flour
+ 2 tablespoons cornflour
+ 1 x 400ml can coconut milk
+ 310ml (1 1/4 cups) iced water
+ 1 teaspoon ground turmeric
+ 1 teaspoon sugar
+ 1/2 teaspoon salt
+ Pinch of white pepper
+ 2 tablespoons peanut oil
+ 1 brown onion, halved, cut into thin wedges
+ 300g Pork porterhouse Steak, thinly sliced
+ 12 cooked prawns, peeled, coarsely chopped
+ 130g (2 cups) bean sprouts, trimmed
+ Butter lettuce leaves, to serve
+ Fresh mint leaves, to serve
+   preparation_method: To make the nuoc cham, combine fish sauce, lime juice, water, sugar, chilli and garlic in a small bowl. Stir until sugar dissolves.
+Stir the combined flour, coconut milk, water, turmeric, sugar and salt in a medium bowl. Season with white pepper. Cover and place in the fridge for 1 hour or overnight to rest.
+Heat a 20cm (base measurement) non-stick frying pan over high heat. Add 1 tablespoon of oil and heat until just smoking. Stir-fry the onion and pork for 5 minutes or until golden. Transfer to a plate. Wipe the pan clean.
+
+   food_rating: 3
+   category_id: 1
+   category_name: Veg
+   price: 225
+   currency_id: 1
+   currency_name: Rupee
+   currency_symbol: ₹
+   chef_id: 1
+   chef_name: Admin Chef
+   chef_phone_number: +919703570333
+   chef_image: http://icons.iconarchive.com/icons/iconshock/cook/256/cheff-icon.png
+   chef_rating: 5
+   nutrition: 1370kJ
+   food_image_1: http://www.taste.com.au/images/recipes/agt/2009/11/23670_l.jpg
+   food_image_2: 
+   food_image_3: 
+   food_image_4: 
+   log_datetime: 2015-07-09 15:04:57
+   item_id: 1
+   food_name: Chicken biriyani
+   description: Our Chicken biriyani recipe is a great simple meal for winter weeknights.
+
+   ingredients: 1 tablespoon vegetable oil
+ 500g chicken thigh fillets, trimmed, quartered
+ 1 medium brown onion, halved, thinly sliced
+ 1 garlic clove, crushed
+ 2cm piece ginger, peeled, finely grated
+ 1/3 cup balti curry paste
+ 1 1/2 cups SunRice Basmati Rice
+ 1 cinnamon stick
+ 2 cups Gravox Real chicken stock
+ 1 cup thick plain yoghurt
+ 1 Lebanese cucumber, deseeded, grated
+ 1/2 teaspoon ground cumin
+ Toasted flaked almonds and fresh coriander leaves, to serve
+   preparation_method: Heat oil in a heavy-based saucepan over medium-high heat. Cook chicken, turning, for 5 minutes or until browned. Transfer to a plate. Cook onion, garlic and ginger for 2 to 3 minutes or until onion has softened. Add curry paste. Cook for 1 minute or until fragrant. Add rice. Stir to coat.
+Add cinnamon, stock and 1 cup cold water. Bring to the boil. Return chicken to pan. Reduce heat to low. Cover. Cook for 20 minutes or until rice is tender and chicken cooked through. Remove cinnamon. Discard.
+Combine yoghurt, cucumber and cumin in a bowl. Sprinkle biriyani with almonds and coriander. Serve with yoghurt mixture.
+
+   food_rating: 255
+   category_id: 2
+   category_name: Non-Veg
+   price: 220
+   currency_id: 1
+   currency_name: Rupee
+   currency_symbol: ₹
+   chef_id: 1
+   chef_name: Admin Chef
+   chef_phone_number: +919703570333
+   chef_image: http://icons.iconarchive.com/icons/iconshock/cook/256/cheff-icon.png
+   chef_rating: 5
+   nutrition: 2768kJ
+   food_image_1: http://www.taste.com.au/images/recipes/sfi/2009/07/23417_l.jpg
+   food_image_2: 
+   food_image_3: 
+   food_image_4: 
+   log_datetime: 2015-07-09 12:00:25
+[0m
+[37mEnd at ([0m[34m0.017[0m[37m): 2015-12-11 00:19:49 - 2015-12-11 05:49:49
+
+[96m********************************************************************************[0m[37m
+GetFoodItems.php: 2015-12-11 00:20:23 - 2015-12-11 05:50:23[0m
+[94m
+[4mPOST Req Data[24m:
+   page_start: 1
+   page_index: 1
+[0m
+[39mQuery: SELECT food_item.item_id,
+                        food_item.`name` AS food_name,
+                        food_item.description,
+                        food_item.ingredients,
+                        food_item.preparation_method,
+                        food_item.rating AS food_rating,
+                        category.category_id,
+                        category.category_name,
+                        food_item.price,
+                        currency.currency_id,
+                        currency.currency_name,
+                        currency.currency_symbol,
+                        chef.chef_id,
+                        CONCAT(chef.f_name, ' ', chef.l_name) AS chef_name,
+                        CONCAT(chef.country_code, chef.phone_number) AS chef_phone_number,
+                        chef.image_url AS chef_image,
+                        chef.rating AS chef_rating,
+                        food_item.nutrition,
+                        COALESCE(food_item.food_image_1, '') AS food_image_1,
+                        COALESCE(food_item.food_image_2, '') AS food_image_2,
+                        COALESCE(food_item.food_image_3, '') AS food_image_3,
+                        COALESCE(food_item.food_image_4, '') AS food_image_4,
+                        food_item.log_datetime
+                FROM food_item INNER JOIN category ON food_item.category_id = category.category_id
+                         INNER JOIN currency ON food_item.currency_id = currency.currency_id
+                         INNER JOIN chef ON food_item.chef_id = chef.chef_id   ORDER BY food_name ASC
+                LIMIT 0, 5;[0m
+[94m
+[4mResult for food items[24m:
+   item_id: 9
+   food_name: Asian greens and shiitake mushrooms
+
+
+   description: Discover the taste of Asia with this authentic stir fry side dish starring fresh greens and shiitake mushrooms.
+
+   ingredients: 2 tablespoons peanut oil
+ 2 garlic cloves, crushed
+ 2 teaspoons finely grated fresh ginger
+ 100g fresh shiitake mushrooms, thinly sliced
+ 1 bunch baby pak choy, trimmed, leaves separated, stems cut from leaves
+ 1 bunch baby bok choy, trimmed
+ 1 x 425g can baby corn spears, drained
+ 2 tablespoons oyster sauce
+ 1 tablespoon soy sauce
+ 2 tablespoons water
+   preparation_method: Heat oil in a large frying pan or wok over medium-high heat. Add garlic and ginger. Stir-fry for 30 seconds or until aromatic.
+Add the mushroom and stir-fry for 2 minutes. Add the pak choy stems and stir-fry for 1 minute. Add the pak choy leaves, buk choy, corn, oyster sauce and soy sauce. Toss to combine.
+Add the water and reduce heat to low. Cover and cook for 2 minutes or until the vegetables are just tender. Serve.
+
+   food_rating: 2
+   category_id: 2
+   category_name: Non-Veg
+   price: 180
+   currency_id: 1
+   currency_name: Rupee
+   currency_symbol: ₹
+   chef_id: 1
+   chef_name: Admin Chef
+   chef_phone_number: +919703570333
+   chef_image: http://icons.iconarchive.com/icons/iconshock/cook/256/cheff-icon.png
+   chef_rating: 5
+   nutrition: 420kJ
+   food_image_1: http://www.taste.com.au/images/recipes/agt/2009/01/21475_l.jpg
+   food_image_2: 
+   food_image_3: 
+   food_image_4: 
+   log_datetime: 2015-07-09 15:08:57
+   item_id: 8
+   food_name: Asian soft noodle cabbage salad
+
+
+   description: Who doesn't love the classic noodle salad? Try our updated recipe that uses hokkien noodles for a twist of the unexpected.
+
+   ingredients: 1/2 x 440g packet thin hokkien noodles
+ 1/4 small (350g) red cabbage, thickly shredded
+ 1/2 cup bean sprouts, trimmed
+ 1 small red capsicum, thinly sliced
+ 50g snow peas, trimmed, thinly sliced
+ 1/2 cup fresh coriander leaves
+ 2 green onions, thinly sliced diagonally
+   preparation_method: Place noodles in a heatproof bowl. Cover with boiling water. Stand for 2 minutes. Separate noodles with a fork. Drain. Refresh under cold water. Drain well.
+Place cabbage, bean sprouts, capsicum, snow peas, coriander and green onion in a large bowl.
+Make Lime and soy dressing: Place lime juice, soy sauce, sesame oil, rice bran oil, caster sugar and garlic in a small bowl. Whisk until sugar has dissolved.
+Add noodles and dressing to cabbage mixture (see note). Season with pepper. Toss well to combine. Serve.
+
+   food_rating: 4
+   category_id: 1
+   category_name: Veg
+   price: 180
+   currency_id: 1
+   currency_name: Rupee
+   currency_symbol: ₹
+   chef_id: 1
+   chef_name: Admin Chef
+   chef_phone_number: +919703570333
+   chef_image: http://icons.iconarchive.com/icons/iconshock/cook/256/cheff-icon.png
+   chef_rating: 5
+   nutrition: 676kJ
+   food_image_1: http://www.taste.com.au/images/recipes/sfi/2014/10/39529_l.jpg
+   food_image_2: http://4.bp.blogspot.com/-LumLcUIX1Yk/Uq8COXOoqqI/AAAAAAAAOSc/ZwLyuGGjvo4/s1600/wet+noodles.jpg
+   food_image_3: http://site.cknoodle.com/Clients/cknoodle/dscf0116.jpg
+   food_image_4: http://site.cknoodle.com/Clients/cknoodle/dscf0061.jpg
+   log_datetime: 2015-07-09 15:07:49
+   item_id: 10
+   food_name: Banana coconut tapioca puddings (che chuoi)
+
+
+   description: Tropical banana, mango and pineapple are the star ingredients in this exotic Asian boba pudding.
+
+   ingredients: 1 cup (200g) tapioca pearls
+ 400g can coconut milk
+ 1 cup (250ml) water
+ 1/2 cup (80g) finely chopped palm sugar
+ 2 pandan leaves, tied into a knot
+ 3 just ripe bananas, peeled, thickly sliced
+ 2 tablespoons finely grated dark palm sugar (see note)
+ 1 tablespoon water, extra
+ 1 tablespoon sesame seeds
+ 1 mango, peeled, thinly sliced, to serve
+ 1/2 ripe pineapple, peeled, thinly sliced, to serve
+   preparation_method: Place the tapioca in a large bowl and cover with cold water. Set aside for 2 hours to soak. Strain through a fine sieve. Cook in a large saucepan of boiling water for 10 minutes or until opaque. Drain well.
+Meanwhile, combine the coconut milk, water, sugar and pandan leaves in a large saucepan over low heat. Cook, stirring, for 5 minutes or until sugar dissolves and mixture is heated through. Add the tapioca and gently stir to combine. Remove from heat and set aside to cool slightly. Add the banana and transfer to a bowl and cover with plastic wrap. Place in the fridge to chill.
+Combine the dark palm sugar and water in a small frying pan over high heat. Cook, stirring, for 2 minutes or until sugar dissolves. Add the sesame seeds and cook, stirring, for 2 minutes or until syrup thickens.
+Remove and discard the pandan leaves from tapioca. Spoon the tapioca among serving bowls. Serve topped with mango and pineapple slices and drizzle with sesame syrup.
+
+   food_rating: 3
+   category_id: 1
+   category_name: Veg
+   price: 120
+   currency_id: 1
+   currency_name: Rupee
+   currency_symbol: ₹
+   chef_id: 1
+   chef_name: Admin Chef
+   chef_phone_number: +919703570333
+   chef_image: http://icons.iconarchive.com/icons/iconshock/cook/256/cheff-icon.png
+   chef_rating: 5
+   nutrition: 1581kJ
+   food_image_1: http://www.taste.com.au/images/recipes/nb/2008/02/19022_l.jpg
+   food_image_2: 
+   food_image_3: 
+   food_image_4: 
+   log_datetime: 2015-07-09 15:10:47
+   item_id: 7
+   food_name: Banh xeo (crispy pancakes)
+
+
+   description: Take inspiration from Vietnamese cooking for this fresh and fragrant Asian pork pancake dish.
+
+   ingredients: 220g (1 1/4 cups) rice flour
+ 2 tablespoons cornflour
+ 1 x 400ml can coconut milk
+ 310ml (1 1/4 cups) iced water
+ 1 teaspoon ground turmeric
+ 1 teaspoon sugar
+ 1/2 teaspoon salt
+ Pinch of white pepper
+ 2 tablespoons peanut oil
+ 1 brown onion, halved, cut into thin wedges
+ 300g Pork porterhouse Steak, thinly sliced
+ 12 cooked prawns, peeled, coarsely chopped
+ 130g (2 cups) bean sprouts, trimmed
+ Butter lettuce leaves, to serve
+ Fresh mint leaves, to serve
+   preparation_method: To make the nuoc cham, combine fish sauce, lime juice, water, sugar, chilli and garlic in a small bowl. Stir until sugar dissolves.
+Stir the combined flour, coconut milk, water, turmeric, sugar and salt in a medium bowl. Season with white pepper. Cover and place in the fridge for 1 hour or overnight to rest.
+Heat a 20cm (base measurement) non-stick frying pan over high heat. Add 1 tablespoon of oil and heat until just smoking. Stir-fry the onion and pork for 5 minutes or until golden. Transfer to a plate. Wipe the pan clean.
+
+   food_rating: 3
+   category_id: 1
+   category_name: Veg
+   price: 225
+   currency_id: 1
+   currency_name: Rupee
+   currency_symbol: ₹
+   chef_id: 1
+   chef_name: Admin Chef
+   chef_phone_number: +919703570333
+   chef_image: http://icons.iconarchive.com/icons/iconshock/cook/256/cheff-icon.png
+   chef_rating: 5
+   nutrition: 1370kJ
+   food_image_1: http://www.taste.com.au/images/recipes/agt/2009/11/23670_l.jpg
+   food_image_2: 
+   food_image_3: 
+   food_image_4: 
+   log_datetime: 2015-07-09 15:04:57
+   item_id: 1
+   food_name: Chicken biriyani
+   description: Our Chicken biriyani recipe is a great simple meal for winter weeknights.
+
+   ingredients: 1 tablespoon vegetable oil
+ 500g chicken thigh fillets, trimmed, quartered
+ 1 medium brown onion, halved, thinly sliced
+ 1 garlic clove, crushed
+ 2cm piece ginger, peeled, finely grated
+ 1/3 cup balti curry paste
+ 1 1/2 cups SunRice Basmati Rice
+ 1 cinnamon stick
+ 2 cups Gravox Real chicken stock
+ 1 cup thick plain yoghurt
+ 1 Lebanese cucumber, deseeded, grated
+ 1/2 teaspoon ground cumin
+ Toasted flaked almonds and fresh coriander leaves, to serve
+   preparation_method: Heat oil in a heavy-based saucepan over medium-high heat. Cook chicken, turning, for 5 minutes or until browned. Transfer to a plate. Cook onion, garlic and ginger for 2 to 3 minutes or until onion has softened. Add curry paste. Cook for 1 minute or until fragrant. Add rice. Stir to coat.
+Add cinnamon, stock and 1 cup cold water. Bring to the boil. Return chicken to pan. Reduce heat to low. Cover. Cook for 20 minutes or until rice is tender and chicken cooked through. Remove cinnamon. Discard.
+Combine yoghurt, cucumber and cumin in a bowl. Sprinkle biriyani with almonds and coriander. Serve with yoghurt mixture.
+
+   food_rating: 255
+   category_id: 2
+   category_name: Non-Veg
+   price: 220
+   currency_id: 1
+   currency_name: Rupee
+   currency_symbol: ₹
+   chef_id: 1
+   chef_name: Admin Chef
+   chef_phone_number: +919703570333
+   chef_image: http://icons.iconarchive.com/icons/iconshock/cook/256/cheff-icon.png
+   chef_rating: 5
+   nutrition: 2768kJ
+   food_image_1: http://www.taste.com.au/images/recipes/sfi/2009/07/23417_l.jpg
+   food_image_2: 
+   food_image_3: 
+   food_image_4: 
+   log_datetime: 2015-07-09 12:00:25
+[0m
+[37mEnd at ([0m[34m0.01[0m[37m): 2015-12-11 00:20:23 - 2015-12-11 05:50:23

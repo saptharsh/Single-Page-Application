@@ -26,8 +26,8 @@
         <script src="js/classie.js"></script>
         <script src="js/alertify.min.js"></script>
         <script src="js/ajax.js"></script>
-        
-                <style type="text/css">
+
+        <style type="text/css">
             .contents{
                 margin: 20px;
                 padding: 20px;
@@ -59,14 +59,14 @@
             /* Pagination style */
             .pagination{  
                 margin: 10px;
-                padding-bottom: 10px;
-                padding-top: 10px;
+                /*padding-bottom: 10px;*/
+                /*padding-top: 10px;*/
             }
             .pagination li{
                 display: inline;
                 padding: 6px 10px 6px 10px;
                 border: 1px solid #ddd;
-                margin-right: -1px;
+                /*margin-right: -1px;*/
                 font: 15px/20px Arial, Helvetica, sans-serif;
                 background: #FFFFFF;
                 box-shadow: inset 1px 1px 5px #F4F4F4;
@@ -90,20 +90,20 @@
 
         </style>
 
-        
+
     </head>
     <body>
-        
-        
+
+
         <!-- Top header-->
         <header  class="top-nav-bar">
             <!-- <i class="fa fa-bars"></i> => menu symbol -->
-            <?php if(4 == 4) : ?> <!-- Replace this with authentication check -->
-            <span title="Open/Close Menu" id="showLeftPush" class="menu-img">&nbsp;<i class="fa fa-bars"></i>&nbsp; Home Made Food</span>
+            <?php if (4 == 4) : ?> <!-- Replace this with authentication check -->
+                <span title="Open/Close Menu" id="showLeftPush" class="menu-img">&nbsp;<i class="fa fa-bars"></i>&nbsp; Home Made Food</span>
             <?php else : ?>
-            <span><i class="fa fa-bars"></i>&nbsp; Home Made Food</span>
+                <span><i class="fa fa-bars"></i>&nbsp; Home Made Food</span>
             <?php endif; ?>
-            
+
             <!-- Ajax Loader Symbol -->
             <i style="float:right; " id='loading-ajax' class="fa fa-spinner fa-pulse"></i>
         </header>
@@ -121,92 +121,92 @@
 
         <!-- Main content -->
         <div class="box">
-            
+
             <!-- The data from the Rest service is grabbed and displayed in this container -->
             <div id="main-container">
-            
-            <!-- jQuery Slider -->
-            <div id="container-slider">
 
-                <nav class="navi-header" id="">
-                                <a id='Home' href="http://localhost:7770/homemadefood/">Home</a>
-                                <a id='choices-view' href="#">Choices</a>
-                                <a id='contact-view' href="#">Contact</a>
-                                <a id='location-view' href="#">Location</a>
-                                <a id='help-view' href="#">Help</a>
-                                <a id='about-view' href="#">About</a>
-                                <a id='branches-view' href="#">Branches</a>
-                </nav>
-                            
-                
-                
-                <div id="slider">
-                    <div class="slide"><!-- <div class="slide active"> will be inserted through jQuery.min.js -->
-                        
-                        <div class="slide-copy">
-                            
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book</p>
-                        </div>
-                        <img src="img/slide1.jpg">
-                    </div>
-                    
-                    <div class="slide">
-                        
-                        <div class="slide-copy">
+                <!-- jQuery Slider -->
+                <div id="container-slider">
 
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book</p>
-                        </div>
-                        <img src="img/slide2.jpg" alt="slide2">
-                    </div>
-                    
-                    <div class="slide">
-                        
-                        <div class="slide-copy">
+                    <nav class="navi-header" id="">
+                        <a id='Home' href="http://localhost:7770/homemadefood/">Home</a>
+                        <a id='choices-view' href="#">Choices</a>
+                        <a id='contact-view' href="#">Contact</a>
+                        <a id='location-view' href="#">Location</a>
+                        <a id='help-view' href="#">Help</a>
+                        <a id='about-view' href="#">About</a>
+                        <a id='branches-view' href="#">Branches</a>
+                    </nav>
 
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book</p>
-                        </div>
-                        <img src="img/slide3.jpg" alt="slide3">
-                    </div>
-                    
-                    <div class="slide">
-                        
-                        <div class="slide-copy">
 
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book</p>
+
+                    <div id="slider">
+                        <div class="slide"><!-- <div class="slide active"> will be inserted through jQuery.min.js -->
+
+                            <div class="slide-copy">
+
+                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book</p>
+                            </div>
+                            <img src="img/slide1.jpg">
                         </div>
-                        <img src="img/slide4.jpg" alt="slide4">
-                    </div>
-                    
-                </div><!-- end of individual slider DIV -->
-                
-                
-                
-            </div><!-- End of jQuery slider container -->
-            
-            <div class="title">
+
+                        <div class="slide">
+
+                            <div class="slide-copy">
+
+                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book</p>
+                            </div>
+                            <img src="img/slide2.jpg" alt="slide2">
+                        </div>
+
+                        <div class="slide">
+
+                            <div class="slide-copy">
+
+                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book</p>
+                            </div>
+                            <img src="img/slide3.jpg" alt="slide3">
+                        </div>
+
+                        <div class="slide">
+
+                            <div class="slide-copy">
+
+                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book</p>
+                            </div>
+                            <img src="img/slide4.jpg" alt="slide4">
+                        </div>
+
+                    </div><!-- end of individual slider DIV -->
+
+
+
+                </div><!-- End of jQuery slider container -->
+
+                <div class="title">
                     <b>Dish of the Day</b>
-            </div>
-            
-            <div class="popular-items">
-                
-                <div class="pop-sunday">
-                    <img src="img/indian.jpg" alt="butter-chicken">
                 </div>
-                <div class="pop-sunday-desc">
-                    <p>It is a long established fact that a reader will be distracted by the readable content of a page 
-                        when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal 
-                        distribution of letters, as opposed to using 'Content here, content here', making it look like 
-                        readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as 
-                        their default model text, and a search for 'lorem ipsum' will uncover many web sites still in 
-                        their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on 
-                        purpose (injected humour and the like).
-                    </p>
+
+                <div class="popular-items">
+
+                    <div class="pop-sunday">
+                        <img src="img/indian.jpg" alt="butter-chicken">
+                    </div>
+                    <div class="pop-sunday-desc">
+                        <p>It is a long established fact that a reader will be distracted by the readable content of a page 
+                            when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal 
+                            distribution of letters, as opposed to using 'Content here, content here', making it look like 
+                            readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as 
+                            their default model text, and a search for 'lorem ipsum' will uncover many web sites still in 
+                            their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on 
+                            purpose (injected humour and the like).
+                        </p>
+                    </div>
                 </div>
+
             </div>
-            
-        </div>
-        
-            
+
+
         </div><!-- End of box -->
     </body>
 </html>
