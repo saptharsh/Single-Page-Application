@@ -2,12 +2,11 @@
 
     include_once '../classes/PDOExt.php';
     include_once '../classes/Utilities.php';
-    //include_once '../classes/MongoLogger.php';
     include_once '../classes/Logger.php';
     
     $dbConnection = new PDOExt();
     $utilities = new Utilities();
-    //$log = new MongoLogger(basename($_SERVER['PHP_SELF']));
+    
     $log = new Logger(basename($_SERVER['PHP_SELF']));
 
     $response = array();
@@ -17,14 +16,11 @@
     
     if(isset($_POST['page_index'])){
         $page_start = $_POST['page_index'];
-        
         $page_position = (($page_start-1) * $item_per_page);
     } else {
         $page_position = $utilities->replaceZero($_POST['page_start']);
     }
     $chef_id = $utilities->replaceDefault($_POST['chef_id']);
-    
-
     $dateTime = $utilities->replaceNow();
 
     //print_r($_POST);

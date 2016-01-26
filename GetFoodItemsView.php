@@ -388,9 +388,7 @@ session_start();
         var page = $(this).attr("data-page"); //get page number from link
 
         console.log('page value ' + page);
-
         loadFoodItems(page);
-
     });
 
 </script>

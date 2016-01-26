@@ -103,7 +103,7 @@
         var l_name = $('#l_name').val();
         var country_code = $('#country_code').val();
         var phone_number = $('#phone_number').val();
-        var image_url = 'http://icons.iconarchive.com/icons/iconshock/cook/256/cheff-icon.png';//$('#image_url').val();
+        var image_url = $('#image_url').val();//'http://icons.iconarchive.com/icons/iconshock/cook/256/cheff-icon.png';
         var rating = $('#rating').val();
 
         if (f_name.length > 0 && l_name.length > 0 && country_code.length > 0 && phone_number.length > 0 && image_url.length > 0 && rating.length > 0) {

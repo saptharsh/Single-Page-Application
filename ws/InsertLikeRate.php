@@ -2,15 +2,11 @@
 
     include_once '../classes/PDOExt.php';
     include_once '../classes/Utilities.php';
-    include_once '../classes/MongoLogger.php';
 
     $dbConnection = new PDOExt();
     $utilities = new Utilities();
-    $log = new MongoLogger(basename($_SERVER['PHP_SELF']));
 
     $response = array();
-
-    $log->setPostReq($_POST);
 
     $food_item_id = $utilities->clean($_POST['food_id']);
     $user_id = $utilities->clean($_POST['user_id']);
@@ -31,7 +27,6 @@
                 WHERE user_id = '$user_id'
                     AND food_item_id = '$food_item_id';";
 
-        $log->info("Query:" . $query);
         $statement = $dbConnection->prepare($query);
 
         try
@@ -41,14 +36,13 @@
                 $dataReviewd = $statement->fetchAll(PDO::FETCH_ASSOC);
                 $statement->closeCursor();
 
-                $log->arrayMultiLogger($data, 'Result for is reviewd query');
             }
             else
             {
                 $errorCode = -99;
                 $dbError = $statement->errorInfo();
                 $statement->closeCursor();
-                $log->error($dbError[2]);
+        
                 $response = array('status' => $errorCode, 'data' => array(), 'desc' => 'DB error occured' . $dbError[2]);
             }
         }
@@ -57,7 +51,7 @@
             $errorCode = -7;
             $statement->closeCursor();
             $error = "Exception: " . $e->getMessage();
-            $log->error($error);
+        
             $response = array('status' => $errorCode, 'data' => array(), 'desc' => 'PDO exception occured' . $error);
         }
     }
@@ -65,7 +59,7 @@
     {
         $errorCode = -8;
         $error = "Exception: " . $e->getMessage();
-        $log->error($error);
+        
         $response = array('status' => $errorCode, 'data' => array(), 'desc' => 'PDO exception occured' . $error);
     }
 
@@ -79,7 +73,6 @@
                     . " `likes` (food_item_id, user_id, rating, review, review_detail, log_datetime) "
                     . " VALUES ('$food_item_id', '$user_id', '$rating', '$review', '$review_detail', '$log_datetime')";
 
-            $log->info("Query:" . $insertQuery);
             $statement = $dbConnection->prepare($insertQuery);
 
             try
@@ -90,14 +83,13 @@
                     $likeId = $dbConnection->lastInsertId();
                     $dbConnection->commit();
 
-                    $log->info("Inserted like and rating successfully with id:" . $likeId);
                     $response = array('status' => $likeId, 'desc' => 'Success');
                 }
                 else
                 {
                     $status = -99;
                     $dbError = $statement->errorInfo();
-                    $log->error($dbError[2]);
+        
                     $response = array('status' => $status, 'desc' => 'DB error occured' . $dbError[2]);
                 }
             }
@@ -105,7 +97,7 @@
             {
                 $status = -7;
                 $error = "Exception: " . $e->getMessage();
-                $log->error($error);
+        
                 $response = array('status' => $status, 'desc' => 'PDO exception occured' . $error);
             }
 
@@ -115,7 +107,7 @@
         {
             $status = -8;
             $error = "Exception: " . $e->getMessage();
-            $log->error($error);
+        
             $response = array('status' => $status, 'desc' => 'PDO exception occured' . $error);
         }
     }
@@ -123,8 +115,6 @@
     {
         $response = array('status' => 0, 'desc' => 'Already reviewed');
     }
-
-    $log->endLogger();
 
     header("Content-type: application/json");
     echo json_encode($response);

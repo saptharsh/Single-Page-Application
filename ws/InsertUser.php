@@ -2,15 +2,11 @@
 
     include_once '../classes/PDOExt.php';
     include_once '../classes/Utilities.php';
-    include_once '../classes/MongoLogger.php';
-
+    
     $dbConnection = new PDOExt();
     $utilities = new Utilities();
-    $log = new MongoLogger(basename($_SERVER['PHP_SELF']));
-
+    
     $response = array();
-
-    $log->setPostReq($_POST);
 
     $f_name = $utilities->clean($_POST['f_name']);
     $l_name = $utilities->clean($_POST['l_name']);
@@ -35,7 +31,6 @@
                 FROM `user`
                 WHERE `user`.phone_number = '$phone_number';";
 
-        $log->info("Query:" . $query);
         $statement = $dbConnection->prepare($query);
 
         try
@@ -44,12 +39,6 @@
             {
                 $datauser = $statement->fetchAll(PDO::FETCH_ASSOC);
                 $statement->closeCursor();
-
-                $log->info("User already exists...");
-                $log->arrayMultiLogger($datauser, 'Result for user');
-
-                $smsStatus = $utilities->sendSMSMoryaas($country_code . $phone_number, $sms_body);
-                $log->info("Sending SMS to user is: " . $smsStatus);
 
                 $userId = $datauser[0]['user_id'];
 
@@ -60,7 +49,7 @@
                 $errorCode = -99;
                 $dbError = $statement->errorInfo();
                 $statement->closeCursor();
-                $log->error($dbError[2]);
+
                 $response = array('status' => $errorCode, 'desc' => 'success');
             }
         }
@@ -69,7 +58,7 @@
             $errorCode = -7;
             $statement->closeCursor();
             $error = "Exception: " . $e->getMessage();
-            $log->error($error);
+
             $response = array('status' => $errorCode, 'desc' => 'PDO exception occured' . $error);
         }
     }
@@ -77,7 +66,7 @@
     {
         $errorCode = -8;
         $error = "Exception: " . $e->getMessage();
-        $log->error($error);
+
         $response = array('status' => $errorCode, 'desc' => 'PDO exception occured' . $error);
     }
 
@@ -90,7 +79,6 @@
                     . " `user` (f_name, l_name, country_code, phone_number, email, image_url, date_of_birth, log_datetime) "
                     . " VALUES ('$f_name', '$l_name', '$country_code', '$phone_number', '$email', '$image_url', '$date_of_birth', '$log_datetime')";
 
-            $log->info("Query:" . $insertQuery);
             $statement = $dbConnection->prepare($insertQuery);
 
             try
@@ -101,17 +89,13 @@
                     $userId = $dbConnection->lastInsertId();
                     $dbConnection->commit();
                     
-                    $smsStatus = $utilities->sendSMSMoryaas($country_code . $phone_number, $sms_body);
-                    $log->info("Sending SMS to user is: " . $smsStatus);
-
-                    $log->info("Inserted User successfully with id:" . $userId);
                     $response = array('status' => $userId, 'desc' => 'Success');
                 }
                 else
                 {
                     $status = -99;
                     $dbError = $statement->errorInfo();
-                    $log->error($dbError[2]);
+            
                     $response = array('status' => $status, 'desc' => 'DB error occured: ' . $dbError[2]);
                 }
             }
@@ -119,7 +103,7 @@
             {
                 $status = -7;
                 $error = "Exception: " . $e->getMessage();
-                $log->error($error);
+            
                 $response = array('status' => $status, 'desc' => 'PDO exception occured' . $error);
             }
 
@@ -129,7 +113,7 @@
         {
             $status = -8;
             $error = "Exception: " . $e->getMessage();
-            $log->error($error);
+            
             $response = array('status' => $status, 'desc' => 'PDO exception occured' . $error);
         }
     }
@@ -138,8 +122,6 @@
      * TODO Send sms to given number with $verification_code;
      */
     $response = array('status' => $userId, 'desc' => 'Success');
-
-    $log->endLogger();
 
     header("Content-type: application/json");
     echo json_encode($response);

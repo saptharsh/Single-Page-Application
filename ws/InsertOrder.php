@@ -2,15 +2,11 @@
 
     include_once '../classes/PDOExt.php';
     include_once '../classes/Utilities.php';
-    include_once '../classes/MongoLogger.php';
 
     $dbConnection = new PDOExt();
     $utilities = new Utilities();
-    $log = new MongoLogger(basename($_SERVER['PHP_SELF']));
 
     $response = array();
-
-    $log->setPostReq($_POST);
 
     $basket_code = uniqid("BSKT_");
     /*
@@ -40,7 +36,7 @@
                 . " `order` (basket_code, user_id, item_quantity_price_json, time_slot_id, status, date, address_id, log_datetime) "
                 . " VALUES ('$basket_code', '$user_id', '$item_quantity_price_json', '$time_slot_id', '$status', '$date', '$address_id', '$log_datetime')";
 
-        $log->info("Query:" . $insertQuery);
+
         $statement = $dbConnection->prepare($insertQuery);
 
         try
@@ -51,14 +47,13 @@
                 $order_id = $dbConnection->lastInsertId();
                 $dbConnection->commit();
 
-                $log->info("Inserted order successfully with id:" . $order_id);
                 $response = array('status' => $order_id, 'basket_code' => $basket_code, 'desc' => 'Success');
             }
             else
             {
                 $status = -99;
                 $dbError = $statement->errorInfo();
-                $log->error($dbError[2]);
+
                 $response = array('status' => $status, 'basket_code' => '', 'desc' => 'DB error occured' . $dbError[2]);
             }
         }
@@ -66,7 +61,7 @@
         {
             $status = -7;
             $error = "Exception: " . $e->getMessage();
-            $log->error($error);
+
             $response = array('status' => $status, 'basket_code' => '', 'desc' => 'PDO exception occured' . $error);
         }
 
@@ -76,11 +71,9 @@
     {
         $status = -8;
         $error = "Exception: " . $e->getMessage();
-        $log->error($error);
+
         $response = array('status' => $status, 'basket_code' => '', 'desc' => 'PDO exception occured' . $error);
     }
-
-    $log->endLogger();
 
     header("Content-type: application/json");
     echo json_encode($response);
