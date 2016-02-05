@@ -1,0 +1,15 @@
+Home Made Food:
+-----------------
+
+- Food 
+	- food * rating * user
+	- Menu (lunch, dinner, backed, sweets)
+- Time Slots
+- Kitchen
+- Chef 
+	- chef * food
+	- chef * ratting
+- User
+	- Order [user]
+	- Address [user]
+	- Preferred list [user]
