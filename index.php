@@ -5,22 +5,18 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Home Made Food</title>
         <link rel="stylesheet" type="text/css" href="font-awesome-4.3.0/css/font-awesome.min.css"/>
-        <!-- <link rel="stylesheet" type="text/css" href="css/table-styles.css"/> -->
         <link rel="stylesheet" type="text/css" href="css/slidebars.minimal.css"/>
-        <!-- Removed unwanted slide-bars styling -->
         <link rel="stylesheet" type="text/css" href="css/slider.css"/>
-        <!-- classie id used to add and remove classes. Classes starting with "c" exist in component.css -->
         <link rel="stylesheet" type="text/css" href="css/component.css" />
         <link rel="stylesheet" type="text/css" href="css/alertify.css" />
         <link rel="stylesheet" type="text/css" href="css/jquery-ui.min.css" />
         <link rel="stylesheet" type="text/css" href="css/themes/alertify.core.css" />
         <link rel="stylesheet" type="text/css" href="css/themes/alertify.default.css" id="toggleCSS" />
         <link rel="stylesheet" type="text/css" href="css/homeStyle.css" id="toggleCSS" />
+        
         <script src="js/jquery-2.1.3.min.js"></script>
         <script src="js/jquery-ui.min.js"></script>
-        <!-- tablesort.js is not being used, take out the call to tablesort() in the view script files -->
         <script src="js/tablesort.js"></script>
-        <!-- Removed sidebar.js -->
         <script src="js/slider.js"></script>
         <script src="js/modernizr.custom.js"></script>
         <script src="js/classie.js"></script>
