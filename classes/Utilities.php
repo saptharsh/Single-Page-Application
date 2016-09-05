@@ -8,7 +8,7 @@
      */
     //error_reporting(error_reporting() & ~E_NOTICE);
     error_reporting(0);
-    date_default_timezone_set("Asia/Kolkata");
+    date_default_timezone_set("America/Chicago");
 
     class Utilities
     {
